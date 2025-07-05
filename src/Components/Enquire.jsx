@@ -31,7 +31,7 @@ const EnquiryForm = () => {
 
           {/* Phone with country code */}
           <div className="flex">
-            <select className="border border-r-0 !p-3 !w-[8em] rounded-l outline-none bg-white">
+            <select className="border border-r-0 !p-3 !w-[10em] md:[8em] rounded-l outline-none bg-white">
               <option value="+1">🇺🇸 USA (+1)</option>
               <option value="+91">🇮🇳 India (+91)</option>
               <option value="+44">🇬🇧 UK (+44)</option>
