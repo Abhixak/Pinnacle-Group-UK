@@ -1,12 +1,48 @@
-# React + Vite
+# Pinnacle Group – 🚧 Under Construction 🚧
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the official repository of **Pinnacle Group**'s upcoming project!
 
-Currently, two official plugins are available:
+> ⚠️ **This project is currently under development.**  
+> Please note that the features, structure, and content are subject to change frequently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Current Status
+
+- ✅ Project Initialization
+- 🔄 Architecture Planning
+- 🧱 Component/Module Setup
+- 🛠️ Feature Development: *In Progress*
+- 🔒 Security Review: *Pending*
+- 🚀 Deployment Prep: *Coming Soon*
+
+Stay tuned for updates as we continue to make progress!
+
+---
+
+## 📅 Timeline
+
+| Milestone              | Status       | ETA           |
+|------------------------|--------------|----------------|
+| Project Planning       | ✅ Completed | –              |
+| Development Kickoff    | ✅ Started   | –              |
+| Alpha Release          | 🚧 In Progress | TBD          |
+| Public Beta Launch     | ⏳ Planned   | TBD           |
+| Final Release          | ⏳ Planned   | TBD           |
+
+---
+
+## 👨‍💻 Contributors
+
+- Pinnacle Group Development Team  
+Abhishek Kumar
+
+---
+
+
+## 📄 License
+
+To be determined upon initial release.
+
+---
