@@ -68,7 +68,7 @@ const Header = () => {
         <img
           src="/logo.webp"
           alt="logo"
-          className='!p-5 !ml-5 h-16 md:h-20 lg:h-24 transition-all duration-300'
+          className='!p-5 !ml-5 h-20 md:h-25 lg:h-30 transition-all duration-300'
         />
 
         {/* Desktop Nav */}
