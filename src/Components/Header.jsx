@@ -25,13 +25,13 @@ const Header = () => {
 
         {/* Logo */}
         <img
-          src="/logo.webp"
+          src="/logo.png"
           alt="logo"
-          className='!p-5 !ml-5 h-20 md:h-25 lg:h-30 transition-all duration-300'
+          className='!ml-5 w-30 md:w-35 lg:w-35 transition-all duration-300'
         />
 
         {/* Desktop Nav */}
-        <ul className='hidden md:flex text-sm md:text-base lg:text-[1.2em] gap-4 md:gap-6 !p-5 !mr-5'>
+        <ul className='hidden md:flex text-sm md:text-base lg:text-[1.2em] gap-4 md:gap-6 !mr-5'>
           {navItems.map((item, idx) => (
             <li
               key={idx}
@@ -55,7 +55,7 @@ const Header = () => {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <ul className='flex items-center flex-col gap-4 absolute top-full w-full bg-[#f5ffff] border-t-2 border-[#ccc] !p-5 md:hidden z-10'>
+          <ul className='flex items-center flex-col gap-4 absolute top-full w-full bg-[#f5ffff] border-t-2 border-[#ccc] !mt-5 !p-5 md:hidden z-10'>
             {navItems.map((item, idx) => (
               <li
                 key={idx}
