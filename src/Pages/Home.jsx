@@ -1,3 +1,4 @@
+import EnquiryForm from "../Components/Enquire";
 import ServicesSection from "../Components/Services";
 
 const Home = () => {
@@ -26,13 +27,13 @@ const Home = () => {
         })}
       </div>
 
-      {/* View More Button */}
-      <div className="w-full mt-6 flex justify-center">
+      <div className="w-full !mt-6 flex justify-center text-center items-center">
         <button className="!px-6 !py-2 !mt-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
           View More
         </button>
       </div>
       <ServicesSection />
+      <EnquiryForm />
     </div>
   );
 };

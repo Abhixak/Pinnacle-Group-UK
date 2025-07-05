@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <div className="w-full !px-5 !pt-5 bg-gradient-to-b from-[#afbccb] to-[#f5ffff]">
-      <div className="w-full flex justify-between items-center border-3 bg-[#f5ffff] border-[#324b4b] rounded-xl relative">
+      <div className="w-full flex justify-between items-center border-4 bg-[#f5ffff] border-[white] rounded-xl relative">
         {/* Logo */}
         <img
           src="/logo.png"
