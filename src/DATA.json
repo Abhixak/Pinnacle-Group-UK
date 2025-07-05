@@ -1,0 +1,107 @@
+[
+  {
+    "image": "/images/property1.jpg",
+    "title": "Modern Family Villa",
+    "type": "Villa",
+    "area": "2800 sqft",
+    "location": "Sector 45, Gurgaon"
+  },
+  {
+    "image": "/images/property2.jpg",
+    "title": "Luxury High-Rise Apartment",
+    "type": "Apartment",
+    "area": "1350 sqft",
+    "location": "Powai, Mumbai"
+  },
+  {
+    "image": "/images/property3.jpg",
+    "title": "Spacious 3BHK Flat",
+    "type": "Flat",
+    "area": "1650 sqft",
+    "location": "Whitefield, Bangalore"
+  },
+  {
+    "image": "/images/property4.jpg",
+    "title": "Independent Bungalow",
+    "type": "Bungalow",
+    "area": "3500 sqft",
+    "location": "Banjara Hills, Hyderabad"
+  },
+  {
+    "image": "/images/property5.jpg",
+    "title": "Affordable Studio Apartment",
+    "type": "Studio",
+    "area": "500 sqft",
+    "location": "Kothrud, Pune"
+  },
+  {
+    "image": "/images/property6.jpg",
+    "title": "Luxury Penthouse",
+    "type": "Penthouse",
+    "area": "4200 sqft",
+    "location": "Juhu, Mumbai"
+  },
+  {
+    "image": "/images/property7.jpg",
+    "title": "2BHK Semi-Furnished Flat",
+    "type": "Flat",
+    "area": "1100 sqft",
+    "location": "Noida Sector 62"
+  },
+  {
+    "image": "/images/property8.jpg",
+    "title": "Budget-Friendly Home",
+    "type": "House",
+    "area": "900 sqft",
+    "location": "Rajarhat, Kolkata"
+  },
+  {
+    "image": "/images/property9.jpg",
+    "title": "Green View Villa",
+    "type": "Villa",
+    "area": "2600 sqft",
+    "location": "Dehradun, Uttarakhand"
+  },
+  {
+    "image": "/images/property10.jpg",
+    "title": "Luxury Farmhouse Retreat",
+    "type": "Farmhouse",
+    "area": "6000 sqft",
+    "location": "Chattarpur, Delhi"
+  },
+  {
+    "image": "/images/property11.jpg",
+    "title": "Compact 1BHK Flat",
+    "type": "Flat",
+    "area": "650 sqft",
+    "location": "Indiranagar, Bangalore"
+  },
+  {
+    "image": "/images/property12.jpg",
+    "title": "3BHK Apartment with Balcony",
+    "type": "Apartment",
+    "area": "1450 sqft",
+    "location": "Gachibowli, Hyderabad"
+  },
+  {
+    "image": "/images/property13.jpg",
+    "title": "Premium Beachside Villa",
+    "type": "Villa",
+    "area": "3000 sqft",
+    "location": "Calangute, Goa"
+  },
+  {
+    "image": "/images/property14.jpg",
+    "title": "Urban Studio Space",
+    "type": "Studio",
+    "area": "450 sqft",
+    "location": "Saket, Delhi"
+  },
+  {
+    "image": "/images/property15.jpg",
+    "title": "Eco-Friendly Smart Home",
+    "type": "House",
+    "area": "1500 sqft",
+    "location": "Auroville, Pondicherry"
+  }
+]
