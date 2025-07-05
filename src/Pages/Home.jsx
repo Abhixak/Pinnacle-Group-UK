@@ -1,3 +1,5 @@
+import ServicesSection from "../Components/Services";
+
 const Home = () => {
   return (
     <div className="w-full !p-5">
@@ -30,6 +32,7 @@ const Home = () => {
           View More
         </button>
       </div>
+      <ServicesSection />
     </div>
   );
 };
