@@ -1,4 +1,6 @@
+import AboutSection from "../Components/AboutSection";
 import EnquiryForm from "../Components/Enquire";
+import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
 
 const Home = () => {
@@ -34,6 +36,8 @@ const Home = () => {
       </div>
       <ServicesSection />
       <EnquiryForm />
+      <AboutSection />
+      <Footer />
     </div>
   );
 };
