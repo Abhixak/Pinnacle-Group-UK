@@ -148,57 +148,75 @@ const Header = () => {
             {["Home", "About Us"].map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-all duration-500 border-b-2 w-full text-center"
+                className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
               >
                 {item}
               </li>
             ))}
 
             {/* Dropdown-like items in mobile */}
-            <div className="w-full">
-              <div className="font-semibold text-[#324b4b] mb-2">
+            <div className="w-full flex flex-col items-center text-center ">
+              <div className="font-semibold text-[#324b4b] !mb-2 border-t-2 w-full">
                 Our Services
               </div>
               <ul className="pl-4 space-y-1">
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Consultation
+                  Property Loan Consultant
                 </li>
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Legal Assistance
+                  Selling Property
                 </li>
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Investment Advice
+                  Buying Property
+                </li>
+                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                  Leasing Property
                 </li>
               </ul>
             </div>
 
-            <div className="w-full">
-              <div className="font-semibold text-[#324b4b] mb-2">
+            <div className="w-full flex flex-col items-center text-center">
+              <div className="font-semibold text-[#324b4b] !mb-2 border-t-2 w-full">
                 Find Property
               </div>
               <ul className="pl-4 space-y-1">
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Residential
+                  Mohali
                 </li>
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Commercial
+                  Chandigarh
                 </li>
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Plots & Lands
+                  Delhi
+                </li>
+                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                  Mumbai
+                </li>
+                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                  Noida
                 </li>
               </ul>
             </div>
 
-            <div className="w-full">
-              <div className="font-semibold text-[#324b4b] mb-2">
+            <div className="w-full flex flex-col text-center items-center">
+              <div className="border-t-2 w-full font-semibold text-[#324b4b] !mb-2">
                 Our Projects
               </div>
-              <ul className="pl-4 space-y-1">
+              <ul className="space-y-1">
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Ongoing Projects
+                  District One
                 </li>
                 <li className="hover:text-[#7ab5b6] cursor-pointer">
-                  Completed Projects
+                  Suntec City
+                </li>
+                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                  Fintech Square
+                </li>
+                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                  Marbella Grand
+                </li>
+                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                  Beverly Golf Avenue
                 </li>
               </ul>
             </div>
@@ -206,7 +224,7 @@ const Header = () => {
             {["NRI Services", "Contact Us"].map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-all duration-500 border-b-2 w-full text-center"
+                className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
               >
                 {item}
               </li>
