@@ -1,6 +1,7 @@
 import AboutSection from "../Components/AboutSection";
 import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
+import NRIAdvice from "../Components/NRIAdvice";
 import ServicesSection from "../Components/Services";
 
 const Home = () => {
@@ -36,6 +37,7 @@ const Home = () => {
           View More
         </button>
       </div> */}
+      <NRIAdvice />
       <ServicesSection />
       <EnquiryForm />
       <AboutSection />
