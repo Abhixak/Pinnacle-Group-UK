@@ -84,7 +84,7 @@ const EnquiryForm = () => {
             <input
               type="tel"
               placeholder="Phone / Mobile"
-              className="border !p-3 rounded-r outline-none flex-1 min-w-0"
+              className="border !p-3 rounded-r outline-none flex-1 min-w-4"
               pattern="^[0-9]{10}$"
               title="Enter valid mobile number"
               maxLength="10"
