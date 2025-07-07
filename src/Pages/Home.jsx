@@ -6,7 +6,9 @@ import ServicesSection from "../Components/Services";
 const Home = () => {
   return (
     <div className="w-full !p-5">
-      <div className="!py-2 w-full rounded-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
+
+      {/* Properties highlight */}
+      {/* <div className="!py-2 w-full rounded-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
         {Array.from({ length: 8 }, (_, i) => {
           const bgColors = [
             "bg-red-300",
@@ -33,7 +35,7 @@ const Home = () => {
         <button className="!px-6 !py-2 !mt-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
           View More
         </button>
-      </div>
+      </div> */}
       <ServicesSection />
       <EnquiryForm />
       <AboutSection />

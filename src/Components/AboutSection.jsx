@@ -2,17 +2,18 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
-    <div className="w-full bg-white flex flex-col items-center text-black px-6 md:px-20 py-16 bg-white">
+    <div className="w-full bg-white flex flex-col items-center text-black  px-6 md:px-20 py-16 bg-white">
       <h1 className="text-4xl font-bold text-center !mb-8">About Pinnacle Group</h1>
-      <p className="text-lg leading-7 text-center !mx-auto">
+      <p className="text-sm leading-7 text-center !mx-auto">
         As one of the leading services providers operating in the real estate domain, at <strong>Pinnacle Group</strong>,
         we are offering host of services according to the various realty needs and requirements of the clients.
       </p>
-      <p className="text-lg leading-7 text-center !mb-6 !mx-auto">
+      <p className="text-sm leading-7 text-center !mb-6 !mx-auto">
         Located in Mohali, Punjab, we are offering services such as Buying Property Services, Selling Property Services,
         Leasing Property Services and Property Loan Consultancy. As a reliable service provider, we are offering services
         keeping in mind the various realty needs and requirements of the clients, providing them with good and effective
         realty solution on a prompt basis.
+        &nbsp;
         <a href="#" className="text-red-600 font-semibold underline-offset-4">
            Read more..
         </a>
