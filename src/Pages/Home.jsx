@@ -37,8 +37,9 @@ const Home = () => {
           View More
         </button>
       </div> */}
-      <NRIAdvice />
       <ServicesSection />
+      <NRIAdvice />
+      
       <EnquiryForm />
       <AboutSection />
       <Footer />

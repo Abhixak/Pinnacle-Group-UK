@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import indiaFlag from "../assets/flagIndia.jpg";
 // import ukFlag from "../assets/flagLondon.jpg";
 
@@ -61,6 +61,25 @@ Whether it’s India or the UK, we simplify investments with tax benefits and ex
 Pinnacle Group London – Your property partner.`,
   ];
 
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check screen width only on client
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkIsMobile(); // initial check
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
+
+  const visibleCount = isMobile && !showAll ? 4 : Title.length;
+
   return (
     <div className="bg-gradient-to-b from-[#e0f7fa] via-[#f8f9fb] to-[#f1f5f9] rounded-xl !py-12 !px-4 md:!px-8 lg:px-16">
       <h2 className="text-4xl font-extrabold text-center text-[#1a2e35] !mb-12">
@@ -70,20 +89,9 @@ Pinnacle Group London – Your property partner.`,
         </span>
       </h2>
 
-      {/* Optional flag scroll */}
-      {/* <div className="overflow-hidden whitespace-nowrap w-full bg-white py-2 border-y-2 border-gray-200 mb-6">
-        <div className="inline-block animate-[marquee_10s_linear_infinite]">
-          <span className="inline-flex items-center gap-8 px-4">
-            <img src={indiaFlag} alt="India" className="h-6 w-auto" />
-            <img src={ukFlag} alt="UK" className="h-6 w-auto" />
-            <img src={indiaFlag} alt="India" className="h-6 w-auto" />
-            <img src={ukFlag} alt="UK" className="h-6 w-auto" />
-          </span>
-        </div>
-      </div> */}
-
+      {/* Cards Section */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {Title.map((title, i) => (
+        {Title.slice(0, visibleCount).map((title, i) => (
           <div
             key={i}
             className="flex flex-col h-full bg-white rounded-2xl shadow hover:shadow-lg transition-shadow duration-300 !p-5 border border-[#e0e0e0]"
@@ -97,6 +105,18 @@ Pinnacle Group London – Your property partner.`,
           </div>
         ))}
       </section>
+
+      {/* View More Button for Mobile */}
+      {isMobile && !showAll && (
+        <div className="text-center !mt-6">
+          <button
+            onClick={() => setShowAll(true)}
+            className="text-[#006d77] font-semibold underline underline-offset-4 hover:text-[#004f50] transition-colors duration-300"
+          >
+            View More
+          </button>
+        </div>
+      )}
     </div>
   );
 };

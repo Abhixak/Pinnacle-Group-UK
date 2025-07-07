@@ -11,8 +11,8 @@ const Header = () => {
   };
 
   return (
-    <div className="font-sans w-full !px-5 !pt-5 bg-gradient-to-b from-[#afbccb] to-[#f5ffff]">
-      <div className="w-full flex justify-between items-center border-4 bg-[#f5ffff] border-[white] rounded-xl relative">
+    <div className="font-sans w-full !px-5 !pt-5 bg-gradient-to-b from-[#d3eaff] to-[#f5fefe]">
+      <div className="w-full flex justify-between items-center border-4 bg-[#f5fefe] border-white rounded-xl relative">
         {/* Logo */}
         <img
           src="/logo.png"
@@ -22,34 +22,29 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex text-sm md:text-base lg:text-[1.2em] gap-4 md:gap-6 !mr-5">
-          <li className="text-[#324b4b] hover:text-[#7ab5b6] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             Home
           </li>
-          <li className="text-[#324b4b] hover:text-[#7ab5b6] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             About Us
           </li>
 
           {/* Our Services Dropdown */}
           <div className="relative group">
-            <li className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-colors duration-500">
+            <li className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-colors duration-500">
               Our Services
             </li>
-            <ul
-              className="absolute top-full left-0 bg-white rounded shadow-md
-               opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-               pointer-events-none group-hover:pointer-events-auto
-               transition-all duration-300 ease-out z-10 min-w-[180px]"
-            >
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+            <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer transition-colors duration-300">
                 Property Loan Consultant
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer transition-colors duration-300">
                 Selling Property
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer transition-colors duration-300">
                 Buying Property
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer transition-colors duration-300">
                 Leasing Property
               </li>
             </ul>
@@ -57,28 +52,23 @@ const Header = () => {
 
           {/* Find Property Dropdown */}
           <div className="relative group">
-            <li className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-colors duration-500">
+            <li className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-colors duration-500">
               Find Property
             </li>
-            <ul
-              className="absolute top-full left-0 bg-white rounded shadow-md
-               opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-               pointer-events-none group-hover:pointer-events-auto
-               transition-all duration-300 ease-out z-10 min-w-[180px]"
-            >
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+            <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Mohali
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Chandigarh
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Delhi
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Mumbai
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Noida
               </li>
             </ul>
@@ -86,41 +76,36 @@ const Header = () => {
 
           {/* Our Projects Dropdown */}
           <div className="relative group">
-            <li className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-colors duration-500">
+            <li className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-colors duration-500">
               Our Projects
             </li>
-            <ul
-              className="absolute top-full left-0 bg-white rounded shadow-md
-               opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-               pointer-events-none group-hover:pointer-events-auto
-               transition-all duration-300 ease-out z-10 min-w-[180px]"
-            >
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+            <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 District One
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Suntec City
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Fintech Square
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Marbella Grand
               </li>
-              <li className="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">
+              <li className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer">
                 Beverly Golf Avenue
               </li>
             </ul>
           </div>
 
-          <li className="text-[#324b4b] hover:text-[#7ab5b6] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             NRI Services
           </li>
-          <li className="text-[#324b4b] hover:text-[#7ab5b6] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             Contact Us
           </li>
 
-          <li className="text-[#a83900] hover:text-[#e76d2e] cursor-pointer font-semibold border-2 !p-2 rounded-3xl relative bottom-1 transition-all duration-500">
+          <li className="text-[#c94e00] hover:text-[#ff7a33] cursor-pointer font-semibold border-2 !p-2 rounded-3xl relative bottom-1 transition-all duration-500">
             <FaSearch />
           </li>
         </ul>
@@ -144,78 +129,77 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <ul className="flex items-center flex-col gap-4 absolute top-full w-full bg-[#f5ffff] border-t-2 border-[#ccc] !mt-5 !p-5 md:hidden z-10">
+          <ul className="flex items-center flex-col gap-4 absolute top-full w-full bg-[#f9fdfd] border-2 rounded-lg border-[#d2d2d2] !mt-5 !p-5 md:hidden z-10">
             {["Home", "About Us"].map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
+                className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
               >
                 {item}
               </li>
             ))}
 
-            {/* Dropdown-like items in mobile */}
-            <div className="w-full flex flex-col items-center text-center ">
-              <div className="font-semibold text-[#324b4b] !mb-2 border-t-2 w-full">
+            <div className="w-full flex flex-col items-center text-center">
+              <div className="font-semibold text-[#1d3d4f] !mb-2 border-t-2 w-full">
                 Our Services
               </div>
               <ul className="pl-4 space-y-1">
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Property Loan Consultant
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Selling Property
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Buying Property
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Leasing Property
                 </li>
               </ul>
             </div>
 
             <div className="w-full flex flex-col items-center text-center">
-              <div className="font-semibold text-[#324b4b] !mb-2 border-t-2 w-full">
+              <div className="font-semibold text-[#1d3d4f] !mb-2 border-t-2 w-full">
                 Find Property
               </div>
               <ul className="pl-4 space-y-1">
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Mohali
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Chandigarh
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Delhi
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Mumbai
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Noida
                 </li>
               </ul>
             </div>
 
             <div className="w-full flex flex-col text-center items-center">
-              <div className="border-t-2 w-full font-semibold text-[#324b4b] !mb-2">
+              <div className="border-t-2 w-full font-semibold text-[#1d3d4f] !mb-2">
                 Our Projects
               </div>
               <ul className="space-y-1">
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   District One
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Suntec City
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Fintech Square
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Marbella Grand
                 </li>
-                <li className="hover:text-[#7ab5b6] cursor-pointer">
+                <li className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer">
                   Beverly Golf Avenue
                 </li>
               </ul>
@@ -224,13 +208,13 @@ const Header = () => {
             {["NRI Services", "Contact Us"].map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#324b4b] hover:text-[#7ab5b6] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
+                className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
               >
                 {item}
               </li>
             ))}
 
-            <li className="text-[#a83900] hover:text-[#e76d2e] cursor-pointer font-semibold border-2 !p-2 w-fit rounded-3xl transition-all duration-500">
+            <li className="text-[#c94e00] hover:text-[#ff7a33] cursor-pointer font-semibold border-2 !p-2 w-fit rounded-3xl transition-all duration-500">
               <FaSearch />
             </li>
           </ul>
