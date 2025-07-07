@@ -1,27 +1,32 @@
+import LoanImg from '../assets/Property Loan Consultant.jpg';
+import SellingImg from '../assets/Selling Property.jpg';
+import BuyingImg from '../assets/Buying Property.jpg';
+import LeasingImg from '../assets/Leasing Property.jpg';
+
 const services = [
   {
     title: "Property Loan Consultant",
     description:
       "We have with us experts who have extensive knowledge about various schemes and can provide you with all the required information while assisting you...",
-    image: "/src/assets/Property Loan Consultant.jpg",
+    image: LoanImg,
   },
   {
     title: "Selling Property",
     description:
       "Based in Mohali, Punjab, we are one of the prominent real estate companies well-known for offering Selling Property Services for different type of...",
-    image: "/src/assets/Selling Property.jpg",
+    image: SellingImg,
   },
   {
     title: "Buying Property",
     description:
       "With the intention of providing the clients with comprehensive guidance while assisting them in Buying Properties, at Pinnacle Group, we are offering...",
-    image: "/src/assets/Buying Property.jpg",
+    image: BuyingImg,
   },
   {
     title: "Leasing Property",
     description:
       "We have with us a huge database of wide range of properties and also of clients which enables us to provide Leasing Property Services for different...",
-    image: "/src/assets/Leasing Property.jpg",
+    image: LeasingImg,
   },
 ];
 
