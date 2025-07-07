@@ -3,7 +3,7 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className=" bg-[#1c1c1c] text-white !py-10 !px-6 md:!px-20">
+    <div className="bg-[#1c1c1c] text-white !py-10 !px-6 md:!px-20">
 
       <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-8 border-t border-gray-600 !pt-8">
         <div>
