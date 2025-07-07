@@ -1,4 +1,29 @@
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+
 const EnquiryForm = () => {
+  const form = useRef();
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "your_service_id", // Replace with your EmailJS service ID
+      "your_template_id", // Replace with your EmailJS template ID
+      form.current,
+      "your_public_key" // Replace with your EmailJS public key
+    )
+    .then(
+      (result) => {
+        alert("Message Sent Successfully!");
+        e.target.reset();
+      },
+      (error) => {
+        alert("This Feature is under construction. You can contact Pinnacle Group with given numbers, India: +91-9216399808 || UK: +44-7892170550 ");
+      }
+    );
+};
   return (
     <div id="Contact" className="w-full flex justify-center items-center !px-5 !py-12">
       <div className="w-full max-w-4xl text-center">
@@ -9,7 +34,8 @@ const EnquiryForm = () => {
           </span>
         </h2>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+        {/* <form className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"> */}
+        <form ref={form} onSubmit={sendEmail} className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
           {/* Name */}
           <input
             type="text"
@@ -32,12 +58,12 @@ const EnquiryForm = () => {
           {/* Phone with country code */}
           <div className="flex w-full">
             <select className="border border-r-0 !p-3 flex-shrink-0 w-36 sm:w-40 rounded-l outline-none bg-white">
-              <option value="+1">🇺🇸 USA (+1)</option>
-              <option value="+91" selected>🇮🇳 India (+91)</option>
+              <option value="+91">🇮🇳 India (+91)</option>
               <option value="+44">🇬🇧 UK (+44)</option>
+              <option value="+1">🇺🇸 USA (+1)</option>
+              <option value="+49">🇩🇪 Germany (+49)</option>
               <option value="+61">🇦🇺 Australia (+61)</option>
               <option value="+81">🇯🇵 Japan (+81)</option>
-              <option value="+49">🇩🇪 Germany (+49)</option>
               <option value="+33">🇫🇷 France (+33)</option>
               <option value="+39">🇮🇹 Italy (+39)</option>
               <option value="+86">🇨🇳 China (+86)</option>

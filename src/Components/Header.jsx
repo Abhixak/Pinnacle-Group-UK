@@ -77,7 +77,7 @@ const Header = () => {
           <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             Contact Us
           </li>
-          <li className="text-[#c94e00] hover:text-[#ff7a33] cursor-pointer font-semibold border-2 !p-2 rounded-3xl relative bottom-1 transition-all duration-500">
+          <li className="text-[#c94e00] flex hover:text-[#ff7a33] cursor-pointer font-semibold border-2 !p-2 rounded-3xl relative bottom-1 transition-all duration-500">
             <FaSearch />
           </li>
         </ul>
