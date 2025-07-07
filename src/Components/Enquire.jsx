@@ -1,6 +1,6 @@
 const EnquiryForm = () => {
   return (
-    <div className="w-full flex justify-center items-center !px-5 !py-12">
+    <div id="Contact" className="w-full flex justify-center items-center !px-5 !py-12">
       <div className="w-full max-w-4xl text-center">
         <h2 className="text-3xl font-bold !mb-8">
           Quick{" "}
