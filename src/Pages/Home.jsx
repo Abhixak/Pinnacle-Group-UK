@@ -1,8 +1,10 @@
 import AboutSection from "../Components/AboutSection";
+import Ad from "../Components/Ad";
 import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import NRIAdvice from "../Components/NRIAdvice";
 import ServicesSection from "../Components/Services";
+import SocialMedia from "../Components/SocialMedia";
 
 const Home = () => {
   return (
@@ -37,11 +39,13 @@ const Home = () => {
           View More
         </button>
       </div> */}
+      {/* <Ad /> */}
       <ServicesSection />
       <NRIAdvice />
       
       <EnquiryForm />
       <AboutSection />
+      {/* <SocialMedia /> */}
       <Footer />
     </div>
   );

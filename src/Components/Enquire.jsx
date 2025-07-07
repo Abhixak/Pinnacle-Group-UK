@@ -57,7 +57,7 @@ const sendEmail = (e) => {
 
           {/* Phone with country code */}
           <div className="flex w-full">
-            <select className="border border-r-0 !p-3 flex-shrink-0 w-36 sm:w-40 rounded-l outline-none bg-white">
+            <select className="border border-r-0 !p-3 flex-shrink-0 w-25 sm:w-40 text-[0.8em] sm:text-[1em] rounded-l outline-none bg-white">
               <option value="+91">🇮🇳 India (+91)</option>
               <option value="+44">🇬🇧 UK (+44)</option>
               <option value="+1">🇺🇸 USA (+1)</option>
