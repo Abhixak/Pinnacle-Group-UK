@@ -131,7 +131,7 @@ const Header = () => {
             ].map(({ label, key, items }) => (
               <div key={key} className="w-full">
                 <div
-                  className="font-semibold text-[#1d3d4f] border-t-2 py-2 cursor-pointer text-center"
+                  className="font-semibold text-[#1d3d4f] border-t-2 !py-2 cursor-pointer text-center"
                   onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
                 >
                   {label} ▾
@@ -139,7 +139,7 @@ const Header = () => {
                 <ul
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
                     openDropdown === key ? "max-h-96" : "max-h-0"
-                  } pl-4 space-y-1 text-center`}
+                  } !pl-4 space-y-1 text-center`}
                 >
                   {items.map((item) => (
                     <li
