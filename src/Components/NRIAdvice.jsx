@@ -23,21 +23,17 @@ const NRIAdvice = () => {
 5️⃣ Perfect for NRIs 🌍
 Looking to invest from the UK? Pinnacle Group London makes it easy to get started with expert guidance!`,
 
-    `The Indian real estate market is booming, and now might be the perfect time to invest! Here’s why:
-1️⃣ Thriving Real Estate Market 📈
-2️⃣ High Rental Yields 💸
-3️⃣ Long-Term Capital Growth ⏳
-4️⃣ Supportive Government Policies 🏛️
-5️⃣ Perfect for NRIs 🌍
-Looking to invest from the UK? Pinnacle Group London makes it easy to get started with expert guidance!`,
+    `Absolutely! India’s real estate market is ideal for long-term investment.
+🏡 Competitive prices, 📈 strong appreciation in metro cities, 💼 NRI-friendly policies, and 🏦 high rental demand make it a smart choice.
+👉 Pinnacle Group London is here to guide your property journey from the UK.`,
 
-    `Managing property in India while living in the UK? 🇬🇧➡️🇮🇳 Here’s why Power of Attorney is a game-changer:
+    `Managing property in India while living in the UK? Here’s why Power of Attorney is a game-changer:
 ✔️ No Travel, All Control
 ✔️ Faster Transactions
 ✔️ Protect Your Property
 Need assistance? Contact Pinnacle Group London today!`,
 
-    `Selling Property in India While Living in London? Here’s What You Need to Know! 🎙️
+    `Selling Property in India While Living in London? Here’s What You Need to Know! 
 1️⃣ Market trends can increase profits.
 2️⃣ Keep legal documents ready.
 3️⃣ Hire a trusted agent in India.
