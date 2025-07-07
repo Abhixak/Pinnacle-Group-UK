@@ -3,7 +3,12 @@ import React from 'react';
 const AboutSection = () => {
   return (
     <div className="w-full bg-white flex flex-col items-center text-black  px-6 md:px-20 py-16 bg-white">
-      <h1 className="text-4xl font-bold text-center !mb-8">About Pinnacle Group</h1>
+      <h2 className="text-3xl font-bold !mb-8">
+          About{" "}
+          <span className="text-red-600 underline underline-offset-4">
+            Pinnacle Group
+          </span>
+        </h2>
       <p className="text-sm leading-7 text-center !mx-auto">
         As one of the leading services providers operating in the real estate domain, at <strong>Pinnacle Group</strong>,
         we are offering host of services according to the various realty needs and requirements of the clients.
