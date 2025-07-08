@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-import { useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +21,10 @@ const Chatbot = () => {
   const [inputLabel, setInputLabel] = useState("");
   const [inputType, setInputType] = useState("");
   const [contactMethod, setContactMethod] = useState("");
+  const [selectedCode, setSelectedCode] = useState("+91");
   const inputRef = useRef(null);
   const chatboxRef = useRef(null);
+  const [showRobotIcon, setShowRobotIcon] = useState(false);
 
   const scrollToBottom = () => {
     setTimeout(() => {
@@ -45,8 +46,8 @@ const Chatbot = () => {
   };
 
   const handleDetailSubmit = () => {
-    const value = inputRef.current.value.trim();
-    if (!value) return;
+    const value = inputRef.current?.value?.trim();
+    if (!value && inputType !== "countryCode") return;
 
     if (inputType === "name") {
       const nameValid = /^[A-Za-z\s]+$/.test(value);
@@ -63,9 +64,9 @@ const Chatbot = () => {
         setInputType("email");
         setInputLabel("Please enter your Email:");
       } else {
-        addMessage("bot", "Thanks! Enter your Country Code (e.g., +91):");
+        addMessage("bot", "Thanks! Select your Country Code:");
         setInputType("countryCode");
-        setInputLabel("Enter Country Code:");
+        setInputLabel("Select Country Code:");
       }
       inputRef.current.value = "";
       return;
@@ -81,27 +82,18 @@ const Chatbot = () => {
         return;
       }
       addMessage("user", value);
-      addMessage("bot", "Great! Enter your Country Code (e.g., +91):");
+      addMessage("bot", "Great! Select your Country Code:");
       setInputType("countryCode");
-      setInputLabel("Enter Country Code:");
+      setInputLabel("Select Country Code:");
       inputRef.current.value = "";
       return;
     }
 
     if (inputType === "countryCode") {
-      const codeValid = /^\+\d{1,4}$/.test(value);
-      if (!codeValid) {
-        addMessage(
-          "bot",
-          "Please enter a valid country code (e.g., +91, +44)."
-        );
-        return;
-      }
-      addMessage("user", value);
+      addMessage("user", selectedCode);
       addMessage("bot", "Now enter your Phone Number:");
       setInputType("phone");
       setInputLabel("Please enter your Phone Number:");
-      inputRef.current.value = "";
       return;
     }
 
@@ -199,7 +191,6 @@ const Chatbot = () => {
         setFollowupOptions(mainOptions);
     }
   };
-  const [showRobotIcon, setShowRobotIcon] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -216,21 +207,38 @@ const Chatbot = () => {
       <button
         onClick={() => {
           setIsOpen(!isOpen);
-          setShowRobotIcon(false); // Reset icon on click
+          setShowRobotIcon(false);
         }}
-        className={`fixed bottom-6 right-6 z-50 border-4 transition-all duration-500 ease-in-out 
-              hover:border-gray-200 hover:text-gray-200 bg-blue-600 hover:bg-blue-700 text-white 
-              rounded-full shadow-lg !px-5 !py-3 overflow-hidden inline-flex justify-center items-center
-              transition-[width]`}
+        className={`fixed bottom-6 right-6 z-50 border-4 
+        transition-all duration-500 ease-in-out
+        hover:border-gray-200 hover:text-gray-200 bg-blue-600 hover:bg-blue-700 text-white 
+        rounded-full shadow-lg !px-5 !py-3 overflow-hidden inline-flex justify-center items-center`}
         style={{
           width: isOpen ? "150px" : showRobotIcon ? "60px" : "150px",
+          transition: "width 0.5s ease-in-out", // 🔥 This enables width animation
         }}
+        title={showRobotIcon ? "Need Help?" : ""}
       >
         {isOpen ? "Close Chat" : showRobotIcon ? "🤖" : "Need Help?"}
       </button>
 
       {isOpen && (
         <div className="fixed bottom-20 right-4 sm:right-6 w-[90vw] sm:w-80 max-w-sm max-h-[80vh] flex flex-col border-4 border-blue-200 bg-white rounded-lg shadow-lg overflow-hidden z-50">
+          {/* Go Back Button */}
+          <div className="flex items-center justify-start bg-white border-b border-gray-200 !px-4 !py-2">
+            <button
+              onClick={() => {
+                setFollowupOptions(mainOptions);
+                setShowInput(false);
+                addMessage("bot", "How can I assist you now?");
+              }}
+              className="text-blue-400 cursor-pointer hover:text-blue-900 hover:underline !p-2 text-sm"
+            >
+              ← Go Back
+            </button>
+          </div>
+
+          {/* Messages */}
           <div
             ref={chatboxRef}
             className="flex-1 overflow-y-auto !px-4 !py-3 bg-gray-50"
@@ -250,7 +258,8 @@ const Chatbot = () => {
             ))}
           </div>
 
-          {showInput && (
+          {/* Input Field */}
+          {showInput && inputType !== "countryCode" && (
             <div className="flex flex-col sm:flex-row border-t border-gray-200 bg-white !px-3 !py-2 gap-2 sm:gap-2">
               <input
                 ref={inputRef}
@@ -268,6 +277,72 @@ const Chatbot = () => {
             </div>
           )}
 
+          {/* Country Code Dropdown */}
+          {showInput && inputType === "countryCode" && (
+            <div className="flex flex-col sm:flex-row border-t border-gray-200 bg-white !px-3 !py-2 gap-2 sm:gap-2">
+              <select
+                className="w-full sm:flex-1 text-sm border border-gray-300 rounded-lg !px-3 !py-2 outline-none"
+                value={selectedCode}
+                onChange={(e) => setSelectedCode(e.target.value)}
+              >
+                <option value="+91">🇮🇳 India (+91)</option>
+                <option value="+44">🇬🇧 UK (+44)</option>
+                <option value="+1">🇺🇸 USA (+1)</option>
+                <option value="+49">🇩🇪 Germany (+49)</option>
+                <option value="+61">🇦🇺 Australia (+61)</option>
+                <option value="+81">🇯🇵 Japan (+81)</option>
+                <option value="+33">🇫🇷 France (+33)</option>
+                <option value="+39">🇮🇹 Italy (+39)</option>
+                <option value="+86">🇨🇳 China (+86)</option>
+                <option value="+7">🇷🇺 Russia (+7)</option>
+                <option value="+971">🇦🇪 UAE (+971)</option>
+                <option value="+92">🇵🇰 Pakistan (+92)</option>
+                <option value="+880">🇧🇩 Bangladesh (+880)</option>
+                <option value="+94">🇱🇰 Sri Lanka (+94)</option>
+                <option value="+977">🇳🇵 Nepal (+977)</option>
+                <option value="+60">🇲🇾 Malaysia (+60)</option>
+                <option value="+63">🇵🇭 Philippines (+63)</option>
+                <option value="+66">🇹🇭 Thailand (+66)</option>
+                <option value="+62">🇮🇩 Indonesia (+62)</option>
+                <option value="+20">🇪🇬 Egypt (+20)</option>
+                <option value="+27">🇿🇦 South Africa (+27)</option>
+                <option value="+234">🇳🇬 Nigeria (+234)</option>
+                <option value="+254">🇰🇪 Kenya (+254)</option>
+                <option value="+213">🇩🇿 Algeria (+213)</option>
+                <option value="+598">🇺🇾 Uruguay (+598)</option>
+                <option value="+55">🇧🇷 Brazil (+55)</option>
+                <option value="+56">🇨🇱 Chile (+56)</option>
+                <option value="+57">🇨🇴 Colombia (+57)</option>
+                <option value="+52">🇲🇽 Mexico (+52)</option>
+                <option value="+34">🇪🇸 Spain (+34)</option>
+                <option value="+46">🇸🇪 Sweden (+46)</option>
+                <option value="+47">🇳🇴 Norway (+47)</option>
+                <option value="+48">🇵🇱 Poland (+48)</option>
+                <option value="+31">🇳🇱 Netherlands (+31)</option>
+                <option value="+358">🇫🇮 Finland (+358)</option>
+                <option value="+41">🇨🇭 Switzerland (+41)</option>
+                <option value="+43">🇦🇹 Austria (+43)</option>
+                <option value="+353">🇮🇪 Ireland (+353)</option>
+                <option value="+32">🇧🇪 Belgium (+32)</option>
+                <option value="+420">🇨🇿 Czech Republic (+420)</option>
+                <option value="+48">🇵🇱 Poland (+48)</option>
+                <option value="+351">🇵🇹 Portugal (+351)</option>
+                <option value="+90">🇹🇷 Turkey (+90)</option>
+                <option value="+82">🇰🇷 South Korea (+82)</option>
+                <option value="+84">🇻🇳 Vietnam (+84)</option>
+                <option value="+855">🇰🇭 Cambodia (+855)</option>
+                <option value="+95">🇲🇲 Myanmar (+95)</option>
+              </select>
+              <button
+                onClick={handleDetailSubmit}
+                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm !px-4 !py-2 rounded-lg"
+              >
+                Submit
+              </button>
+            </div>
+          )}
+
+          {/* Option Buttons */}
           {!showInput && (
             <div className="grid grid-cols-1 gap-2 !p-3 border-t border-gray-200 bg-white">
               {followupOptions.map((opt, idx) => (

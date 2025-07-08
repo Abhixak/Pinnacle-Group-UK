@@ -12,12 +12,12 @@ const Header = () => {
 
   return (
     <div className="font-sans w-full !px-5 !pt-5 bg-gradient-to-b from-[#d3eaff] to-[#f5fefe]">
-      <div className="w-full flex justify-between items-center border-4 bg-[#f5fefe] border-white rounded-xl relative">
+      <div className="w-full h-30 md:h-35 flex justify-between items-center border-4 bg-[#f5fefe] border-white rounded-xl relative">
         {/* Logo */}
         <img
           src="/logo.png"
           alt="logo"
-          className="!ml-5 w-30 md:w-35 lg:w-35 transition-all duration-300"
+          className="!ml-2 w-35 md:w-38 lg:w-42 transition-all duration-300"
         />
 
         {/* Desktop Navigation */}
@@ -30,13 +30,14 @@ const Header = () => {
           </li>
 
           {/* Dropdowns */}
-          {["Our Services", "Find Property", "Our Projects"].map((label, idx) => (
+          {["Our Services", "Our Projects"].map((label, idx) => (
             <div key={label} className="relative group">
               <li className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-colors duration-500">
                 {label}
               </li>
               <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
                 {label === "Our Services" &&
+                // Find property is removed
                   ["Property Loan Consultant", "Selling Property", "Buying Property", "Leasing Property"].map(
                     (item) => (
                       <li
@@ -118,11 +119,13 @@ const Header = () => {
                 key: "services",
                 items: ["Property Loan Consultant", "Selling Property", "Buying Property", "Leasing Property"],
               },
-              {
-                label: "Find Property",
-                key: "property",
-                items: ["Mohali", "Chandigarh", "Delhi", "Mumbai", "Noida"],
-              },
+
+              // FIND PROPERTY IS COMMENTED
+              // {
+              //   label: "Find Property",
+              //   key: "property",
+              //   items: ["Mohali", "Chandigarh", "Delhi", "Mumbai", "Noida"],
+              // },
               {
                 label: "Our Projects",
                 key: "projects",

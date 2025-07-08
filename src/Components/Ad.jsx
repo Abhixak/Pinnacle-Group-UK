@@ -18,24 +18,21 @@ const Ad = () => {
 
   return (
     <>
-      {/* Fullscreen blur overlay */}
+      {/* Fullscreen blur overlay
       <div className="fixed inset-0 z-40 backdrop-blur-sm bg-black/30"></div>
 
-      {/* Ad container */}
       <div className="fixed left-5 top-3 z-50 bg-blue-200 !p-4 gap-4 flex flex-col justify-between shadow-lg rounded-xl">
-        {/* Close Button */}
         <button
           onClick={() => setShowAd(false)}
           className="self-end flex items-center font-bold text-red-600 hover:text-red-800 text-xl"
           aria-label="Close"
         >
           <FaTimes className="!mr-1" /> CLOSE AD
-        </button>
+        </button> */}
 
         {/* Videos */}
-        <video src={Video} className="h-60 md:h-70 xl:h-80 rounded-lg" muted autoPlay loop />
-        <video src={Video2} className="h-60 md:h-70 xl:h-80 rounded-lg" muted autoPlay loop />
-      </div>
+        <video src={Video} className="relative opacity-[1] h-[50em] w-full" muted autoPlay loop />
+      {/* </div> */}
     </>
   );
 };

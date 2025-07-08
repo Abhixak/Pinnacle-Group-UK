@@ -42,6 +42,7 @@ const Home = () => {
       </div> */}
       {/* <Ad /> */}
       <Chatbot />
+      {/* <Ad /> */}
       <NRIAdvice />
       <ServicesSection />
       <EnquiryForm />
