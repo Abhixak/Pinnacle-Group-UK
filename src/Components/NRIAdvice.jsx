@@ -77,7 +77,7 @@ Pinnacle Group London – Your property partner.`,
   const visibleCount = isMobile && !showAll ? 4 : Title.length;
 
   return (
-    <div className="bg-gradient-to-b from-[#e0f7fa] via-[#f8f9fb] to-[#f1f5f9] rounded-xl !py-12 !px-4 md:!px-8 lg:px-16">
+    <div className="bg-gradient-to-b from-[#f1f5f9] via-[#f8f9fb] to-[#e0f7fa] rounded-xl !py-12 !px-4 md:!px-8 lg:!px-16">
       <h2 className="text-4xl font-extrabold text-center text-[#1a2e35] !mb-12">
         Advice For{" "}
         <span className="text-[#e63946] underline underline-offset-8">

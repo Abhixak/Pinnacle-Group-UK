@@ -32,7 +32,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <div className="rounded-xl !mb-2 w-full !px-5 !py-5 text-center bg-white">
+    <div className="rounded-xl !my-4 w-full !px-5 !py-5 text-center bg-white">
       <h2 className="text-3xl font-bold !mb-12">
         Our <span className="text-red-600 underline underline-offset-4">Services</span>
       </h2>

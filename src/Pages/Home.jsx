@@ -40,8 +40,9 @@ const Home = () => {
         </button>
       </div> */}
       {/* <Ad /> */}
-      <ServicesSection />
       <NRIAdvice />
+      <ServicesSection />
+      
       
       <EnquiryForm />
       <AboutSection />
