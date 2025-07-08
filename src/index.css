@@ -13,3 +13,21 @@ body{
 body::-webkit-scrollbar{
   width: 0;
 }
+
+
+
+
+#chatbox {
+      width: 300px;
+      height: 400px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      font-family: Arial;
+    }
+    .bot, .user {
+      margin: 10px 0;
+    }
+    .bot { color: #007BFF; }
+    .user { text-align: right; color: #333; }

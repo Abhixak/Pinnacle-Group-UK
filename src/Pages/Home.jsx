@@ -1,5 +1,6 @@
 import AboutSection from "../Components/AboutSection";
 import Ad from "../Components/Ad";
+import Chatbot from "../Components/Chatbot";
 import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import NRIAdvice from "../Components/NRIAdvice";
@@ -40,10 +41,9 @@ const Home = () => {
         </button>
       </div> */}
       {/* <Ad /> */}
+      <Chatbot />
       <NRIAdvice />
       <ServicesSection />
-      
-      
       <EnquiryForm />
       <AboutSection />
       {/* <SocialMedia /> */}
