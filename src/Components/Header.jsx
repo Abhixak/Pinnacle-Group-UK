@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+// import BackVideo from "../assets/AD Video of Pinnacle Group.mp4"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,8 @@ const Header = () => {
 
   return (
     <div className="font-sans w-full !px-5 !pt-5 bg-gradient-to-b from-[#d3eaff] to-[#f5fefe]">
-      <div className="w-full h-30 md:h-35 flex justify-between items-center border-4 bg-[#f5fefe] border-white rounded-xl relative">
+      <div className="w-full h-30 md:h-35 flex justify-between items-center border-4 bg-gray-100  border-white rounded-xl relative">
+        {/* bg-[#f5fefe] */}
         {/* Logo */}
         <img
           src="/logo.png"

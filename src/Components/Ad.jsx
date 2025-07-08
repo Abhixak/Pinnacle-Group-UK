@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Video from '../assets/Video.mp4';
-import Video2 from '../assets/Video2.mp4';
-import { FaTimes } from 'react-icons/fa';
+import React, { useEffect, useState } from "react";
+import Video from "../assets/AdVideo.mp4";
 
 const Ad = () => {
   const [showAd, setShowAd] = useState(false);
@@ -17,7 +15,7 @@ const Ad = () => {
   if (!showAd) return null;
 
   return (
-    <>
+    <div className="!px-5 ">
       {/* Fullscreen blur overlay
       <div className="fixed inset-0 z-40 backdrop-blur-sm bg-black/30"></div>
 
@@ -30,10 +28,17 @@ const Ad = () => {
           <FaTimes className="!mr-1" /> CLOSE AD
         </button> */}
 
-        {/* Videos */}
-        <video src={Video} className="relative opacity-[1] h-[50em] w-full" muted autoPlay loop />
+      {/* Videos */}
+      <video
+        src={Video}
+        className="relative w-full h-auto max-h-[40em] object-fit rounded-xl"
+        muted
+        autoPlay
+        loop
+      />
+
       {/* </div> */}
-    </>
+    </div>
   );
 };
 
