@@ -6,7 +6,7 @@ import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-100 rounded !px-6 md:!px-20 text-gray-800">
+    <div className="bg-gray-100 rounded !mb-6 !px-6 md:!px-20 text-gray-800">
       {/* Social + Counter Row */}
       <div className="w-full !px-4">
         <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">
@@ -68,25 +68,25 @@ const Footer = () => {
 
             <div className="text-lg space-y-2">
               <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
                 <span className="whitespace-nowrap text-left">
                   UK: +44-7868143558
                 </span>
               </div>
               <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
                 <span className="whitespace-nowrap text-left">
                   IN: +91-9216399808
                 </span>
               </div>
               <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
                 <span className="whitespace-nowrap text-left">
                   CA: +1-613-295-6385
                 </span>
               </div>
               <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
                 <span className="whitespace-nowrap text-left">
                   US: +1-414-690-6435
                 </span>
