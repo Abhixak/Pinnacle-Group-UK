@@ -25,16 +25,16 @@ const MakeCallButton = () => {
       const buttonBottom = buttonRef.current.getBoundingClientRect().bottom;
       const dropdownHeight = 200;
       const spaceBelow = window.innerHeight - buttonBottom;
+
       setDropUp(spaceBelow < dropdownHeight);
     }
   }, [showOptions]);
 
   return (
-    <div className="relative inline-block md:col-span-2 !mt-4 text-lg font-semibold">
+    <div className="relative inline-block w-full md:w-auto" ref={buttonRef}>
       <button
-        ref={buttonRef}
         onClick={() => setShowOptions(!showOptions)}
-        className="bg-green-600 text-white !px-6 !py-2 rounded hover:bg-green-700 transition w-full md:w-auto"
+        className="bg-green-600 text-white text-lg font-semibold !px-6 !py-2 rounded hover:bg-green-700 transition w-full md:w-auto"
       >
         Make a Call
       </button>
@@ -46,7 +46,7 @@ const MakeCallButton = () => {
           } right-0 w-64 bg-white border rounded-xl !my-4 shadow-lg z-50 !p-3`}
         >
           <p className="text-sm font-semibold mb-2 text-gray-700 !m-0">
-            Choose a branch to call :
+            Choose a branch to call:
           </p>
           {Object.entries(phoneNumbers).map(([country, number]) => (
             <button
