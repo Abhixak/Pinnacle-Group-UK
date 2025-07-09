@@ -16,7 +16,7 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold !mb-2">Call Us</h4>
           <p className="flex justify-center items-center gap-2 text-sm">
-            <FaPhoneAlt /> +91-9216399808 || +44-7892170550
+            <FaPhoneAlt /> +91-9216399808 || +44-7868143558
           </p>
         </div>
 

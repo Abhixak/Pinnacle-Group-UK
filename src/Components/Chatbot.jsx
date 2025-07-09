@@ -155,8 +155,8 @@ const Chatbot = () => {
         addMessage("bot", "Redirecting you to India Branch on WhatsApp...");
         setFollowupOptions(mainOptions);
         break;
-      case "London Branch":
-        window.open("https://wa.me/+447892170550", "_blank");
+      case "UK Branch":
+        window.open("https://wa.me/+447868143558", "_blank");
         addMessage("bot", "Redirecting you to London Branch on WhatsApp...");
         setFollowupOptions(mainOptions);
         break;

@@ -29,7 +29,7 @@ const PopUpEnquiry = () => {
         },
         () => {
           alert(
-            "This Feature is under construction. You can contact Pinnacle Group with given numbers, India: +91-9216399808 || UK: +44-7892170550"
+            "This Feature is under construction. You can contact Pinnacle Group with given numbers, India: +91-9216399808 || UK: +44-7868143558"
           );
         }
       );
