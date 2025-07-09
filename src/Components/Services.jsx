@@ -4,12 +4,12 @@ import BuyingImg from '../assets/Buying Property.jpg';
 import LeasingImg from '../assets/Leasing Property.jpg';
 
 const services = [
-  {
-    title: "Property Loan Consultant",
-    description:
-      "We have with us experts who have extensive knowledge about various schemes and can provide you with all the required information while assisting you...",
-    image: LoanImg,
-  },
+  // {
+  //   title: "Property Loan Consultant",
+  //   description:
+  //     "We have with us experts who have extensive knowledge about various schemes and can provide you with all the required information while assisting you...",
+  //   image: LoanImg,
+  // },
   {
     title: "Selling Property",
     description:
@@ -37,7 +37,7 @@ const ServicesSection = () => {
         Our <span className="text-red-600 underline underline-offset-4">Services</span>
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
           <div key={index} className="border !p-4 rounded-md shadow hover:shadow-lg transition duration-300">
             <img
