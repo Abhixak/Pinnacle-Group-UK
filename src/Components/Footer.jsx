@@ -6,8 +6,8 @@ import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
   return (
-    <div className="bg-[#7c1d1d] text-white !px-6 md:!px-20">
-      {/* #6b1e1e */}
+    <div className="bg-gray-700 text-white !px-6 md:!px-20">
+      {/* #6b1e1e ,#7c1d1d*/}
       {/* Social + Counter Row */}
       <div className="w-full !px-4">
         <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">

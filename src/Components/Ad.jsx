@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Video from "../assets/AdVideo.mp4";
-import Poster from "../assets/poster.png"
+import Poster from "../assets/poster.png";
 
 const Ad = () => {
   return (
@@ -11,6 +11,7 @@ const Ad = () => {
         muted
         autoPlay
         loop
+        playsInline
         preload="metadata"
         poster={Poster}
       />
