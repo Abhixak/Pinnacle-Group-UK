@@ -12,7 +12,7 @@ const Footer = () => {
         <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">
           {/* Left: Social Icons */}
           <div className="flex flex-wrap gap-4 text-2xl items-center">
-            <h3 className="text-lg">Follow us:</h3>
+            <h3 className="text-lg text-[#6b1e1e]">Follow us:</h3>
 
             <a
               href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page"
@@ -55,7 +55,7 @@ const Footer = () => {
           </h4>
           <p className="flex justify-center items-center gap-2 text-lg !p-0 !m-0">
             <FaEnvelope className="text-[#c53030]" />
-            <span>info@nriproperty.uk</span>
+            <span className="text-[#007BFF]">info@nriproperty.uk</span>
           </p>
         </div>
 
@@ -67,28 +67,32 @@ const Footer = () => {
             </h4>
 
             <div className="text-lg space-y-2">
-              <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
-                <span className="whitespace-nowrap text-left">
-                  UK: +44-7868143558
+              <div className="flex gap-2 text-[#c53030] items-start justify-start">
+                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
+                UK: 
+                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                  +44-7868143558
                 </span>
               </div>
-              <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
-                <span className="whitespace-nowrap text-left">
-                  IN: +91-9216399808
+              <div className="flex gap-2 text-[#c53030] items-start justify-start">
+                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
+                IN: 
+                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                  +91-9216399808
                 </span>
               </div>
-              <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
-                <span className="whitespace-nowrap text-left">
-                  CA: +1-613-295-6385
+              <div className="flex gap-2 text-[#c53030] items-start justify-start">
+                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
+                CA: 
+                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                  +1-613-295-6385
                 </span>
               </div>
-              <div className="flex gap-2 items-start justify-start">
-                <FaPhoneAlt className="text-[#007BFF] text-base !mt-1 lg:!mt-2" />
-                <span className="whitespace-nowrap text-left">
-                  US: +1-414-690-6435
+              <div className="flex gap-2 text-[#c53030] items-start justify-start">
+                <FaPhoneAlt className=" text-base !mt-1 lg:!mt-2" />
+                US: 
+                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                  +1-414-690-6435
                 </span>
               </div>
             </div>
