@@ -4,6 +4,7 @@ import Chatbot from "../Components/Chatbot";
 import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import NRIAdvice from "../Components/NRIAdvice";
+import PMS from "../Components/PMS";
 import PopUpEnquiry from "../Components/PopUpEnquiry";
 import ServicesSection from "../Components/Services";
 import SocialMedia from "../Components/SocialMedia";
@@ -46,6 +47,7 @@ const Home = () => {
       <PopUpEnquiry />
       <Ad />
       <NRIAdvice />
+      <PMS />
       <ServicesSection />
       <SocialMedia />
 
