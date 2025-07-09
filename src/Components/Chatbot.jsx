@@ -223,7 +223,7 @@ const Chatbot = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 w-[90vw] sm:w-80 max-w-sm max-h-[80vh] flex flex-col border-4 border-blue-200 bg-white rounded-lg shadow-lg overflow-hidden z-50">
+        <div className="fixed bottom-22 right-4 sm:right-6 w-[90vw] sm:w-80 max-w-sm max-h-[80vh] flex flex-col border-4 border-blue-200 bg-white rounded-lg shadow-lg overflow-hidden z-50">
           {/* Go Back Button */}
           <div className="flex items-center justify-start bg-white border-b border-gray-200 !px-4 !py-2">
             <button
