@@ -149,7 +149,7 @@ const EnquiryForm = () => {
           ></textarea>
 
           {/* Submit Button */}
-          <div className="md:col-span-2 !mt-4 flex gap-4 flex-col md:flex-row justify-center">
+          <div className="md:col-span-2 !mt-4 text-lg font-semibold flex gap-4 flex-col md:flex-row justify-center">
             <button
               type="submit"
               className="bg-red-700 text-white !px-6 !py-2 rounded hover:bg-red-800 transition"

@@ -16,7 +16,7 @@ const MakeCallButton = () => {
   return (
     <button
       onClick={handleCallClick}
-      className="bg-green-600 text-white !px-6 !py-2 rounded text-lg shadow hover:bg-green-700 transition duration-300"
+      className="bg-green-600 text-white !px-6 !py-2 rounded shadow hover:bg-green-700 transition duration-300"
     >
       Make a Call
     </button>
