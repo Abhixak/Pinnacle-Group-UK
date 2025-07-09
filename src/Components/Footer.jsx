@@ -6,8 +6,7 @@ import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-700 text-white !px-6 md:!px-20">
-      {/* #6b1e1e ,#7c1d1d*/}
+    <div className="bg-gray-100 rounded !px-6 md:!px-20 text-gray-800">
       {/* Social + Counter Row */}
       <div className="w-full !px-4">
         <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">
@@ -47,38 +46,50 @@ const Footer = () => {
         </section>
       </div>
 
-      {/* Contact Info - Centered */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-400 text-center md:text-center !pt-4 place-items-center">
+      {/* Contact Info */}
+      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-300 text-center md:text-center !pt-4 place-items-center">
         {/* Write Us */}
         <div className="!py-4">
-          <h4 className="text-xl font-semibold !mb-2">Write Us</h4>
+          <h4 className="text-xl font-semibold !mb-2 text-[#6b1e1e]">
+            Write Us
+          </h4>
           <p className="flex justify-center items-center gap-2 text-lg !p-0 !m-0">
-            <FaEnvelope /> info@nriproperty.uk
+            <FaEnvelope className="text-[#c53030]" />
+            <span>info@nriproperty.uk</span>
           </p>
         </div>
 
         {/* Call Us */}
         <div className="!py-6 w-full">
-          {/* Wrap heading + numbers inside one flex container */}
           <div className="flex flex-col items-center text-center">
-            <h4 className="text-xl font-semibold !mb-4">Call Us</h4>
+            <h4 className="text-xl font-semibold !mb-4 text-[#6b1e1e]">
+              Call Us
+            </h4>
 
             <div className="text-lg space-y-2">
-              <div className="flex items-center gap-2 justify-center">
-                <FaPhoneAlt className="text-base" />
-                <span className="whitespace-nowrap">UK: +44-7868143558</span>
+              <div className="flex gap-2 items-start justify-start">
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <span className="whitespace-nowrap text-left">
+                  UK: +44-7868143558
+                </span>
               </div>
-              <div className="flex items-center gap-2 justify-center">
-                <FaPhoneAlt className="text-base" />
-                <span className="whitespace-nowrap">IN: +91-9216399808</span>
+              <div className="flex gap-2 items-start justify-start">
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <span className="whitespace-nowrap text-left">
+                  IN: +91-9216399808
+                </span>
               </div>
-              <div className="flex items-center gap-2 justify-center">
-                <FaPhoneAlt className="text-base" />
-                <span className="whitespace-nowrap">CA: +1-613-295-6385</span>
+              <div className="flex gap-2 items-start justify-start">
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <span className="whitespace-nowrap text-left">
+                  CA: +1-613-295-6385
+                </span>
               </div>
-              <div className="flex items-center gap-2 justify-center">
-                <FaPhoneAlt className="text-base" />
-                <span className="whitespace-nowrap">US: +1-414-690-6435</span>
+              <div className="flex gap-2 items-start justify-start">
+                <FaPhoneAlt className="text-[#007BFF] text-base !mt-2" />
+                <span className="whitespace-nowrap text-left">
+                  US: +1-414-690-6435
+                </span>
               </div>
             </div>
           </div>
