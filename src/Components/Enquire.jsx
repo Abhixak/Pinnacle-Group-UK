@@ -1,31 +1,37 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
+import MakeCallButton from "./CallBtn";
 
 const EnquiryForm = () => {
   const form = useRef();
 
-const sendEmail = (e) => {
-  e.preventDefault();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  emailjs
-    .sendForm(
-      "your_service_id", // Replace with your EmailJS service ID
-      "your_template_id", // Replace with your EmailJS template ID
-      form.current,
-      "your_public_key" // Replace with your EmailJS public key
-    )
-    .then(
-      (result) => {
-        alert("Message Sent Successfully!");
-        e.target.reset();
-      },
-      (error) => {
-        alert("This Feature is under construction. You can contact Pinnacle Group with given numbers, India: +91-9216399808 || UK: +44-7868143558 ");
-      }
-    );
-};
+    emailjs
+      .sendForm(
+        "your_service_id", // Replace with your EmailJS service ID
+        "your_template_id", // Replace with your EmailJS template ID
+        form.current,
+        "your_public_key" // Replace with your EmailJS public key
+      )
+      .then(
+        (result) => {
+          alert("Message Sent Successfully!");
+          e.target.reset();
+        },
+        (error) => {
+          alert(
+            "This Feature is under construction. You can contact Pinnacle Group with given numbers, India: +91-9216399808 || UK: +44-7868143558 "
+          );
+        }
+      );
+  };
   return (
-    <div id="Contact" className="w-full flex justify-center items-center !px-5 !py-12">
+    <div
+      id="Contact"
+      className="w-full flex justify-center items-center !px-5 !py-12"
+    >
       <div className="w-full max-w-4xl text-center">
         <h2 className="text-3xl font-bold !mb-8">
           Quick{" "}
@@ -35,7 +41,11 @@ const sendEmail = (e) => {
         </h2>
 
         {/* <form className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"> */}
-        <form ref={form} onSubmit={sendEmail} className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"
+        >
           {/* Name */}
           <input
             type="text"
@@ -139,13 +149,14 @@ const sendEmail = (e) => {
           ></textarea>
 
           {/* Submit Button */}
-          <div className="md:col-span-2 !mt-4 flex justify-center">
+          <div className="md:col-span-2 !mt-4 flex gap-4 flex-col md:flex-row justify-center">
             <button
               type="submit"
               className="bg-red-700 text-white !px-6 !py-2 rounded hover:bg-red-800 transition"
             >
               Send Message
             </button>
+            <MakeCallButton />
           </div>
         </form>
       </div>
