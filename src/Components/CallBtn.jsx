@@ -25,7 +25,6 @@ const MakeCallButton = () => {
       const buttonBottom = buttonRef.current.getBoundingClientRect().bottom;
       const dropdownHeight = 200;
       const spaceBelow = window.innerHeight - buttonBottom;
-
       setDropUp(spaceBelow < dropdownHeight);
     }
   }, [showOptions]);
@@ -33,6 +32,9 @@ const MakeCallButton = () => {
   return (
     <div className="relative inline-block w-full md:w-auto" ref={buttonRef}>
       <button
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={showOptions}
         onClick={() => setShowOptions(!showOptions)}
         className="bg-green-600 text-white text-lg font-semibold !px-6 !py-2 rounded hover:bg-green-700 transition w-full md:w-auto"
       >
@@ -51,6 +53,7 @@ const MakeCallButton = () => {
           {Object.entries(phoneNumbers).map(([country, number]) => (
             <button
               key={country}
+              type="button"
               onClick={() => handleCall(number)}
               className="w-full text-left !p-2 !m-0 rounded hover:bg-gray-100 text-gray-800 text-sm"
             >

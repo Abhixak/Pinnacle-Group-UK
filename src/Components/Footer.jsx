@@ -6,10 +6,11 @@ import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
   return (
-    <div className="bg-[#1c1c1c] text-white !py-5 !px-6 md:!px-20">
+    <div className="bg-[#7c1d1d] text-white !px-6 md:!px-20">
+      {/* #6b1e1e */}
       {/* Social + Counter Row */}
       <div className="w-full !px-4">
-        <section className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+        <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">
           {/* Left: Social Icons */}
           <div className="flex flex-wrap gap-4 text-2xl items-center">
             <h3 className="text-lg">Follow us:</h3>
@@ -46,26 +47,40 @@ const Footer = () => {
         </section>
       </div>
 
-      {/* Contact Info */}
-      <div className="grid grid-cols-1 md:grid-cols-2 text-center gap-8 border-t border-gray-600 !pt-8 !mt-6">
+      {/* Contact Info - Centered */}
+      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-400 text-center md:text-center !pt-4 place-items-center">
         {/* Write Us */}
-        <div>
-          <h4 className="text-lg font-semibold !mb-2">Write Us</h4>
-          <p className="flex justify-center items-center gap-2 text-sm !p-0 !m-0">
+        <div className="!py-4">
+          <h4 className="text-xl font-semibold !mb-2">Write Us</h4>
+          <p className="flex justify-center items-center gap-2 text-lg !p-0 !m-0">
             <FaEnvelope /> info@nriproperty.uk
           </p>
         </div>
 
         {/* Call Us */}
-        <div>
-          <h4 className="text-lg font-semibold !mb-2">Call Us</h4>
-          <div className="text-sm">
-            <p className="flex justify-center items-center gap-2 !m-0 !p-0">
-              <FaPhoneAlt /> UK: +44-7868143558
-            </p>
-            <p className="flex justify-center items-center gap-2 !m-0 !p-0">
-              <FaPhoneAlt /> IN: +91-9216399808
-            </p>
+        <div className="!py-6 w-full">
+          {/* Wrap heading + numbers inside one flex container */}
+          <div className="flex flex-col items-center text-center">
+            <h4 className="text-xl font-semibold !mb-4">Call Us</h4>
+
+            <div className="text-lg space-y-2">
+              <div className="flex items-center gap-2 justify-center">
+                <FaPhoneAlt className="text-base" />
+                <span className="whitespace-nowrap">UK: +44-7868143558</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center">
+                <FaPhoneAlt className="text-base" />
+                <span className="whitespace-nowrap">IN: +91-9216399808</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center">
+                <FaPhoneAlt className="text-base" />
+                <span className="whitespace-nowrap">CA: +1-613-295-6385</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center">
+                <FaPhoneAlt className="text-base" />
+                <span className="whitespace-nowrap">US: +1-414-690-6435</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
