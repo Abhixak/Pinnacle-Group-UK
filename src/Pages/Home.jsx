@@ -6,6 +6,7 @@ import Footer from "../Components/Footer";
 import NRIAdvice from "../Components/NRIAdvice";
 import PopUpEnquiry from "../Components/PopUpEnquiry";
 import ServicesSection from "../Components/Services";
+import SocialMedia from "../Components/SocialMedia";
 
 const Home = () => {
   return (
@@ -46,9 +47,10 @@ const Home = () => {
       <Ad />
       <NRIAdvice />
       <ServicesSection />
+      <SocialMedia />
+
       <EnquiryForm />
       <AboutSection />
-      {/* <SocialMedia /> */}
       <Footer />
     </div>
   );
