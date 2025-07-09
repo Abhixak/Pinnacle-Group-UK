@@ -12,9 +12,29 @@ const Footer = () => {
           {/* Left: Social Icons */}
           <div className="flex gap-4 text-2xl items-center">
             <h3 className="text-lg">Follow us:</h3>
-            <MdFacebook className="text-blue-600 cursor-pointer" />
-            <AiFillInstagram className="text-[#E1306C] cursor-pointer" />
-            <FaYoutube className="text-red-600 cursor-pointer" />
+            <a
+              href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MdFacebook className="text-blue-600 cursor-pointer" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/pinnaclegrouplondon/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiFillInstagram className="text-[#E1306C] cursor-pointer" />
+            </a>
+
+            <a
+              href="https://youtube.com/@pinnaclegroupofficial?si=RICyMon1CkU2s2pp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube className="text-red-600 cursor-pointer" />
+            </a>
           </div>
 
           {/* Right: Visit Counter */}
