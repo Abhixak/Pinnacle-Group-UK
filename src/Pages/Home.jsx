@@ -4,6 +4,7 @@ import Chatbot from "../Components/Chatbot";
 import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import NRIAdvice from "../Components/NRIAdvice";
+import PopUpEnquiry from "../Components/PopUpEnquiry";
 import ServicesSection from "../Components/Services";
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
       </div> */}
       {/* <Ad /> */}
       <Chatbot />
+      <PopUpEnquiry />
       <Ad />
       <NRIAdvice />
       <ServicesSection />
