@@ -55,10 +55,7 @@ const Footer = () => {
           </h4>
           <p className="flex justify-center items-center gap-2 text-lg !p-0 !m-0">
             <FaEnvelope className="text-[#c53030]" />
-            <a
-              href="mailto:info@nriproperty.uk"
-              className="text-[#007BFF]"
-            >
+            <a href="mailto:info@nriproperty.uk" className="text-[#007BFF]">
               info@nriproperty.uk
             </a>
           </p>
@@ -75,30 +72,45 @@ const Footer = () => {
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
                 UK:
-                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                <a
+                  href="tel:+447868143558"
+                  className="whitespace-nowrap text-left text-[#007BFF]"
+                >
                   +44-7868143558
-                </span>
+                </a>
               </div>
+
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
                 IN:
-                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                <a
+                  href="tel:+919216399808"
+                  className="whitespace-nowrap text-left text-[#007BFF]"
+                >
                   +91-9216399808
-                </span>
+                </a>
               </div>
+
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
                 CA:
-                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                <a
+                  href="tel:+16132956385"
+                  className="whitespace-nowrap text-left text-[#007BFF]"
+                >
                   +1-613-295-6385
-                </span>
+                </a>
               </div>
+
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
-                <FaPhoneAlt className=" text-base !mt-1 lg:!mt-2" />
+                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
                 US:
-                <span className="whitespace-nowrap text-left text-[#007BFF]">
+                <a
+                  href="tel:+14146906435"
+                  className="whitespace-nowrap text-left text-[#007BFF]"
+                >
                   +1-414-690-6435
-                </span>
+                </a>
               </div>
             </div>
           </div>
