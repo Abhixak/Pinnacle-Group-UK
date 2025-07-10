@@ -1,5 +1,5 @@
 import React from "react";
-import Video from "../assets/video.mp4";
+import Video from "../assets/PinnacleVideo.mp4";
 // import Poster from "../assets/poster.png";
 
 const Ad = () => {
