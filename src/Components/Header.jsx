@@ -17,9 +17,9 @@ const Header = () => {
         {/* bg-[#f5fefe] */}
         {/* Logo */}
         <img
-          src="/PinnacleLogo.png"
-          alt="logo"
-          className="!ml-2 lg:!ml-5 w-34 md:w-38 lg:w-45 transition-all duration-300"
+          src="/NewLogo.png"
+          alt="Pinnacle Group Logo"
+          className="!ml-2 lg:!ml-5 w-34 md:w-38 !p-1 lg:w-45 transition-all duration-300"
         />
 
         {/* Desktop Navigation */}
