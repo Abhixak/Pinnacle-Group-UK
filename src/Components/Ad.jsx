@@ -5,6 +5,7 @@ import Video from "../assets/video.mp4";
 const Ad = () => {
   return (
     <div className="!mb-4 rounded-xl bg-white">
+      {/* Main Video */}
       <video
         src={Video}
         className="w-full aspect-video object-contain rounded-xl"
