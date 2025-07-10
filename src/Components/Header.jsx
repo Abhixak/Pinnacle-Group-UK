@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className="font-sans w-full !px-5 !pt-5 bg-gradient-to-b from-[#d3eaff] to-[#f5fefe]">
-      <div className="w-full h-30 md:h-35 flex justify-between items-center border-4 bg-gray-100  border-white rounded-xl relative">
+      <div className="w-full h-30 md:h-35 flex justify-between items-center border-4 bg-white  border-white rounded-xl relative">
         {/* bg-[#f5fefe] */}
         {/* Logo */}
         <img
