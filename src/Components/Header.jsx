@@ -24,17 +24,17 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex text-sm md:text-base lg:text-[1.2em] gap-4 md:gap-6 !mr-5">
-          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             Home
           </li>
-          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             About Us
           </li>
 
           {/* Dropdowns */}
           {["Our Services", "Our Projects"].map((label, idx) => (
             <div key={label} className="relative group">
-              <li className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-colors duration-500">
+              <li className="text-[#1d3d4f] hover:text-[#c53030] cursor-pointer font-semibold transition-colors duration-500">
                 {label}
               </li>
               <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
@@ -44,13 +44,13 @@ const Header = () => {
                     (item) => (
                       <li
                         key={item}
-                        className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer transition-colors duration-300"
+                        className="!px-4 !py-2 hover:bg-[#f2fbfb] hover:text-[#c53030] text-[#374b5c] cursor-pointer transition-colors duration-300"
                       >
                         {item}
                       </li>
                     )
                   )}
-                {label === "Find Property" &&
+                {/* {label === "Find Property" &&
                   ["Mohali", "Chandigarh", "Delhi", "Mumbai", "Noida"].map((item) => (
                     <li
                       key={item}
@@ -58,13 +58,13 @@ const Header = () => {
                     >
                       {item}
                     </li>
-                  ))}
+                  ))} */}
                 {label === "Our Projects" &&
                   ["District One", "Suntec City", "Fintech Square", "Marbella Grand", "Beverly Golf Avenue"].map(
                     (item) => (
                       <li
                         key={item}
-                        className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] cursor-pointer transition-colors duration-300"
+                        className="!px-4 !py-2 hover:bg-[#f2fbfb] text-[#374b5c] hover:text-[#c53030] cursor-pointer transition-colors duration-300"
                       >
                         {item}
                       </li>
@@ -74,10 +74,10 @@ const Header = () => {
             </div>
           ))}
 
-          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             NRI Services
           </li>
-          <li className="text-[#1d3d4f] hover:text-[#209eaa] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
+          <li className="text-[#1d3d4f] hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500">
             Contact Us
           </li>
           <li className="text-[#c94e00] flex hover:text-[#ff7a33] cursor-pointer font-semibold border-2 !p-2 rounded-3xl relative bottom-1 transition-all duration-500">
@@ -104,11 +104,11 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <ul className="flex flex-col gap-4 absolute top-full w-full bg-[#f9fdfd] border-2 rounded-lg border-[#d2d2d2] !mt-5 !p-5 md:hidden z-10">
+          <ul className="flex flex-col gap-4 absolute right-5 top-full w-[60%] bg-[#f9fdfd] border-4 rounded-lg border-[#d2d2d2] !mt-2 !p-6 md:hidden z-10">
             {["Home", "About Us"].map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
+                className="text-[#c53030] hover:text-black cursor-pointer font-semibold transition-all duration-500 border-t-2 border-gray-700 w-full text-center"
               >
                 {item}
               </li>
@@ -136,7 +136,7 @@ const Header = () => {
             ].map(({ label, key, items }) => (
               <div key={key} className="w-full">
                 <div
-                  className="font-semibold text-[#1d3d4f] border-t-2 !py-2 cursor-pointer text-center"
+                  className="font-semibold text-[#c53030] border-t-2 border-gray-700 !py-2 cursor-pointer text-center"
                   onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
                 >
                   {label} ▾
@@ -149,7 +149,7 @@ const Header = () => {
                   {items.map((item) => (
                     <li
                       key={item}
-                      className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer transition-colors duration-300"
+                      className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer  transition-colors duration-300"
                     >
                       {item}
                     </li>
@@ -161,7 +161,7 @@ const Header = () => {
             {["NRI Services", "Contact Us"].map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#1d3d4f] hover:text-[#209eaa] cursor-pointer font-semibold transition-all duration-500 border-t-2 w-full text-center"
+                className="text-[#c53030]  hover:text-[#209eaa] cursor-pointer font-semibold transition-all duration-500 border-t-2 border-gray-700 w-full text-center"
               >
                 {item}
               </li>
