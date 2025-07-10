@@ -19,7 +19,7 @@ const Header = () => {
         <img
           src="/PinnacleLogo.png"
           alt="logo"
-          className="!ml-2 lg:!ml-5 w-34 md:w-38 lg:w-45 !p-2 transition-all duration-300"
+          className="!ml-2 lg:!ml-5 w-34 md:w-38 lg:w-45 transition-all duration-300"
         />
 
         {/* Desktop Navigation */}
