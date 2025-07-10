@@ -55,7 +55,12 @@ const Footer = () => {
           </h4>
           <p className="flex justify-center items-center gap-2 text-lg !p-0 !m-0">
             <FaEnvelope className="text-[#c53030]" />
-            <span className="text-[#007BFF]">info@nriproperty.uk</span>
+            <a
+              href="mailto:info@nriproperty.uk"
+              className="text-[#007BFF]"
+            >
+              info@nriproperty.uk
+            </a>
           </p>
         </div>
 
@@ -69,28 +74,28 @@ const Footer = () => {
             <div className="text-lg space-y-2">
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                UK: 
+                UK:
                 <span className="whitespace-nowrap text-left text-[#007BFF]">
                   +44-7868143558
                 </span>
               </div>
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                IN: 
+                IN:
                 <span className="whitespace-nowrap text-left text-[#007BFF]">
                   +91-9216399808
                 </span>
               </div>
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                CA: 
+                CA:
                 <span className="whitespace-nowrap text-left text-[#007BFF]">
                   +1-613-295-6385
                 </span>
               </div>
               <div className="flex gap-2 text-[#c53030] items-start justify-start">
                 <FaPhoneAlt className=" text-base !mt-1 lg:!mt-2" />
-                US: 
+                US:
                 <span className="whitespace-nowrap text-left text-[#007BFF]">
                   +1-414-690-6435
                 </span>

@@ -209,7 +209,7 @@ const Chatbot = () => {
           setIsOpen(!isOpen);
           setShowRobotIcon(false);
         }}
-        className={`fixed bottom-6 right-6 z-50 border-4 
+        className={`fixed bottom-6 right-6 z-30 border-4 
         transition-all duration-500 ease-in-out
         hover:border-gray-200 hover:text-gray-200 bg-blue-600 hover:bg-blue-700 text-white 
         rounded-full shadow-lg !px-5 !py-3 overflow-hidden inline-flex justify-center items-center`}
