@@ -9,7 +9,7 @@ import PopUpEnquiry from "../Components/PopUpEnquiry";
 import ServicesSection from "../Components/Services";
 import SocialMedia from "../Components/SocialMedia";
 
-const Home = () => {
+const Home = ({ footerRef }) => {
   return (
     <div className="w-full !p-5">
 
@@ -53,7 +53,9 @@ const Home = () => {
 
       <EnquiryForm />
       <AboutSection />
-      <Footer />
+      <div ref={ footerRef }>
+        <Footer />
+      </div>
     </div>
   );
 };
