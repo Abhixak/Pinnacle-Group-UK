@@ -5,7 +5,7 @@ import PMS from "../Components/PMS";
 
 const NRI_Services = () => {
   return (
-    <div className="!px-6 !py-2 bg-gray-100 rounded-xl !mx-5">
+    <div className="!px-6 !py-2 bg-gray-100 rounded-xl !mt-4 !mx-5">
       <h2 className="text-3xl font-bold !my-6 text-center">
         NRI{" "}
         <span className="text-red-600 underline underline-offset-4">
