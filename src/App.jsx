@@ -1,11 +1,18 @@
 import React, { useRef } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import NRI_Services from "./Pages/NRI_Services";
 import ScrollToTop from "./Components/ScrollToTop";
+import ServiceDetails from "./Pages/ServiceDetails";
 
 function ScrollHandlerWrapper() {
   const footerRef = useRef(null);
@@ -25,7 +32,6 @@ function ScrollHandlerWrapper() {
     }
   };
 
-
   return (
     <>
       <Header onContactClick={handleContactClick} />
@@ -34,7 +40,11 @@ function ScrollHandlerWrapper() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/nri-services" element={<NRI_Services />} />
+        {/* <Route path="/ServiceDetails" element={<ServiceDetails />} /> */}
+        <Route path="/ServiceDetails/:serviceType" element={<ServiceDetails />} />
+
       </Routes>
+
     </>
   );
 }
@@ -42,7 +52,7 @@ function ScrollHandlerWrapper() {
 function App() {
   return (
     <Router>
-       <ScrollToTop />
+      <ScrollToTop />
       <ScrollHandlerWrapper />
     </Router>
   );

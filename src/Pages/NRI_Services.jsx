@@ -2,10 +2,13 @@ import React from "react";
 import Footer from "../Components/Footer";
 import EnquiryForm from "../Components/Enquire";
 import PMS from "../Components/PMS";
+import Chatbot from "../Components/Chatbot";
 
 const NRI_Services = () => {
   return (
     <div className="!px-6 !py-2 bg-gray-100 rounded-xl !mt-4 !mx-5">
+      {/* Chatbot */}
+      <Chatbot />
       <h2 className="text-3xl font-bold !my-6 text-center">
         NRI{" "}
         <span className="text-red-600 underline underline-offset-4">

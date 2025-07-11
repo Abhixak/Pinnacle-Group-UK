@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -16,8 +16,26 @@ const Header = ({ onContactClick }) => {
     onContactClick?.();
     setIsMenuOpen(false);
   };
+
+  const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
+
+  // Map readable labels to URL slugs
+  const serviceLinkMap = {
+    "Selling Property": "selling",
+    "Buying Property": "buying",
+    "Leasing Property": "leasing",
+    "Property Loan Consultant": "loan", // optional placeholder if you use it
+  };
+
+  const handleServiceClick = (service) => {
+    const slug = serviceLinkMap[service];
+    if (slug) {
+      navigate(`/ServiceDetails/${slug}`);
+      setIsMenuOpen(false); // also close mobile menu if open
+    }
+  };
 
   return (
     <div className="font-sans w-full !px-5 !pt-5 bg-gradient-to-b from-[#d3eaff] to-[#f5fefe]">
@@ -52,37 +70,49 @@ const Header = ({ onContactClick }) => {
           </li>
 
           {/* Dropdowns */}
-          {["Our Services", "Our Projects"].map((label) => (
-            <div key={label} className="relative group">
-              <li className="text-[#1d3d4f] hover:text-[#c53030] cursor-pointer font-semibold transition-colors duration-500">
-                {label}
-              </li>
-              <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
-                {(label === "Our Services"
-                  ? [
-                      "Property Loan Consultant",
-                      "Selling Property",
-                      "Buying Property",
-                      "Leasing Property",
-                    ]
-                  : [
-                      "District One",
-                      "Suntec City",
-                      "Fintech Square",
-                      "Marbella Grand",
-                      "Beverly Golf Avenue",
-                    ]
-                ).map((item) => (
-                  <li
-                    key={item}
-                    className="!px-4 !py-2 hover:bg-[#f2fbfb] hover:text-[#c53030] text-[#374b5c] cursor-pointer transition-colors duration-300"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="relative group">
+            <li className="text-[#1d3d4f] hover:text-[#c53030] cursor-pointer font-semibold transition-colors duration-500">
+              Our Services
+            </li>
+            <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
+              {[
+                "Property Loan Consultant",
+                "Selling Property",
+                "Buying Property",
+                "Leasing Property",
+              ].map((item) => (
+                <li
+                  key={item}
+                  onClick={() => handleServiceClick(item)}
+                  className="!px-4 !py-2 hover:bg-[#f2fbfb] hover:text-[#c53030] text-[#374b5c] cursor-pointer transition-colors duration-300"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative group">
+            <li className="text-[#1d3d4f] hover:text-[#c53030] cursor-pointer font-semibold transition-colors duration-500">
+              Our Projects
+            </li>
+            <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
+              {[
+                "District One",
+                "Suntec City",
+                "Fintech Square",
+                "Marbella Grand",
+                "Beverly Golf Avenue",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="!px-4 !py-2 hover:bg-[#f2fbfb] hover:text-[#c53030] text-[#374b5c] cursor-pointer transition-colors duration-300"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <li>
             <Link
@@ -178,6 +208,7 @@ const Header = ({ onContactClick }) => {
                   {items.map((item) => (
                     <li
                       key={item}
+                      onClick={() => handleServiceClick(item)}
                       className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer transition-colors duration-300"
                     >
                       {item}

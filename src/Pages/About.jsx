@@ -1,9 +1,12 @@
+import Chatbot from "../Components/Chatbot";
 import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
 
 const About = () => {
   return (
     <div className="!px-6">
+      {/* Chatbot */}
+      <Chatbot /> 
       <h2 className="text-3xl font-bold !my-6 text-center">
         About{" "}
         <span className="text-red-600 underline underline-offset-4">
