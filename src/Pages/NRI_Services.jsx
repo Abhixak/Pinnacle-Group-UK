@@ -28,6 +28,7 @@ const NRI_Services = () => {
       </section>
       <EnquiryForm />
       <PMS />
+      <hr />
       <Footer />
     </div>
   );
