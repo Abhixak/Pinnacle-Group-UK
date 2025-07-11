@@ -41,7 +41,8 @@ const ServiceDetails = () => {
         <Chatbot />
         <div className="!m-5 !p-5 bg-red-100 text-red-600 rounded-xl text-center">
           <h2 className="text-xl font-bold">Service Not Found</h2>
-          <p>Kindly Contact the Advisor on given numbers.</p>
+          <p>You can contact the Advisor regarding this service.</p>
+          
         </div>
         <ServicesSection />
         <Footer />
