@@ -13,7 +13,7 @@ const PMS = () => {
       <h2 className="text-3xl font-bold !mb-8 text-center">
         NRI{" "}
         <span className="text-red-600 underline underline-offset-4">
-          Property Management System
+          Property Management Services
         </span>
       </h2>
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
