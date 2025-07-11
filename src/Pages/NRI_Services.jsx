@@ -12,7 +12,7 @@ const NRI_Services = () => {
           Services
         </span>
       </h2>
-      <section className="text-left !px-2 !py-4 text-gray-600 text-lg !mb-6 font-serif">
+      <section className="text-center !px-2 !py-4 text-gray-600 text-lg !mb-6 font-serif">
         <p>
           Pinnacle Group is one of the leading real estate houses in Mohali in
           Punjab that manage their business very professionally. That is why we
