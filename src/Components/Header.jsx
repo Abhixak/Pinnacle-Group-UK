@@ -85,13 +85,51 @@ const Header = ({ onContactClick }) => {
         {isMenuOpen && (
           <ul className="flex flex-col gap-4 absolute right-5 top-full w-[60%] bg-[#f9fdfd] border-4 rounded-lg border-[#d2d2d2] !mt-2 !p-6 md:hidden z-10">
             <li className="text-[#c53030] hover:text-black cursor-pointer font-semibold border-t-2 border-gray-700 text-center">
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
             </li>
             <li className="text-[#c53030] hover:text-black cursor-pointer font-semibold border-t-2 border-gray-700 text-center">
-              <Link to="/about">About Us</Link>
+              <Link to="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
             </li>
+
+            {/* Mobile Dropdowns */}
+            {[
+              {
+                label: "Our Services",
+                key: "services",
+                items: ["Property Loan Consultant", "Selling Property", "Buying Property", "Leasing Property"],
+              },
+              {
+                label: "Our Projects",
+                key: "projects",
+                items: ["District One", "Suntec City", "Fintech Square", "Marbella Grand", "Beverly Golf Avenue"],
+              },
+            ].map(({ label, key, items }) => (
+              <div key={key} className="w-full">
+                <div
+                  className="font-semibold text-[#c53030] border-t-2 border-gray-700 !py-2 cursor-pointer text-center"
+                  onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
+                >
+                  {label} ▾
+                </div>
+                <ul
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openDropdown === key ? "max-h-96" : "max-h-0"
+                  } !pl-4 space-y-1 text-center`}
+                >
+                  {items.map((item) => (
+                    <li
+                      key={item}
+                      className="hover:text-[#209eaa] text-[#374b5c] cursor-pointer transition-colors duration-300"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
             <li className="text-[#c53030] hover:text-[#209eaa] cursor-pointer font-semibold border-t-2 border-gray-700 text-center">
-              <Link to="/nri-services">NRI Services</Link>
+              <Link to="/nri-services" onClick={() => setIsMenuOpen(false)}>NRI Services</Link>
             </li>
             <li
               className="text-[#c53030] hover:text-[#209eaa] cursor-pointer font-semibold border-t-2 border-gray-700 text-center"
