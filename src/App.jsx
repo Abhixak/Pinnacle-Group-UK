@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import NRI_Services from "./Pages/NRI_Services";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function ScrollHandlerWrapper() {
   const footerRef = useRef(null);
@@ -17,12 +18,13 @@ function ScrollHandlerWrapper() {
       footerRef.current?.scrollIntoView({ behavior: "smooth" });
     } else {
       // Navigate to home, then scroll
-      navigate("/");
+      navigate("/", { state: { scrollToFooter: true } });
       setTimeout(() => {
         footerRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 100); // small delay to ensure DOM renders
     }
   };
+
 
   return (
     <>
@@ -40,6 +42,7 @@ function ScrollHandlerWrapper() {
 function App() {
   return (
     <Router>
+       <ScrollToTop />
       <ScrollHandlerWrapper />
     </Router>
   );

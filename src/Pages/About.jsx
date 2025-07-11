@@ -24,18 +24,20 @@ const About = () => {
           of the company in the year 2007, we have benefitted many clients by
           providing world-class services at the most reasonable charges. Keeping
           in mind the convenience of the clients we are offering prompt and
-          reliable services which are highly appreciated by the clients. <br />Under
-          the guidance and supervision of our owner, Mr. Ajay Banger, we have
-          achieved great heights in the real estate domain. We have with us a
-          team of highly efficient and hardworking professionals whose main
+          reliable services which are highly appreciated by the clients. <br />
+          Under the guidance and supervision of our owner, Mr. Ajay Banger, we
+          have achieved great heights in the real estate domain. We have with us
+          a team of highly efficient and hardworking professionals whose main
           concern is to provide full client satisfaction while offering realty
           services. Our professionals understand the exact need and requirement
           of the clients and accordingly provide services to ensure all the
           needs and requirements of the clients are being properly catered to.
         </p>
       </section>
-      <ServicesSection />
-      <Footer />
+    
+        <ServicesSection />
+        <Footer />
+      
     </div>
   );
 };
