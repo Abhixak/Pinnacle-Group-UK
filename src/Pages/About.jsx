@@ -10,7 +10,7 @@ const About = () => {
           Pinnacle Group
         </span>
       </h2>
-      <section className="text-center !px-2 text-blue-900 text-lg !mb-6 font-serif">
+      <section className="text-center !px-2 text-gray-600 text-lg !mb-6 font-serif">
         <p>
           As one of the leading services providers operating in the real estate
           domain, at Pinnacle Group, we are offering host of services according
