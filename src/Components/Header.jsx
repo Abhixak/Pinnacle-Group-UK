@@ -92,7 +92,7 @@ const Header = ({ onContactClick }) => {
             </ul>
           </div>
 
-          <div className="relative group">
+          {/* <div className="relative group">
             <li className="text-[#1d3d4f] hover:text-[#c53030] cursor-pointer font-semibold transition-colors duration-500">
               Our Projects
             </li>
@@ -112,7 +112,7 @@ const Header = ({ onContactClick }) => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <li>
             <Link
@@ -179,17 +179,17 @@ const Header = ({ onContactClick }) => {
                   "Leasing Property",
                 ],
               },
-              {
-                label: "Our Projects",
-                key: "projects",
-                items: [
-                  "District One",
-                  "Suntec City",
-                  "Fintech Square",
-                  "Marbella Grand",
-                  "Beverly Golf Avenue",
-                ],
-              },
+              // {
+              //   label: "Our Projects",
+              //   key: "projects",
+              //   items: [
+              //     "District One",
+              //     "Suntec City",
+              //     "Fintech Square",
+              //     "Marbella Grand",
+              //     "Beverly Golf Avenue",
+              //   ],
+              // },
             ].map(({ label, key, items }) => (
               <div key={key} className="w-full">
                 <div
