@@ -1,10 +1,14 @@
 import React from "react";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaEnvelope, FaPhoneAlt, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt, FaYoutube, FaArrowUp } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
 import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="bg-gray-100 rounded !mb-6 !px-6 md:!px-20 text-gray-800">
       {/* Social + Counter Row */}
@@ -39,9 +43,18 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Right: Visit Counter */}
-          <div className="flex justify-end">
+          {/* Right: Visit Counter + Scroll to Top */}
+          <div className="flex flex-col items-center gap-2">
             <VisitCounter />
+
+            {/* Scroll to Top Button */}
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-2 text-sm text-gray-800 border-2 cursor-pointer bg-white !px-4 !py-2 !mx-2 !mb-6 rounded-full transition"
+            >
+              <FaArrowUp />
+              Go to Top
+            </button>
           </div>
         </section>
       </div>
@@ -69,49 +82,26 @@ const Footer = () => {
             </h4>
 
             <div className="text-lg space-y-2">
-              <div className="flex gap-2 text-[#c53030] items-start justify-start">
-                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                UK:
-                <a
-                  href="tel:+447868143558"
-                  className="whitespace-nowrap text-left text-[#007BFF]"
+              {[
+                { label: "UK", number: "+44-7868143558", href: "tel:+447868143558" },
+                { label: "IN", number: "+91-9216399808", href: "tel:+919216399808" },
+                { label: "CA", number: "+1-613-295-6385", href: "tel:+16132956385" },
+                { label: "US", number: "+1-414-690-6435", href: "tel:+14146906435" },
+              ].map(({ label, number, href }) => (
+                <div
+                  key={label}
+                  className="flex gap-2 text-[#c53030] items-start justify-start"
                 >
-                  +44-7868143558
-                </a>
-              </div>
-
-              <div className="flex gap-2 text-[#c53030] items-start justify-start">
-                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                IN:
-                <a
-                  href="tel:+919216399808"
-                  className="whitespace-nowrap text-left text-[#007BFF]"
-                >
-                  +91-9216399808
-                </a>
-              </div>
-
-              <div className="flex gap-2 text-[#c53030] items-start justify-start">
-                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                CA:
-                <a
-                  href="tel:+16132956385"
-                  className="whitespace-nowrap text-left text-[#007BFF]"
-                >
-                  +1-613-295-6385
-                </a>
-              </div>
-
-              <div className="flex gap-2 text-[#c53030] items-start justify-start">
-                <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                US:
-                <a
-                  href="tel:+14146906435"
-                  className="whitespace-nowrap text-left text-[#007BFF]"
-                >
-                  +1-414-690-6435
-                </a>
-              </div>
+                  <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
+                  {label}:
+                  <a
+                    href={href}
+                    className="whitespace-nowrap text-left text-[#007BFF]"
+                  >
+                    {number}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
