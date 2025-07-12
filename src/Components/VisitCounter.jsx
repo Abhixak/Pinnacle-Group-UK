@@ -1,55 +1,29 @@
-// import React, { useEffect, useRef, useState } from "react";
 
-// const VisitCounter = () => {
-//   const [visitCount, setVisitCount] = useState(0);
-//   const hasUpdated = useRef(false);
-
-//   useEffect(() => {
-//     if (hasUpdated.current) return;
-//     hasUpdated.current = true;
-
-//     const visits = localStorage.getItem("visitCount");
-//     const newCount = visits ? parseInt(visits) + 1 : 1;
-//     localStorage.setItem("visitCount", newCount);
-//     setVisitCount(newCount);
-//   }, []);
-
-//   const formattedCount = visitCount.toString().padStart(7, "0");
-
-//   return (
-//     <div className="!my-4 !px-6 !py-1 rounded-xl bg-black shadow-lg text-white flex items-center gap-3 animate-fade-in">
-//       <span className="text-lg">👁️ Visitors : </span>
-//       <span className="text-xl font-mono tracking-widest bg-black/20 !px-3 !py-1 rounded-md">
-//         {formattedCount}
-//       </span>
-//     </div>
-//   );
-// };
-
-// export default VisitCounter;
-
-
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const VisitCounter = () => {
-  const [visitCount, setVisitCount] = useState(0);
-  const hasUpdated = useRef(false);
+  const [visitCount, setVisitCount] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (hasUpdated.current) return;
-    hasUpdated.current = true;
+  fetch("https://corsproxy.io/?https://api.countapi.xyz/update/pinnaclegroupuk/homepage?amount=1")
+    .then((res) => {
+      if (!res.ok) throw new Error("Network error");
+      return res.json();
+    })
+    .then((data) => setVisitCount(data.value))
+    .catch((err) => {
+      console.error("Visit counter error:", err);
+      setError(true);
+    });
+}, []);
 
-    const visits = localStorage.getItem("visitCount");
-    const newCount = visits ? parseInt(visits) + 1 : 1;
-    localStorage.setItem("visitCount", newCount);
-    setVisitCount(newCount);
-  }, []);
 
   return (
     <div className="!my-4 !px-6 !py-1 rounded-xl bg-black shadow-lg text-white flex items-center gap-3 animate-fade-in">
       <span className="text-lg">👁️ Visitors:</span>
       <span className="text-xl font-mono tracking-widest bg-black/20 !px-3 !py-1 rounded-md">
-        {visitCount}
+        {error ? "Error" : visitCount !== null ? visitCount : "Loading..."}
       </span>
     </div>
   );

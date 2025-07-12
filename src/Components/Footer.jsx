@@ -45,7 +45,7 @@ const Footer = () => {
 
           {/* Right: Visit Counter + Scroll to Top */}
           <div className="flex flex-col items-center gap-2">
-            <VisitCounter />
+            {/* <VisitCounter /> */}
 
             {/* Scroll to Top Button */}
             <button
