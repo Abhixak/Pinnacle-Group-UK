@@ -1,94 +1,113 @@
-import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useState } from "react";
 import MakeCallButton from "./CallBtn";
 
 const EnquiryForm = () => {
-  const form = useRef();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    countryCode: "+91",
+    phone: "",
+    service: "",
+    message: "",
+  });
 
-  const sendEmail = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "your_service_id", // Replace with your EmailJS service ID
-        "your_template_id", // Replace with your EmailJS template ID
-        form.current,
-        "your_public_key" // Replace with your EmailJS public key
-      )
-      .then(
-        (result) => {
-          alert("Message Sent Successfully!");
-          e.target.reset();
+    try {
+      const res = await fetch("http://localhost:5000/api/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          alert(
-            "This Feature is under construction. You can contact Pinnacle Group with given numbers, India: +91-9216399808 || UK: +44-7868143558"
-          );
-        }
-      );
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        alert("Query submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          countryCode: "+91",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        alert("Error submitting query.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Server error. Please try again later.");
+    }
   };
 
   return (
-    <div
-      id="Contact"
-      className="bg-white rounded-xl w-full flex justify-center items-center !px-5 !py-8"
-    >
+    <div id="Contact" className="bg-white rounded-xl w-full flex justify-center items-center !px-5 !py-8">
       <div className="w-full max-w-4xl text-center">
         <h2 className="text-3xl font-bold !mb-8">
           Quick{" "}
-          <span className="text-red-600 underline underline-offset-4">
-            Enquiry
-          </span>
+          <span className="text-red-600 underline underline-offset-4">Enquiry</span>
         </h2>
 
-        <form
-          ref={form}
-          onSubmit={sendEmail}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"
-        >
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
           <input
             type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             placeholder="Your Name"
             className="border !p-3 rounded outline-none"
-            pattern="^[A-Za-z\s]+$"
-            title="Name should contain only letters and spaces"
             required
           />
 
           <input
             type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             placeholder="Email"
             className="border !p-3 rounded outline-none"
             required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           />
 
           <div className="flex w-full">
-            <select className="border border-r-0 !p-3 flex-shrink-0 w-25 sm:w-40 text-[0.8em] sm:text-[1em] rounded-l outline-none bg-white">
+            <select
+              name="countryCode"
+              value={formData.countryCode}
+              onChange={handleChange}
+              className="border border-r-0 !p-3 rounded-l outline-none bg-white"
+            >
               <option value="+91">🇮🇳 India (+91)</option>
               <option value="+44">🇬🇧 UK (+44)</option>
               <option value="+1">🇺🇸 USA (+1)</option>
-              {/* Add more countries as needed */}
             </select>
 
             <input
               type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
               placeholder="Phone / Mobile"
-              className="border !p-3 rounded-r outline-none flex-1 min-w-4"
-              pattern="^[0-9]{10}$"
-              title="Enter valid mobile number"
+              className="border !p-3 rounded-r outline-none flex-1"
               maxLength="10"
               required
             />
           </div>
 
           <select
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
             className="border !p-3 rounded outline-none bg-white"
-            defaultValue=""
+            required
           >
-            <option value="" disabled hidden>
-              Select a Service
-            </option>
+            <option value="" disabled hidden>Select a Service</option>
             <option>Buy a Property</option>
             <option>Sell a Property</option>
             <option>Lease a Property</option>
@@ -96,19 +115,18 @@ const EnquiryForm = () => {
           </select>
 
           <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             placeholder="Leave a Message for us"
             className="border !p-3 rounded outline-none !mt-2 md:col-span-2"
             rows={4}
           ></textarea>
 
           <div className="md:col-span-2 !mt-4 text-lg font-semibold flex gap-4 flex-col md:flex-row justify-center">
-            <button
-              type="submit"
-              className="bg-red-700 text-white !px-6 !py-2 rounded hover:bg-red-800 transition"
-            >
+            <button type="submit" className="bg-red-700 text-white !px-6 !py-2 rounded hover:bg-red-800 transition">
               Send Message
             </button>
-            {/* Make Call is separate and doesn't affect the form */}
             <MakeCallButton />
           </div>
         </form>
