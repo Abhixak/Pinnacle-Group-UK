@@ -21,12 +21,12 @@ const NRI_Services = () => {
           Punjab that manage their business very professionally. That is why we
           are considered one of the best companies that are efficient in giving
           NRI Services. Our services to non-resident Indians include services
-          like buying and selling property anywhere in Chandigarh, Delhi, Noida,
-          Mohali and Mumbai. We also help in evaluating our customer’s property
-          so that they know exactly how much they are worth and can easily sell
-          the property if required. We are backed by an efficient and
-          experienced team that has been attached to the industry for many years
-          now. You can trust and rely on us to do the job most honourably.
+          like buying and selling property anywhere in India. We also help in
+          evaluating our customer’s property so that they know exactly how much
+          they are worth and can easily sell the property if required. We are
+          backed by an efficient and experienced team that has been attached to
+          the industry for many years now. You can trust and rely on us to do
+          the job most honourably.
         </p>
       </section>
       <EnquiryForm />

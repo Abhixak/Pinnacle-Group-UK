@@ -3,8 +3,8 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaEnvelope, FaPhoneAlt, FaYoutube, FaArrowUp } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
 import VisitCounter from "./VisitCounter";
-import retail from "../assets/Retail-Services.jpeg";
-import nri from "../assets/NRI -CONCLAVE.jpeg";
+
+import nri from "../assets/NRI-Conclave2.jpeg";
 import minister from "../assets/Central-Minister.jpeg";
 
 const Footer = () => {
@@ -20,7 +20,6 @@ const Footer = () => {
           {/* Left: Social Icons */}
           <div className="flex flex-wrap gap-4 text-2xl items-center">
             <h3 className="text-lg text-[#6b1e1e]">Follow us:</h3>
-
             <a
               href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page"
               target="_blank"
@@ -28,7 +27,6 @@ const Footer = () => {
             >
               <MdFacebook className="text-blue-600 cursor-pointer" />
             </a>
-
             <a
               href="https://www.instagram.com/pinnaclegrouplondon/"
               target="_blank"
@@ -36,7 +34,6 @@ const Footer = () => {
             >
               <AiFillInstagram className="text-[#E1306C] cursor-pointer" />
             </a>
-
             <a
               href="https://youtube.com/@pinnaclegroupofficial?si=RICyMon1CkU2s2pp"
               target="_blank"
@@ -49,8 +46,6 @@ const Footer = () => {
           {/* Right: Visit Counter + Scroll to Top */}
           <div className="flex flex-col items-center gap-2">
             <VisitCounter />
-
-            {/* Scroll to Top Button */}
             <button
               onClick={scrollToTop}
               className="flex items-center gap-2 text-sm text-gray-800 border-2 cursor-pointer bg-white !px-4 !py-2 !mx-2 !mb-6 rounded-full transition"
@@ -62,36 +57,42 @@ const Footer = () => {
         </section>
       </div>
 
-      {/* Contact Info */}
-      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-300 text-center md:text-center !p-6 place-items-center">
-        <div className="w-full max-w-3xl !mx-auto !py-4 overflow-hidden relative rounded-xl shadow-md bg-white">
-          <div className="w-full max-w-3xl !mx-auto py-4 overflow-hidden rounded-xl">
-            <h4 className="text-xl font-semibold !mb-2  text-[#6b1e1e]">
-              Awards & Honor
-            </h4>
-            <div className="flex w-[300%] animate-slide3">
-              <img
-                src={retail}
-                alt="Retail Services"
-                className="w-full h-48 sm:h-56 md:h-64 object-cover"
-              />
+      {/* Contact Info Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 border-t border-gray-300 text-center !p-6 place-items-center">
+        {/* Achievements & Awards */}
+        <div className="w-full max-w-sm !mx-auto !py-4 overflow-hidden rounded-xl shadow-md bg-white">
+          <h4 className="text-md md:text-lg xl:text-xl !px-4 font-semibold !mb-4 text-[#6b1e1e]">
+            Achievements & Awards
+          </h4>
+
+          <div className="!px-4 flex flex-col sm:flex-row justify-center items-center gap-6">
+            {/* Award 1 */}
+            <div className="flex flex-col items-center text-center">
+              <p className="text-blue-500 text-sm md:text-base !mb-2">
+                NRI CONCLAVE - 2025
+              </p>
               <img
                 src={nri}
                 alt="NRI Conclave"
-                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                className="h-40 md:h-48 object-contain max-w-[180px] w-full"
               />
+            </div>
+
+            {/* Award 2 */}
+            <div className="flex flex-col items-center text-center">
+              <p className="text-blue-500 text-sm md:text-base !mb-2">
+                BEST NRI PROPERTY MANAGEMENT SERVICES - 2024
+              </p>
               <img
                 src={minister}
                 alt="Minister Harsh Malhotra"
-                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                className="h-40 md:h-48 object-contain max-w-[180px] w-full"
               />
-              <div className="Text-center flex items-center font-bold relative text-[1.3em] left-10">
-                OUR &nbsp;&nbsp; <br />{" "}
-                <span className="text-red-800">ACHIEVEMENTS</span>
-              </div>
             </div>
           </div>
         </div>
+
+        {/* Write Us */}
         <div className="!py-4">
           <h4 className="text-xl font-semibold !mb-2 text-[#6b1e1e]">
             Write Us
@@ -110,7 +111,6 @@ const Footer = () => {
             <h4 className="text-xl font-semibold !mb-4 text-[#6b1e1e]">
               Call Us
             </h4>
-
             <div className="text-lg space-y-2">
               {[
                 {
