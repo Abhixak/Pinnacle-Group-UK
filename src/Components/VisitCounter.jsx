@@ -9,7 +9,7 @@ const VisitCounter = () => {
     if (hasIncremented.current) return; // ⛔ skip if already called
     hasIncremented.current = true;
 
-    fetch("http://localhost:3001/api/visit")
+    fetch("https://pinnacle-backend-v0yj.onrender.com/")
       .then((res) => res.json())
       .then((data) => setVisitCount(data.visits))
       .catch((err) => {
