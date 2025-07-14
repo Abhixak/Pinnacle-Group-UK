@@ -60,7 +60,7 @@ const Footer = () => {
       {/* Contact Info Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 border-t border-gray-300 text-center !p-6 place-items-center">
         {/* Achievements & Awards */}
-        <div className="w-full max-w-sm !mx-auto !py-4 overflow-hidden rounded-xl shadow-md bg-white">
+        <div className="w-full max-w-sm !mx-auto !py-4 overflow-hidden rounded-xl">
           <h4 className="text-md md:text-lg xl:text-xl !px-4 font-semibold !mb-4 text-[#6b1e1e]">
             Achievements & Awards
           </h4>
@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="!px-4 flex flex-col sm:flex-row justify-center items-center gap-6">
             {/* Award 1 */}
             <div className="flex flex-col items-center text-center">
-              <p className="text-blue-500 text-sm md:text-base !mb-2">
+              <p className="text-blue-600 text-sm md:text-base !mb-2">
                 NRI CONCLAVE - 2025
               </p>
               <img
@@ -80,7 +80,7 @@ const Footer = () => {
 
             {/* Award 2 */}
             <div className="flex flex-col items-center text-center">
-              <p className="text-blue-500 text-sm md:text-base !mb-2">
+              <p className="text-blue-600 text-sm md:text-base !mb-2">
                 BEST NRI PROPERTY MANAGEMENT SERVICES - 2024
               </p>
               <img
