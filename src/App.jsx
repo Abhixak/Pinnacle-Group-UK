@@ -13,6 +13,7 @@ import Contact from "./Pages/Contact";
 import NRI_Services from "./Pages/NRI_Services";
 import ScrollToTop from "./Components/ScrollToTop";
 import ServiceDetails from "./Pages/ServiceDetails";
+import Footer from "./Components/Footer";
 
 function ScrollHandlerWrapper() {
   const footerRef = useRef(null);
@@ -41,10 +42,11 @@ function ScrollHandlerWrapper() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/nri-services" element={<NRI_Services />} />
         {/* <Route path="/ServiceDetails" element={<ServiceDetails />} /> */}
-        <Route path="/ServiceDetails/:serviceType" element={<ServiceDetails />} />
-
+        <Route
+          path="/ServiceDetails/:serviceType"
+          element={<ServiceDetails />}
+        />
       </Routes>
-
     </>
   );
 }

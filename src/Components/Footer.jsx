@@ -3,6 +3,9 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaEnvelope, FaPhoneAlt, FaYoutube, FaArrowUp } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
 import VisitCounter from "./VisitCounter";
+import retail from "../assets/Retail-Services.jpeg";
+import nri from "../assets/NRI -CONCLAVE.jpeg";
+import minister from "../assets/Central-Minister.jpeg";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -60,8 +63,35 @@ const Footer = () => {
       </div>
 
       {/* Contact Info */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-300 text-center md:text-center !pt-4 place-items-center">
-        {/* Write Us */}
+      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-300 text-center md:text-center !p-6 place-items-center">
+        <div className="w-full max-w-3xl !mx-auto !py-4 overflow-hidden relative rounded-xl shadow-md bg-white">
+          <div className="w-full max-w-3xl !mx-auto py-4 overflow-hidden rounded-xl">
+            <h4 className="text-xl font-semibold !mb-2  text-[#6b1e1e]">
+              Awards & Honor
+            </h4>
+            <div className="flex w-[300%] animate-slide3">
+              <img
+                src={retail}
+                alt="Retail Services"
+                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+              />
+              <img
+                src={nri}
+                alt="NRI Conclave"
+                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+              />
+              <img
+                src={minister}
+                alt="Minister Harsh Malhotra"
+                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+              />
+              <div className="Text-center flex items-center font-bold relative text-[1.3em] left-10">
+                OUR &nbsp;&nbsp; <br />{" "}
+                <span className="text-red-800">ACHIEVEMENTS</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="!py-4">
           <h4 className="text-xl font-semibold !mb-2 text-[#6b1e1e]">
             Write Us
@@ -83,10 +113,26 @@ const Footer = () => {
 
             <div className="text-lg space-y-2">
               {[
-                { label: "UK", number: "+44-7868143558", href: "tel:+447868143558" },
-                { label: "IN", number: "+91-9216399808", href: "tel:+919216399808" },
-                { label: "CA", number: "+1-613-295-6385", href: "tel:+16132956385" },
-                { label: "US", number: "+1-414-690-6435", href: "tel:+14146906435" },
+                {
+                  label: "UK",
+                  number: "+44-7868143558",
+                  href: "tel:+447868143558",
+                },
+                {
+                  label: "IN",
+                  number: "+91-9216399808",
+                  href: "tel:+919216399808",
+                },
+                {
+                  label: "CA",
+                  number: "+1-613-295-6385",
+                  href: "tel:+16132956385",
+                },
+                {
+                  label: "US",
+                  number: "+1-414-690-6435",
+                  href: "tel:+14146906435",
+                },
               ].map(({ label, number, href }) => (
                 <div
                   key={label}

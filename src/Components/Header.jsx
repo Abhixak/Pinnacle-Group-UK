@@ -76,7 +76,7 @@ const Header = ({ onContactClick }) => {
             </li>
             <ul className="absolute top-full left-0 bg-white rounded-lg shadow-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-10 min-w-[200px]">
               {[
-                "Property Loan Consultant",
+                
                 "Selling Property",
                 "Buying Property",
                 "Leasing Property",
@@ -173,7 +173,7 @@ const Header = ({ onContactClick }) => {
                 label: "Our Services",
                 key: "services",
                 items: [
-                  "Property Loan Consultant",
+                  
                   "Selling Property",
                   "Buying Property",
                   "Leasing Property",

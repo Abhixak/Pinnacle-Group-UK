@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="!px-6">
       {/* Chatbot */}
-      <Chatbot /> 
+      <Chatbot />
       <h2 className="text-3xl font-bold !my-6 text-center">
         About{" "}
         <span className="text-red-600 underline underline-offset-4">
@@ -18,16 +18,17 @@ const About = () => {
           As one of the leading services providers operating in the real estate
           domain, at Pinnacle Group, we are offering host of services according
           to the various realty needs and requirements of the clients. Located
-          in India, United Kingdom, United States of America, Canada. we are offering services
-          such as Buying Property Services, Selling Property Services, Leasing
-          Property Services and Property Loan Consultancy. As a reliable service
-          provider, we are offering services keeping in mind the various realty
-          needs and requirements of the clients, providing them with good and
-          effective realty solution on a prompt basis. Since the incorporation
-          of the company in the year 2007, we have benefitted many clients by
-          providing world-class services at the most reasonable charges. Keeping
-          in mind the convenience of the clients we are offering prompt and
-          reliable services which are highly appreciated by the clients. <br />
+          in India, United Kingdom, United States of America, Canada, we have
+          specialization in <span className="text-red-800 font-semibold">NRI Property Management Services</span> such as Buying
+          Property Services, Selling Property Services and Leasing Property
+          Services. As a reliable service provider, we are offering services
+          keeping in mind the various realty needs and requirements of the
+          clients, providing them with good and effective realty solution on a
+          prompt basis. Since the incorporation of the company in the year 2007,
+          we have benefitted many clients by providing world-class services at
+          the most reasonable charges. Keeping in mind the convenience of the
+          clients we are offering prompt and reliable services which are highly
+          appreciated by the clients. <br />
           Under the guidance and supervision of our owner, Mr. Ajay Banger, we
           have achieved great heights in the real estate domain. We have with us
           a team of highly efficient and hardworking professionals whose main
@@ -37,10 +38,9 @@ const About = () => {
           needs and requirements of the clients are being properly catered to.
         </p>
       </section>
-    
-        <ServicesSection />
-        <Footer />
-      
+
+      <ServicesSection />
+      <Footer />
     </div>
   );
 };

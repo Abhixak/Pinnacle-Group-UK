@@ -17,7 +17,7 @@ const AboutSection = () => {
         clients.
       </p>
       <p className="text-sm leading-7 text-center !mb-6 !mx-auto">
-        Located in India, United Kingdom, United States of America, Canada we are offering services such as Buying
+        Located in India, United Kingdom, United States of America, Canada, we have specialization in <span className="text-red-800 font-semibold">NRI Property Management Services</span> such as Buying
         Property Services, Selling Property Services, Leasing Property Services
         and Property Loan Consultancy. As a reliable service provider, we are
         offering services keeping in mind the various realty needs and
