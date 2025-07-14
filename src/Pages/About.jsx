@@ -18,7 +18,7 @@ const About = () => {
           As one of the leading services providers operating in the real estate
           domain, at Pinnacle Group, we are offering host of services according
           to the various realty needs and requirements of the clients. Located
-          in Mohali, Punjab, & Wolverhampton London. we are offering services
+          in India, United Kingdom, United States of America, Canada. we are offering services
           such as Buying Property Services, Selling Property Services, Leasing
           Property Services and Property Loan Consultancy. As a reliable service
           provider, we are offering services keeping in mind the various realty

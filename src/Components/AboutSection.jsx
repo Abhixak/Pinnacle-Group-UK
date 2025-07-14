@@ -17,7 +17,7 @@ const AboutSection = () => {
         clients.
       </p>
       <p className="text-sm leading-7 text-center !mb-6 !mx-auto">
-        Located in Mohali, Punjab, we are offering services such as Buying
+        Located in India, United Kingdom, United States of America, Canada we are offering services such as Buying
         Property Services, Selling Property Services, Leasing Property Services
         and Property Loan Consultancy. As a reliable service provider, we are
         offering services keeping in mind the various realty needs and
