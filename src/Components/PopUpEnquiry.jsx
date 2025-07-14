@@ -18,10 +18,10 @@ const PopUpEnquiry = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_h2ax3kz",          // ✅ Your Service ID
-        "template_1iz83m7",         // ✅ Your Template ID
+        "service_h2ax3kz", // ✅ Your Service ID
+        "template_1iz83m7", // ✅ Your Template ID
         form.current,
-        "pQqSTFuOf-O4iXuH-"         // ✅ Your Public Key
+        "pQqSTFuOf-O4iXuH-" // ✅ Your Public Key
       )
       .then(
         () => {
@@ -85,15 +85,19 @@ const PopUpEnquiry = () => {
             />
 
             <div className="flex w-full">
-              <select
+              <input
+                type="text"
                 name="countryCode"
                 className="border border-r-0 !p-3 flex-shrink-0 w-25 sm:w-40 text-[0.8em] sm:text-[1em] rounded-l outline-none bg-white"
-              >
+                list="countryCodes"
+                placeholder="Country Code"
+              />
+              <datalist id="countryCodes">
                 <option value="+91">🇮🇳 India (+91)</option>
                 <option value="+44">🇬🇧 UK (+44)</option>
                 <option value="+1">🇺🇸 USA (+1)</option>
-                {/* Keep or reduce country list as needed */}
-              </select>
+                {/* Add more country codes if needed */}
+              </datalist>
 
               <input
                 name="phone"

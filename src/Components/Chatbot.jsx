@@ -42,7 +42,10 @@ const Chatbot = () => {
     setChatHistory((prev) => [...prev, { sender, text }]);
     setCollectedData((prev) => ({
       ...prev,
-      messages: [...prev.messages, `${sender === "bot" ? "🤖" : "User"}: ${text}`],
+      messages: [
+        ...prev.messages,
+        `${sender === "bot" ? "🤖" : "User"}: ${text}`,
+      ],
     }));
     scrollToBottom();
   };
@@ -148,7 +151,10 @@ const Chatbot = () => {
         ]);
         break;
       case "Legal Help":
-        addMessage("bot", "We offer POA, title checks & NRI legal support. Want a callback?");
+        addMessage(
+          "bot",
+          "We offer POA, title checks & NRI legal support. Want a callback?"
+        );
         setFollowupOptions(["Yes", "No"]);
         break;
       case "Talk to Advisor":
@@ -160,7 +166,10 @@ const Chatbot = () => {
         setFollowupOptions(["India Branch", "London Branch"]);
         break;
       case "Thanks":
-        addMessage("bot", "You're welcome! Let us know if you need anything else.");
+        addMessage(
+          "bot",
+          "You're welcome! Let us know if you need anything else."
+        );
         setFollowupOptions(mainOptions);
         break;
       case "India Branch":
@@ -224,12 +233,17 @@ const Chatbot = () => {
             </button>
           </div>
 
-          <div ref={chatboxRef} className="flex-1 overflow-y-auto !px-4 !py-3 bg-gray-50">
+          <div
+            ref={chatboxRef}
+            className="flex-1 overflow-y-auto !px-4 !py-3 bg-gray-50"
+          >
             {chatHistory.map((msg, idx) => (
               <div
                 key={idx}
                 className={`!my-2 text-sm ${
-                  msg.sender === "bot" ? "text-blue-700 text-left" : "text-right text-gray-800"
+                  msg.sender === "bot"
+                    ? "text-blue-700 text-left"
+                    : "text-right text-gray-800"
                 }`}
               >
                 {msg.sender === "bot" ? "🤖 " : ""}
@@ -259,15 +273,20 @@ const Chatbot = () => {
 
           {showInput && inputType === "countryCode" && (
             <div className="flex flex-col sm:flex-row border-t bg-white !px-3 !py-2 gap-2">
-              <select
+              <input
+                type="text"
                 className="w-full text-sm border rounded-lg !px-3 !py-2 outline-none"
+                list="countryCodes"
                 value={selectedCode}
                 onChange={(e) => setSelectedCode(e.target.value)}
-              >
+                placeholder="Enter country code"
+              />
+              <datalist id="countryCodes">
                 <option value="+91">🇮🇳 India (+91)</option>
                 <option value="+44">🇬🇧 UK (+44)</option>
                 <option value="+1">🇺🇸 USA (+1)</option>
-              </select>
+              </datalist>
+
               <button
                 onClick={handleDetailSubmit}
                 className="bg-blue-600 hover:bg-blue-700 text-white text-sm !px-4 !py-2 rounded-lg"
@@ -295,7 +314,11 @@ const Chatbot = () => {
 
       {/* Hidden Form to Send Email */}
       <form ref={formRef} onSubmit={sendEmail} style={{ display: "none" }}>
-        <textarea name="message" value={collectedData.messages.join("\n")} readOnly />
+        <textarea
+          name="message"
+          value={collectedData.messages.join("\n")}
+          readOnly
+        />
         <button type="submit">Send</button>
       </form>
     </>

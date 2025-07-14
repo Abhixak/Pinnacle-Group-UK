@@ -10,10 +10,10 @@ const EnquiryForm = () => {
 
     emailjs
       .sendForm(
-        "service_h2ax3kz",      // ✅ Your Service ID
-        "template_1iz83m7",     // ✅ Your Template ID
+        "service_h2ax3kz", // ✅ Your Service ID
+        "template_1iz83m7", // ✅ Your Template ID
         formRef.current,
-        "pQqSTFuOf-O4iXuH-"     // ✅ Your Public Key
+        "pQqSTFuOf-O4iXuH-" // ✅ Your Public Key
       )
       .then(
         (result) => {
@@ -65,14 +65,18 @@ const EnquiryForm = () => {
           />
 
           <div className="flex w-full">
-            <select
+            <input
+              type="text"
               name="countryCode"
               className="border border-r-0 !p-3 rounded-l outline-none bg-white"
-            >
+              list="countryCodes"
+              placeholder="Country Code"
+            />
+            <datalist id="countryCodes">
               <option value="+91">🇮🇳 India (+91)</option>
               <option value="+44">🇬🇧 UK (+44)</option>
               <option value="+1">🇺🇸 USA (+1)</option>
-            </select>
+            </datalist>
 
             <input
               type="tel"

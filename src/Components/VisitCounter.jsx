@@ -1,23 +1,22 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const VisitCounter = () => {
   const [visitCount, setVisitCount] = useState(null);
   const [error, setError] = useState(false);
+  const hasIncremented = useRef(false); // ✅ Prevent double call
 
   useEffect(() => {
-  fetch("https://corsproxy.io/?https://api.countapi.xyz/update/pinnaclegroupuk/homepage?amount=1")
-    .then((res) => {
-      if (!res.ok) throw new Error("Network error");
-      return res.json();
-    })
-    .then((data) => setVisitCount(data.value))
-    .catch((err) => {
-      console.error("Visit counter error:", err);
-      setError(true);
-    });
-}, []);
+    if (hasIncremented.current) return; // ⛔ skip if already called
+    hasIncremented.current = true;
 
+    fetch("http://localhost:3001/api/visit")
+      .then((res) => res.json())
+      .then((data) => setVisitCount(data.visits))
+      .catch((err) => {
+        console.error("Visit counter error:", err);
+        setError(true);
+      });
+  }, []);
 
   return (
     <div className="!my-4 !px-6 !py-1 rounded-xl bg-black shadow-lg text-white flex items-center gap-3 animate-fade-in">
