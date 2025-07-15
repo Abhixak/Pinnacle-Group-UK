@@ -50,13 +50,6 @@ const Chatbot = () => {
     scrollToBottom();
   };
 
-  const askForDetails = (method = "") => {
-    setContactMethod(method);
-    setShowInput(true);
-    setInputLabel("Please enter your Name:");
-    setInputType("name");
-  };
-
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -76,6 +69,15 @@ const Chatbot = () => {
     const value = inputRef.current?.value?.trim();
     if (!value && inputType !== "countryCode") return;
 
+    if (inputType === "city") {
+      addMessage("user", value);
+      inputRef.current.value = "";
+      addMessage("bot", "Please enter your Name:");
+      setInputType("name");
+      setInputLabel("Enter your name:");
+      return;
+    }
+
     if (inputType === "name") {
       if (!/^[A-Za-z\s]+$/.test(value)) {
         addMessage("bot", "Please enter a valid name.");
@@ -83,26 +85,7 @@ const Chatbot = () => {
       }
       addMessage("user", value);
       inputRef.current.value = "";
-      if (contactMethod === "email") {
-        addMessage("bot", "Thanks! Please enter your Email:");
-        setInputType("email");
-        setInputLabel("Please enter your Email:");
-      } else {
-        addMessage("bot", "Thanks! Select your Country Code:");
-        setInputType("countryCode");
-        setInputLabel("Select Country Code:");
-      }
-      return;
-    }
-
-    if (inputType === "email") {
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        addMessage("bot", "Enter a valid email (example@domain.com).");
-        return;
-      }
-      addMessage("user", value);
-      inputRef.current.value = "";
-      addMessage("bot", "Great! Select your Country Code:");
+      addMessage("bot", "Select your Country Code:");
       setInputType("countryCode");
       setInputLabel("Select Country Code:");
       return;
@@ -112,7 +95,7 @@ const Chatbot = () => {
       addMessage("user", selectedCode);
       addMessage("bot", "Now enter your Phone Number:");
       setInputType("phone");
-      setInputLabel("Please enter your Phone Number:");
+      setInputLabel("Enter your phone number:");
       return;
     }
 
@@ -126,11 +109,7 @@ const Chatbot = () => {
       setShowInput(false);
       inputRef.current.value = "";
       setFollowupOptions(mainOptions);
-
-      // Auto-send email
-      setTimeout(() => {
-        formRef.current.requestSubmit();
-      }, 600);
+      setTimeout(() => formRef.current.requestSubmit(), 600);
     }
   };
 
@@ -139,17 +118,13 @@ const Chatbot = () => {
     switch (value) {
       case "Buy Property":
       case "Sell Property":
-        addMessage("bot", "Great! Which city are you interested in?");
-        setFollowupOptions([
-          "Delhi",
-          "Noida",
-          "Mumbai",
-          "Chandigarh",
-          "Mohali",
-          "Bangalore",
-          "Others",
-        ]);
+        addMessage("bot", "Great! In which city would you like to deal?");
+        setInputType("city");
+        setInputLabel("Enter city name:");
+        setShowInput(true);
+        setFollowupOptions([]);
         break;
+
       case "Legal Help":
         addMessage(
           "bot",
@@ -157,40 +132,87 @@ const Chatbot = () => {
         );
         setFollowupOptions(["Yes", "No"]);
         break;
+
       case "Talk to Advisor":
-        addMessage("bot", "Preferred contact method?");
-        setFollowupOptions(["Phone", "Email"]);
+        addMessage("bot", "Select a branch to call directly:");
+        setFollowupOptions([
+          "📞 UK: +44-7868143558",
+          "📞 IN: +91-9216399808",
+          "📞 CA: +1-613-295-6385",
+          "📞 US: +1-414-690-6435",
+        ]);
         break;
-      case "Contact via WhatsApp":
-        addMessage("bot", "Which branch would you like to contact?");
-        setFollowupOptions(["India Branch", "London Branch"]);
-        break;
-      case "Thanks":
-        addMessage(
-          "bot",
-          "You're welcome! Let us know if you need anything else."
-        );
+
+      case "📞 UK: +44-7868143558":
+        window.open("tel:+447868143558");
+        addMessage("bot", "📞 Calling UK Branch...");
         setFollowupOptions(mainOptions);
         break;
-      case "India Branch":
+
+      case "📞 IN: +91-9216399808":
+        window.open("tel:+919216399808");
+        addMessage("bot", "📞 Calling India Branch...");
+        setFollowupOptions(mainOptions);
+        break;
+
+      case "📞 CA: +1-613-295-6385":
+        window.open("tel:+16132956385");
+        addMessage("bot", "📞 Calling Canada Branch...");
+        setFollowupOptions(mainOptions);
+        break;
+
+      case "📞 US: +1-414-690-6435":
+        window.open("tel:+14146906435");
+        addMessage("bot", "📞 Calling US Branch...");
+        setFollowupOptions(mainOptions);
+        break;
+
+      case "Contact via WhatsApp":
+        addMessage("bot", "Select a branch to chat via WhatsApp:");
+        setFollowupOptions([
+          "💬 UK WhatsApp",
+          "💬 IN WhatsApp",
+          "💬 CA WhatsApp",
+          "💬 US WhatsApp",
+        ]);
+        break;
+
+      case "💬 UK WhatsApp":
+        window.open("https://wa.me/+447868143558", "_blank");
+        addMessage("bot", "Opening WhatsApp chat with UK Branch...");
+        setFollowupOptions(mainOptions);
+        break;
+
+      case "💬 IN WhatsApp":
         window.open("https://wa.me/+919216399808", "_blank");
         addMessage("bot", "Opening WhatsApp chat with India Branch...");
         setFollowupOptions(mainOptions);
         break;
-      case "London Branch":
-        window.open("https://wa.me/+447868143558", "_blank");
-        addMessage("bot", "Opening WhatsApp chat with London Branch...");
+
+      case "💬 CA WhatsApp":
+        window.open("https://wa.me/+16132956385", "_blank");
+        addMessage("bot", "Opening WhatsApp chat with Canada Branch...");
         setFollowupOptions(mainOptions);
         break;
-      case "Phone":
-        askForDetails("phone");
+
+      case "💬 US WhatsApp":
+        window.open("https://wa.me/+14146906435", "_blank");
+        addMessage("bot", "Opening WhatsApp chat with US Branch...");
+        setFollowupOptions(mainOptions);
         break;
-      case "Email":
-        askForDetails("email");
+
+      case "Thanks":
+        addMessage("bot", "You're welcome! Have a great day.");
+        setIsOpen(false);
         break;
+
       default:
-        addMessage("bot", `Got it! To proceed, we need a few details.`);
-        askForDetails();
+        addMessage("bot", `Got it! To proceed, we need your details.`);
+        setContactMethod("email");
+        setInputType("name");
+        setInputLabel("Please enter your Name:");
+        setShowInput(true);
+        break;
     }
   };
 
@@ -201,6 +223,8 @@ const Chatbot = () => {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
+  const isAtMainMenu = JSON.stringify(followupOptions) === JSON.stringify(mainOptions);
+
   return (
     <>
       <button
@@ -208,7 +232,7 @@ const Chatbot = () => {
           setIsOpen(!isOpen);
           setShowRobotIcon(false);
         }}
-        className={`fixed bottom-6 right-6 z-30 border-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg !px-5 !py-3 flex items-center justify-center`}
+        className="fixed bottom-6 right-6 z-30 border-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg !px-5 !py-3 flex items-center justify-center"
         style={{
           width: isOpen ? "150px" : showRobotIcon ? "60px" : "150px",
           transition: "width 0.5s ease-in-out",
@@ -223,9 +247,13 @@ const Chatbot = () => {
           <div className="flex items-center justify-start bg-white border-b !px-4 !py-2">
             <button
               onClick={() => {
-                setFollowupOptions(mainOptions);
-                setShowInput(false);
-                addMessage("bot", "How can I assist you now?");
+                if (isAtMainMenu) {
+                  setIsOpen(false);
+                } else {
+                  setFollowupOptions(mainOptions);
+                  setShowInput(false);
+                  addMessage("bot", "How can I assist you now?");
+                }
               }}
               className="text-blue-400 hover:text-blue-900 hover:underline text-sm !p-2"
             >
@@ -284,7 +312,7 @@ const Chatbot = () => {
               <datalist id="countryCodes">
                 <option value="+91">🇮🇳 India (+91)</option>
                 <option value="+44">🇬🇧 UK (+44)</option>
-                <option value="+1">🇺🇸 USA (+1)</option>
+                <option value="+1">🇺🇸 USA / 🇨🇦 Canada (+1)</option>
               </datalist>
 
               <button

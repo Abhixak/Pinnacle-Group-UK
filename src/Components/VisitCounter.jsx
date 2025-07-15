@@ -1,16 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 const VisitCounter = () => {
   const [visitCount, setVisitCount] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const hasIncremented = useRef(false); // Prevent double fetch (especially in React StrictMode)
 
   useEffect(() => {
-    if (hasIncremented.current) return;
-    hasIncremented.current = true;
+    const hasVisited = sessionStorage.getItem("hasVisited");
 
-    fetch("https://pinnacle-backend-v0yj.onrender.com")
+    const endpoint = hasVisited
+      ? "https://pinnacle-backend-v0yj.onrender.com/view"
+      : "https://pinnacle-backend-v0yj.onrender.com/";
+
+    fetch(endpoint)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
@@ -18,6 +20,11 @@ const VisitCounter = () => {
       .then((data) => {
         setVisitCount(data.visits);
         setLoading(false);
+
+        // Only set flag if it was a visit-incrementing request
+        if (!hasVisited) {
+          sessionStorage.setItem("hasVisited", "true");
+        }
       })
       .catch((err) => {
         console.error("Visit counter error:", err);

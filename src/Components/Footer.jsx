@@ -74,7 +74,7 @@ const Footer = () => {
               <img
                 src={nri}
                 alt="NRI Conclave"
-                className="h-40 md:h-48 object-contain max-w-[180px] w-full"
+                className="h-40 md:h-48 relative top-3 object-fit min-w-[150px] max-w-[180px] w-full"
               />
             </div>
 
