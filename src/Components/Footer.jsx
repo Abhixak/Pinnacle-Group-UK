@@ -6,6 +6,7 @@ import VisitCounter from "./VisitCounter";
 
 import nri from "../assets/NRI-Conclave2.jpeg";
 import minister from "../assets/Central-Minister.jpeg";
+import MagnifierImage from "./MagnifierImage";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -68,25 +69,30 @@ const Footer = () => {
           <div className="!px-4 flex flex-col sm:flex-row justify-center items-center gap-6">
             {/* Award 1 */}
             <div className="flex flex-col items-center text-center">
-              <p className="text-blue-600 text-sm md:text-base !mb-2">
+              <p className="text-blue-600 text-sm md:text-base !mb-4 sm:!mb-12">
                 NRI CONCLAVE - 2025
               </p>
-              <img
+              <MagnifierImage
                 src={nri}
                 alt="NRI Conclave"
-                className="h-40 md:h-48 relative top-3 object-fit min-w-[150px] max-w-[180px] w-full"
+                width={180}
+                height={192}
+                zoom={2}
+                
               />
             </div>
 
             {/* Award 2 */}
             <div className="flex flex-col items-center text-center">
-              <p className="text-blue-600 text-sm md:text-base !mb-2">
+              <p className="text-blue-600 text-sm md:text-base !mb-4 sm:!mb-1">
                 BEST NRI PROPERTY MANAGEMENT SERVICES - 2024
               </p>
-              <img
+              <MagnifierImage
                 src={minister}
                 alt="Minister Harsh Malhotra"
-                className="h-40 md:h-48 object-contain max-w-[180px] w-full"
+                width={180}
+                height={192}
+                zoom={2}
               />
             </div>
           </div>

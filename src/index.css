@@ -14,22 +14,17 @@ body{
 body::-webkit-scrollbar{
   width: 0;
 }
-/* 
-@keyframes slide3 {
-  0% {
-    transform: translateX(0%);
-  }
-  40.0% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(-60%);
-  }
+
+/* Zoom effect on hover with zoom-in cursor */
+.zoom-hover {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
 }
 
-.animate-slide3 {
-  animation: slide3 6s ease-in-out infinite;
-} */
+.zoom-hover:hover {
+  transform: scale(1.1);
+}
+
 
 
 #chatbox {
