@@ -11,6 +11,8 @@ import PMS from "../Components/PMS";
 import PopUpEnquiry from "../Components/PopUpEnquiry";
 import SocialMedia from "../Components/SocialMedia";
 
+import { Helmet } from "react-helmet";
+
 const Home = ({ footerRef }) => {
   const location = useLocation();
 
@@ -25,6 +27,20 @@ const Home = ({ footerRef }) => {
 
   return (
     <div className="w-full !p-5">
+      <Helmet>
+        <title>
+          NRI Property UK | Buy, Sell, and Invest in Indian Real Estate
+        </title>
+        <meta
+          name="description"
+          content="Helping NRIs to buy, sell, and invest in real estate in India. Legal assistance and personalized guidance."
+        />
+        <meta
+          name="keywords"
+          content="NRI property India, buy property in India, invest in Indian real estate, sell Indian property from UK"
+        />
+        <link rel="canonical" href="https://www.nriproperty.uk/" />
+      </Helmet>
       <Chatbot />
       <PopUpEnquiry />
       <Ad />

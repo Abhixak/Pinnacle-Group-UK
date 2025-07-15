@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Chatbot from "../Components/Chatbot";
 import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
@@ -5,6 +6,14 @@ import ServicesSection from "../Components/Services";
 const About = () => {
   return (
     <div className="!px-6">
+      <Helmet>
+        <title>About Us | NRI Property UK</title>
+        <meta
+          name="description"
+          content="Know more about NRI Property UK's mission to help NRIs connect with Indian real estate experts."
+        />
+        <link rel="canonical" href="https://www.nriproperty.uk/about" />
+      </Helmet>
       {/* Chatbot */}
       <Chatbot />
       <h2 className="text-3xl font-bold !my-6 text-center">
@@ -19,16 +28,19 @@ const About = () => {
           domain, at Pinnacle Group, we are offering host of services according
           to the various realty needs and requirements of the clients. Located
           in India, United Kingdom, United States of America, Canada, we have
-          specialization in <span className="text-red-800 font-semibold">NRI Property Management Services</span> such as Buying
-          Property Services, Selling Property Services and Leasing Property
-          Services. As a reliable service provider, we are offering services
-          keeping in mind the various realty needs and requirements of the
-          clients, providing them with good and effective realty solution on a
-          prompt basis. Since the incorporation of the company in the year 2007,
-          we have benefitted many clients by providing world-class services at
-          the most reasonable charges. Keeping in mind the convenience of the
-          clients we are offering prompt and reliable services which are highly
-          appreciated by the clients. <br />
+          specialization in{" "}
+          <span className="text-red-800 font-semibold">
+            NRI Property Management Services
+          </span>{" "}
+          such as Buying Property Services, Selling Property Services and
+          Leasing Property Services. As a reliable service provider, we are
+          offering services keeping in mind the various realty needs and
+          requirements of the clients, providing them with good and effective
+          realty solution on a prompt basis. Since the incorporation of the
+          company in the year 2007, we have benefitted many clients by providing
+          world-class services at the most reasonable charges. Keeping in mind
+          the convenience of the clients we are offering prompt and reliable
+          services which are highly appreciated by the clients. <br />
           Under the guidance and supervision of our owner, Mr. Ajay Banger, we
           have achieved great heights in the real estate domain. We have with us
           a team of highly efficient and hardworking professionals whose main

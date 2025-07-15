@@ -8,6 +8,7 @@ import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
 import Chatbot from "../Components/Chatbot";
+import { Helmet } from "react-helmet";
 
 const serviceData = {
   selling: {
@@ -37,6 +38,21 @@ const ServiceDetails = () => {
   if (!service) {
     return (
       <>
+        <Helmet>
+          <title>Legal Help for NRIs | Expert Guidance & Property Law</title>
+          <meta
+            name="description"
+            content="Get expert legal assistance for your property matters in India. Our lawyers specialize in NRI property disputes, succession, and more."
+          />
+          <meta
+            name="keywords"
+            content="legal help for NRI, NRI property lawyer, property dispute NRI, Indian real estate legal advice"
+          />
+          <link
+            rel="canonical"
+            href="https://www.nriproperty.uk/services/legal-help"
+          />
+        </Helmet>
         {/* Chatbot */}
         <Chatbot />
         <div className="!m-5 !p-5 bg-red-100 text-red-600 rounded-xl text-center">

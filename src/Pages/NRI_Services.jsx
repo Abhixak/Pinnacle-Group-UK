@@ -3,10 +3,23 @@ import Footer from "../Components/Footer";
 import EnquiryForm from "../Components/Enquire";
 import PMS from "../Components/PMS";
 import Chatbot from "../Components/Chatbot";
+import { Helmet } from "react-helmet";
 
 const NRI_Services = () => {
   return (
     <div className="!px-6 !py-2 bg-gray-100 rounded-xl !mt-4 !mx-5">
+      <Helmet>
+        <title>NRI Services | Real Estate Support for NRIs</title>
+        <meta
+          name="description"
+          content="Explore our specialized services for NRIs including property management, legal help, home loans, and real estate investments in India."
+        />
+        <meta
+          name="keywords"
+          content="NRI real estate services, property for NRIs, legal help for NRI, invest in India from UK"
+        />
+        <link rel="canonical" href="https://www.nriproperty.uk/nri-services" />
+      </Helmet>
       {/* Chatbot */}
       <Chatbot />
       <h2 className="text-3xl font-bold !my-6 text-center">
