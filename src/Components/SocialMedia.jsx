@@ -18,11 +18,11 @@ const SocialMedia = () => {
             Facebook
           </h2>
 
-          <div className="w-[300px] sm:w-[400px] lg:w-[500px] border-4 rounded-2xl overflow-hidden mx-auto">
+          <div className="w-[300px] sm:w-[400px] lg:w-[500px] border-4 rounded-2xl !mx-auto">
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpinnacleinfra.co.in&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-              className="w-full h-[600px]"
-              style={{ border: "none", overflow: "hidden" }}
+              className="w-full h-[600px] rounded-xl"
+              style={{ border: "none", overflow: "auto" }}
               scrolling="no"
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
