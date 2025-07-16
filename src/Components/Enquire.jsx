@@ -100,9 +100,12 @@ const EnquiryForm = () => {
             <option value="" disabled hidden>
               Select a Service
             </option>
-            <option>Buy a Property</option>
-            <option>Sell a Property</option>
-            <option>Lease a Property</option>
+            <option>Sell Property</option>
+            <option>Buy Property</option>
+            <option>Legal Documentation</option>
+            <option>Title Clearing</option>
+            <option>Tax and Finance</option>
+            <option>Others</option>
           </select>
 
           <textarea

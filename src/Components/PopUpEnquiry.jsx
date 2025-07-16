@@ -18,10 +18,10 @@ const PopUpEnquiry = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_h2ax3kz", // ✅ Your Service ID
-        "template_1iz83m7", // ✅ Your Template ID
+        "service_h2ax3kz",
+        "template_1iz83m7",
         form.current,
-        "pQqSTFuOf-O4iXuH-" // ✅ Your Public Key
+        "pQqSTFuOf-O4iXuH-"
       )
       .then(
         () => {
@@ -96,7 +96,6 @@ const PopUpEnquiry = () => {
                 <option value="+91">🇮🇳 India (+91)</option>
                 <option value="+44">🇬🇧 UK (+44)</option>
                 <option value="+1">🇺🇸 USA (+1)</option>
-                {/* Add more country codes if needed */}
               </datalist>
 
               <input
@@ -120,10 +119,12 @@ const PopUpEnquiry = () => {
               <option value="" disabled hidden>
                 Select a Service
               </option>
-              <option>Buy a Property</option>
-              <option>Sell a Property</option>
-              <option>Lease a Property</option>
-              <option>Loan Consultation</option>
+              <option>Buy Property</option>
+              <option>Sell Property</option>
+              <option>Legal Documentation</option>
+              <option>Title Clearing</option>
+              <option>Tax and Finance</option>
+              <option>Others</option>
             </select>
 
             <textarea

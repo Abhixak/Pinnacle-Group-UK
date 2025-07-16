@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -40,10 +37,13 @@ const ServicesSection = () => {
   return (
     <div className="rounded-xl !my-4 w-full !px-5 !py-5 text-center bg-white">
       <h2 className="text-3xl font-bold !mb-12">
-        Our <span className="text-red-600 underline underline-offset-4">Services</span>
+        Our{" "}
+        <span className="text-red-600 underline underline-offset-4">
+          Services
+        </span>
       </h2>
 
-      <div className="grid justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
         {services.map((service, index) => (
           <div
             key={index}
