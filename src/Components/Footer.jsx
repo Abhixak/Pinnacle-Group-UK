@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaEnvelope, FaPhoneAlt, FaYoutube, FaArrowUp, FaTimes } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
@@ -20,22 +20,6 @@ const Footer = () => {
       setPopupImage(src);
     }
   };
-
-  useEffect(() => {
-    const preventRightClick = (e) => e.preventDefault();
-    const blockScreenshots = (e) => {
-      if (e.key === "PrintScreen" || (e.ctrlKey && e.key === "p")) {
-        e.preventDefault();
-        alert("Screenshots and printing are disabled.");
-      }
-    };
-    document.addEventListener("contextmenu", preventRightClick);
-    document.addEventListener("keydown", blockScreenshots);
-    return () => {
-      document.removeEventListener("contextmenu", preventRightClick);
-      document.removeEventListener("keydown", blockScreenshots);
-    };
-  }, []);
 
   return (
     <div className="bg-gray-100 rounded !mb-6 !px-6 md:!px-20 text-gray-800">
@@ -71,7 +55,7 @@ const Footer = () => {
       </div>
 
       {/* Contact Info Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-t border-gray-300 text-center !p-6 place-items-center select-none">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-t border-gray-300 text-center !p-6 place-items-center">
         {/* Achievements & Awards */}
         <div className="w-full max-w-md !mx-auto !py-4 rounded-xl">
           <h4 className="text-md md:text-lg xl:text-xl !px-4 font-semibold !mb-4 text-[#6b1e1e]">
@@ -84,18 +68,16 @@ const Footer = () => {
               <p className="text-blue-600 text-xs sm:text-sm md:text-base lg:text-lg !m-4 sm:!mb-2 break-words text-center">
                 NRI CONCLAVE - 2025
               </p>
-              {/* Magnifier on LG+ */}
+              {/* Magnifier on LG+ screens */}
               <div className="hidden lg:block cursor-zoom-in">
                 <MagnifierImage src={nri} alt="NRI Conclave" width={140} height={160} zoom={2} />
               </div>
-              {/* Click popup on small devices */}
+              {/* Clickable image on smaller screens */}
               <img
                 src={nri}
                 alt="NRI Conclave"
                 className="block lg:hidden w-[140px] h-[160px] object-cover cursor-pointer"
                 onClick={() => handleImageClick(nri)}
-                draggable={false}
-                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
 
@@ -112,8 +94,6 @@ const Footer = () => {
                 alt="Minister Harsh Malhotra"
                 className="block lg:hidden w-[140px] h-[160px] object-cover cursor-pointer"
                 onClick={() => handleImageClick(minister)}
-                draggable={false}
-                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
           </div>
@@ -150,7 +130,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Modal for image popup */}
+      {/* Modal for popup image on mobile/tablet */}
       {popupImage && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
           <div className="relative">
@@ -164,8 +144,6 @@ const Footer = () => {
               src={popupImage}
               alt="Enlarged"
               className="max-w-[90vw] max-h-[90vh] object-contain"
-              draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
             />
           </div>
         </div>
