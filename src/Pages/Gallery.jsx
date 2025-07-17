@@ -73,7 +73,7 @@ const Gallery = () => {
 
       <div className="flex flex-col lg:flex-row !m-5 !px-4 !py-6 bg-gray-200 rounded-xl">
         {/* Media Player */}
-        <div className="flex-1 bg-black rounded flex items-center justify-center border-4 border-black h-100 max-h-100 w-full max-w-[600px] !mx-auto lg:!mx-0">
+        <div className="flex-1 bg-black rounded flex items-center justify-center border-4 border-black h-120 max-h-120 w-full max-w-[600px] !mx-auto lg:!mx-0">
           {filteredMedia[currentIndex]?.type === "image" ? (
             <img
               src={filteredMedia[currentIndex].src}
