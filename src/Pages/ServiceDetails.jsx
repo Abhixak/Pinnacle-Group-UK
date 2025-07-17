@@ -119,7 +119,7 @@ const ServiceDetails = () => {
           <img
             src={service.image}
             alt={service.title}
-            className="w-full max-w-xl h-auto rounded-md !mx-auto !mb-4"
+            className="w-[30%] max-w-xl h-auto rounded-md !mx-auto !mb-4"
           />
           <p className="text-gray-700 text-left !mb-6">{service.description}</p>
         </div>
