@@ -27,7 +27,7 @@ const Footer = () => {
       <div className="w-full !px-4">
         <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">
           {/* Social Icons */}
-          <div className="flex flex-wrap gap-4 text-2xl items-center">
+          <div className="flex flex-wrap gap-4 text-3xl items-center">
             <h3 className="text-lg text-[#6b1e1e]">Follow us:</h3>
             <a href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page" target="_blank" rel="noopener noreferrer">
               <MdFacebook className="text-blue-600 cursor-pointer" />
