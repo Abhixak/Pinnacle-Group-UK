@@ -10,7 +10,7 @@ const PopUpEnquiry = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 20000); // 20 seconds delay
+    }, 30000); // 30 seconds delay
     return () => clearTimeout(timer);
   }, []);
 
