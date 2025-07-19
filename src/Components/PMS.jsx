@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 import buySell from "../assets/buy&sell.png";
@@ -7,6 +6,7 @@ import management from "../assets/Management.png";
 import titleClear from "../assets/title Clearing.png";
 import taxSupport from "../assets/tax.png";
 import support24x7 from "../assets/24 x 7.png";
+import FreeConsultant from "../assets/CONSULTATION.png";
 
 const PMS = () => {
   const services = [
@@ -68,13 +68,23 @@ const PMS = () => {
           <Link
             to={`/ServiceDetails/${item.id}`}
             key={idx}
-            className="bg-white !p-6 rounded-xl shadow-md hover:shadow-lg transition text-center flex flex-col items-center hover:no-underline"
+            className="relative bg-white !p-6 rounded-xl shadow-md hover:shadow-lg transition text-center flex flex-col items-center hover:no-underline"
           >
+            {/* FREE CONSULTATION badge */}
+            <img
+              src={FreeConsultant}
+              alt="FREE CONSULTANCY"
+              className="absolute top-0 right-0 h-20 lg:h-25"
+            />
+
+            {/* Service Icon */}
             <img
               src={item.img}
               alt={item.alt}
-              className="!mx-auto !mb-4 w-20 md:w-24 h-auto transition-transform duration-300 hover:scale-110"
+              className="!mx-auto !mb-4 w-20 md:w-24 h-auto transition-transform duration-300 hover:scale-110 mt-10"
             />
+
+            {/* Title & Description */}
             <h3 className="text-xl font-semibold !mb-2 text-blue-700">
               {item.title}
             </h3>
