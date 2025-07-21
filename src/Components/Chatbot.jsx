@@ -15,7 +15,7 @@ const Chatbot = () => {
     "Legal Help",
     "Talk to Advisor",
     "Contact via WhatsApp",
-    "Close Chat",
+    "Thanks",
   ];
   const [followupOptions, setFollowupOptions] = useState(mainOptions);
   const [showInput, setShowInput] = useState(false);
