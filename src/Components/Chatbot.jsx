@@ -15,7 +15,7 @@ const Chatbot = () => {
     "Legal Help",
     "Talk to Advisor",
     "Contact via WhatsApp",
-    "Thanks",
+    "Close Chat",
   ];
   const [followupOptions, setFollowupOptions] = useState(mainOptions);
   const [showInput, setShowInput] = useState(false);
@@ -232,7 +232,7 @@ const Chatbot = () => {
           setIsOpen(!isOpen);
           setShowRobotIcon(false);
         }}
-        className="fixed bottom-6 right-6 z-30 border-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg !px-5 !py-3 flex items-center justify-center"
+        className="fixed bottom-24 cursor-pointer right-6 z-30 border-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg !px-5 !py-3 flex items-center justify-center"
         style={{
           width: isOpen ? "150px" : showRobotIcon ? "60px" : "150px",
           transition: "width 0.5s ease-in-out",
@@ -243,7 +243,7 @@ const Chatbot = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-22 right-4 sm:right-6 w-[90vw] sm:w-80 max-w-sm max-h-[80vh] flex flex-col border-4 border-blue-200 bg-white rounded-lg shadow-lg overflow-hidden z-50">
+        <div className="fixed bottom-24 right-4 sm:right-6 w-[90vw] sm:w-80 max-w-sm max-h-[80vh] flex flex-col border-4 border-blue-200 bg-white rounded-lg shadow-lg overflow-hidden z-50">
           <div className="flex items-center justify-start bg-white border-b !px-4 !py-2">
             <button
               onClick={() => {

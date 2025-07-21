@@ -4,6 +4,7 @@ import EnquiryForm from "../Components/Enquire";
 import PMS from "../Components/PMS";
 import Chatbot from "../Components/Chatbot";
 import { Helmet } from "react-helmet";
+import FreeConsultation from "../Components/FreeConsultation";
 
 const NRI_Services = () => {
   return (
@@ -20,7 +21,10 @@ const NRI_Services = () => {
         />
         <link rel="canonical" href="https://www.nriproperty.uk/nri-services" />
       </Helmet>
+      <FreeConsultation />
+
       {/* Chatbot */}
+
       <Chatbot />
       <h2 className="text-3xl font-bold !my-6 text-center">
         NRI{" "}

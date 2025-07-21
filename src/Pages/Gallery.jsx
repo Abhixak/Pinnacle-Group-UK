@@ -10,6 +10,8 @@ import sampleImg5 from "../assets/gallery/img5.jpeg";
 import sampleImg7 from "../assets/gallery/img7.jpeg";
 
 import PMS from "../Components/PMS";
+import Chatbot from "../Components/Chatbot";
+import FreeConsultation from "../Components/FreeConsultation";
 
 const mediaList = [
   { type: "video", src: sampleVideo1 },
@@ -70,6 +72,8 @@ const Gallery = () => {
       <h2 className="text-3xl font-bold text-center !pt-6 text-red-600">
         Gallery
       </h2>
+      <Chatbot />
+      <FreeConsultation />
 
       <div className="flex flex-col lg:flex-row !m-5 !px-4 !py-6 bg-gray-200 rounded-xl">
         {/* Media Player */}

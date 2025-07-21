@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Chatbot from "../Components/Chatbot";
 import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
+import FreeConsultation from "../Components/FreeConsultation";
 
 const About = () => {
   return (
@@ -14,6 +15,8 @@ const About = () => {
         />
         <link rel="canonical" href="https://www.nriproperty.uk/about" />
       </Helmet>
+      <FreeConsultation />
+
       {/* Chatbot */}
       <Chatbot />
       <h2 className="text-3xl font-bold !my-6 text-center">

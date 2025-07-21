@@ -12,6 +12,7 @@ import PopUpEnquiry from "../Components/PopUpEnquiry";
 import SocialMedia from "../Components/SocialMedia";
 
 import { Helmet } from "react-helmet";
+import FreeConsultation from "../Components/FreeConsultation";
 
 const Home = ({ footerRef }) => {
   const location = useLocation();
@@ -41,6 +42,7 @@ const Home = ({ footerRef }) => {
         />
         <link rel="canonical" href="https://www.nriproperty.uk/" />
       </Helmet>
+      <FreeConsultation />
       <Chatbot />
       <PopUpEnquiry />
       <Ad />
