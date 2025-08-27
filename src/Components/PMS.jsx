@@ -43,7 +43,7 @@ const PMS = () => {
       img: taxSupport,
       alt: "Tax & Finance",
       title: "NRI Tax & Finance Support",
-      desc: "We help you manage Indian taxes, TDS, and financial compliance with ease.",
+      desc: "India has signed Double Tax Avoidance Agreements (DTAA) with around 100 countries including the UK. This helps NRIs avoid double taxation.",
     },
     {
       id: "support",

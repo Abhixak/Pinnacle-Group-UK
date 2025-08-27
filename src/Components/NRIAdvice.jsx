@@ -15,7 +15,7 @@ const NRIAdvice = () => {
   ];
 
   const Description = [
-    `The Indian real estate market is booming, and now might be the perfect time to invest! Here’s why:
+    `Yes, The Indian real estate market is booming, and now might be the perfect time to invest! Here’s why:
 1️⃣ Thriving Real Estate Market 📈
 2️⃣ High Rental Yields 💸
 3️⃣ Long-Term Capital Growth ⏳
@@ -39,11 +39,12 @@ Need assistance? Contact Pinnacle Group London today!`,
 3️⃣ Hire a trusted agent in India.
 💼 Pinnacle Group simplifies everything from listing to closing the deal.`,
 
-    `NRIs, planning to buy property in India? Save on taxes with these tips:
-✅ Claim Section 80C deductions
-✅ Get relief on interest under Section 24(b)
+    `NRIs, planning to buy property in India? Save on taxes with these smart strategies:
+✅ Claim deductions under Section 80C
+✅ Get interest relief through Section 24(b)
 ✅ Avail stamp duty exemptions
-Pinnacle Group London guides NRIs with tax-smart investments.`,
+✅ Avoid double taxation with DTAA benefits between India and countries like the UK.
+Pinnacle Group London helps NRIs invest in India with expert tax planning and cross-border compliance support.`,
 
     `Transferring property? Don’t worry – we simplify it!
 Pinnacle Group London provides expert guidance and smooth service for buying, selling, or transferring properties.

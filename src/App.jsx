@@ -14,6 +14,7 @@ import NRI_Services from "./Pages/NRI_Services";
 import ScrollToTop from "./Components/ScrollToTop";
 import ServiceDetails from "./Pages/ServiceDetails";
 import Gallery from "./Pages/Gallery";
+import FestivalPopup from "./Components/Events"; // ✅ Festival popup
 
 function ScrollHandlerWrapper() {
   const footerRef = useRef(null);
@@ -22,14 +23,12 @@ function ScrollHandlerWrapper() {
 
   const handleContactClick = () => {
     if (location.pathname === "/") {
-      // Already on home page
       footerRef.current?.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Navigate to home, then scroll
       navigate("/", { state: { scrollToFooter: true } });
       setTimeout(() => {
         footerRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 100); // small delay to ensure DOM renders
+      }, 100);
     }
   };
 
@@ -41,13 +40,8 @@ function ScrollHandlerWrapper() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/nri-services" element={<NRI_Services />} />
-        {/* <Route path="/ServiceDetails" element={<ServiceDetails />} /> */}
         <Route path="/gallery" element={<Gallery />} />
-
-        <Route
-          path="/ServiceDetails/:serviceType"
-          element={<ServiceDetails />}
-        />
+        <Route path="/ServiceDetails/:serviceType" element={<ServiceDetails />} />
       </Routes>
     </>
   );
@@ -57,6 +51,8 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      {/* ✅ Always visible, checks today’s date and shows popup if a festival */}
+      <FestivalPopup userCountry="India"  />  
       <ScrollHandlerWrapper />
     </Router>
   );
