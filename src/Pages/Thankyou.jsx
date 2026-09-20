@@ -1,229 +1,296 @@
-import React, { useState, useEffect } from "react"; // Added useEffect
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
-  Phone,
-  MessageCircle,
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  ChevronDown,
   Facebook,
   Instagram,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
   Youtube,
-  ChevronDown,
-  ChevronUp,
-  Images,
 } from "lucide-react";
 import { BsTiktok } from "react-icons/bs";
 import SEO from "../Components/SEO";
 
-const ThankYou = () => {
-  const [showCallOptions, setShowCallOptions] = useState(false);
-  const [showWhatsAppOptions, setShowWhatsAppOptions] = useState(false);
+const MotionSection = motion.section;
+const MotionDiv = motion.div;
 
-  // Trigger Google Ads Conversion on Component Mount
+const phoneNumbers = {
+  UK: "+447868143558",
+  IN: "+919216399808",
+  CA: "+16132956385",
+  US: "+14146906435",
+  EU: "+4915563030611",
+};
+
+const nextSteps = [
+  {
+    title: "Enquiry received",
+    description: "Your details have been securely submitted to our team.",
+  },
+  {
+    title: "Requirement reviewed",
+    description: "We will match your query with the right property expert.",
+  },
+  {
+    title: "Expert follow-up",
+    description: "One of our property experts will get in touch with you shortly.",
+  },
+];
+
+const ThankYou = () => {
+  const [openContactMenu, setOpenContactMenu] = useState(null);
+
   useEffect(() => {
-    // 1. Re-verify the global gtag configuration function exists
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
       window.dataLayer.push(arguments);
     }
 
-    // 2. Fire your specific conversion event to Google Ads
     if (typeof window.gtag === "function") {
       window.gtag("event", "conversion", {
         send_to: "AW-999905524/zdfNCI_9x6EbEPSx5dwD",
       });
     } else {
-      // Fallback if script initialized later in dataLayer
       gtag("event", "conversion", {
         send_to: "AW-999905524/zdfNCI_9x6EbEPSx5dwD",
       });
     }
   }, []);
 
-  const phoneNumbers = {
-    UK: "+447868143558",
-    IN: "+919216399808",
-    CA: "+16132956385",
-    US: "+14146906435",
-    EU: "+4915563030611",
+  const toggleContactMenu = (menu) => {
+    setOpenContactMenu((current) => (current === menu ? null : menu));
   };
 
   const handleCall = (number) => {
-    window.location.href = `tel:${number}`;
+    window.location.href = "tel:" + number;
   };
 
   const handleWhatsApp = (number) => {
-    window.open(`https://wa.me/${number.replace(/\D/g, "")}`, "_blank");
+    window.open(
+      "https://wa.me/" + number.replace(/\D/g, ""),
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   return (
-    <div className="w-full h-full bg-gradient-to-br from-gray-50 via-white to-gray-100 flex flex-col items-center justify-center !p-6">
+    <main className="relative min-h-screen overflow-hidden bg-[#f7f5f1] !px-4 !py-10 sm:!px-6 sm:!py-14">
       <SEO
         title="Thank You | NRI Property Consultation"
-        description="Thank you for contacting us. Our team will review your request and get back to you."
+        description="Your property enquiry has been received. One of our property experts will get in touch with you shortly."
         path="/thankyou"
         noIndex
       />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="max-w-4xl w-full bg-white border-8 border-yellow-600 shadow-xl !p-10 rounded-2xl text-center relative"
-        style={{ fontFamily: "'Times New Roman', serif" }}
+
+      <div
+        className="pointer-events-none absolute -left-32 top-24 h-80 w-80 rounded-full bg-[#7a1f2b]/5 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-24 bottom-8 h-72 w-72 rounded-full bg-amber-300/15 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <MotionSection
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="relative !mx-auto w-full max-w-5xl overflow-visible rounded-3xl border border-slate-200 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
       >
-        {/* Decorative Border */}
-        <div className="absolute inset-2 border-4 border-yellow-400 rounded-xl pointer-events-none"></div>
-        {/* Thank You Message */}
-        <h1 className="text-2xl font-semibold text-gray-800 !mb-4">
-          Thank You for Reaching Out!
-        </h1>
-        <p className="text-gray-700 !mb-8 leading-relaxed">
-          Thank you for submitting your request! We've received your application
-          and our team is currently reviewing it. You'll receive a confirmation
-          email once your account is approved, and you'll be able to login
-          immediately after.
-        </p>
+        <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="!p-6 sm:!p-10 lg:!p-12">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">
+              <CheckCircle2 size={34} strokeWidth={2} />
+            </div>
 
-        {/* Social Media */}
-        <div className="flex justify-center gap-6 !mb-10">
-          <a
-            href="https://www.facebook.com/pinnacleinfra.co.in"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-600 hover:text-blue-800"
-          >
-            <Facebook size={28} />
-          </a>
-          <a
-            href="https://www.instagram.com/pinnaclegrouplondon/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-pink-500 hover:text-pink-700"
-          >
-            <Instagram size={28} />
-          </a>
-          <a
-            href="https://www.youtube.com/@pinnaclegroupofficial"
-            target="_blank"
-            rel="noreferrer"
-            className="text-red-600 hover:text-red-800"
-          >
-            <Youtube size={28} />
-          </a>
-          <a
-            href="https://www.tiktok.com/@nripropertyservice"
-            target="_blank"
-            rel="noreferrer"
-            className="relative group"
-          >
-            <BsTiktok
-              size={28}
-              className="text-black hover:text-[#EE1D52] bg-gradient-to-r from-[#EE1D52] via-black to-[#69C9D0] bg-clip-text transition duration-300"
-            />
-          </a>
-        </div>
+            <p className="!mt-7 text-xs font-bold uppercase tracking-[0.22em] text-[#a87822]">
+              Enquiry submitted
+            </p>
+            <h1 className="!mt-3 max-w-xl text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
+              Thank you. Your property query is in expert hands.
+            </h1>
+            <p className="!mt-4 max-w-xl text-base leading-7 text-slate-600">
+              We have received your enquiry. One of our property experts will
+              review your requirements and get in touch with you shortly.
+            </p>
 
-        {/* Call & WhatsApp Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6 !mb-12">
-          {/* Call Section */}
-          <div className="w-full sm:w-auto">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              onClick={() => {
-                setShowCallOptions(!showCallOptions);
-                setShowWhatsAppOptions(false);
-              }}
-              className="flex items-center justify-center gap-2 bg-yellow-600 text-white !px-6 !py-3 rounded-full shadow-md hover:bg-yellow-700 w-full sm:w-auto"
-            >
-              <Phone size={20} /> Call{" "}
-              {showCallOptions ? (
-                <ChevronUp size={18} />
-              ) : (
-                <ChevronDown size={18} />
-              )}
-            </motion.button>
+            <div className="!mt-8 space-y-5">
+              {nextSteps.map((item, index) => (
+                <div key={item.title} className="flex gap-4">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-300 bg-amber-50 text-sm font-semibold text-amber-800">
+                    {index === 0 ? <Check size={16} /> : index + 1}
+                  </div>
+                  <div>
+                    <h2 className="font-semibold text-slate-900">{item.title}</h2>
+                    <p className="!mt-0.5 text-sm leading-6 text-slate-500">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-            <AnimatePresence>
-              {showCallOptions && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="!mt-3 flex flex-col gap-2"
-                >
-                  {Object.entries(phoneNumbers).map(([country, number]) => (
-                    <motion.button
-                      key={country}
-                      whileHover={{ scale: 1.05 }}
-                      className="bg-yellow-100 text-yellow-700 border border-yellow-400 !px-5 !py-2 rounded-lg shadow-sm hover:bg-yellow-200"
-                      onClick={() => handleCall(number)}
-                    >
-                      {country} ({number})
-                    </motion.button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div className="!mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#7a1f2b] !px-6 !py-3 font-semibold text-white transition hover:bg-[#641925]"
+              >
+                Return to Home <ArrowRight size={18} />
+              </Link>
+              <Link
+                to="/nri-services"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white !px-6 !py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Explore Our Services
+              </Link>
+            </div>
+
+            <div className="!mt-7 flex items-center gap-2 text-xs text-slate-500">
+              <ShieldCheck size={16} className="text-emerald-700" />
+              Your information is secure and only used to respond to your enquiry.
+            </div>
           </div>
 
-          {/* WhatsApp Section */}
-          <div className="w-full sm:w-auto">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              onClick={() => {
-                setShowWhatsAppOptions(!showWhatsAppOptions);
-                setShowCallOptions(false);
-              }}
-              className="flex items-center justify-center gap-2 bg-green-600 text-white !px-6 !py-3 rounded-full shadow-md hover:bg-green-700 w-full sm:w-auto"
-            >
-              <MessageCircle size={20} />
-              WhatsApp{" "}
-              {showWhatsAppOptions ? (
-                <ChevronUp size={18} />
-              ) : (
-                <ChevronDown size={18} />
-              )}
-            </motion.button>
+          <aside className="relative border-t border-slate-200 bg-[#163b2f] !p-6 text-white sm:!p-10 lg:rounded-r-3xl lg:border-l lg:border-t-0 lg:!p-12">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e8c576]">
+              Need help sooner?
+            </p>
+            <h2 className="!mt-3 text-2xl font-semibold">
+              Speak with our team directly
+            </h2>
+            <p className="!mt-3 text-sm leading-6 text-white/70">
+              Choose your nearest office to call or continue the conversation on
+              WhatsApp.
+            </p>
 
-            <AnimatePresence>
-              {showWhatsAppOptions && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="!mt-3 flex flex-col gap-2"
-                >
-                  {Object.entries(phoneNumbers).map(([country, number]) => (
-                    <motion.button
-                      key={country}
-                      whileHover={{ scale: 1.05 }}
-                      className="bg-green-100 text-green-700 border border-green-400 !px-5 !py-2 rounded-lg shadow-sm hover:bg-green-200"
-                      onClick={() => handleWhatsApp(number)}
-                    >
-                      {country} ({number})
-                    </motion.button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+            <div className="!mt-7 space-y-3">
+              <ContactMenu
+                type="call"
+                label="Make a Call"
+                icon={<Phone size={19} />}
+                isOpen={openContactMenu === "call"}
+                onToggle={() => toggleContactMenu("call")}
+                onSelect={handleCall}
+              />
+              <ContactMenu
+                type="whatsapp"
+                label="Message on WhatsApp"
+                icon={<MessageCircle size={19} />}
+                isOpen={openContactMenu === "whatsapp"}
+                onToggle={() => toggleContactMenu("whatsapp")}
+                onSelect={handleWhatsApp}
+              />
+            </div>
+
+            <div className="!mt-10 border-t border-white/15 !pt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/55">
+                Stay connected
+              </p>
+              <div className="!mt-4 flex gap-3">
+                <SocialLink
+                  href="https://www.facebook.com/pinnacleinfra.co.in"
+                  label="Facebook"
+                  icon={<Facebook size={19} />}
+                />
+                <SocialLink
+                  href="https://www.instagram.com/pinnaclegrouplondon/"
+                  label="Instagram"
+                  icon={<Instagram size={19} />}
+                />
+                <SocialLink
+                  href="https://www.youtube.com/@pinnaclegroupofficial"
+                  label="YouTube"
+                  icon={<Youtube size={20} />}
+                />
+                <SocialLink
+                  href="https://www.tiktok.com/@nripropertyservice"
+                  label="TikTok"
+                  icon={<BsTiktok size={18} />}
+                />
+              </div>
+            </div>
+          </aside>
         </div>
-
-        {/* Explore */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2 bg-gray-800 text-white !px-6 !py-2 rounded-full shadow-md hover:bg-gray-900 !mx-auto"
-          onClick={() => (window.location.href = "/")}
-        >
-          <Images size={18} /> Explore
-        </motion.button>
-      </motion.div>
-      {/* Trust Note */}
-      <p className="text-sm italic text-gray-500 !my-8 text-center">
-        Proudly serving clients for more than <b>8 years</b> with trust &
-        dedication.
-      </p>
-    </div>
+      </MotionSection>
+    </main>
   );
 };
+
+const ContactMenu = ({
+  type,
+  label,
+  icon,
+  isOpen,
+  onToggle,
+  onSelect,
+}) => (
+  <div className="relative">
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-expanded={isOpen}
+      aria-controls={type + "-contact-options"}
+      className={
+        "flex w-full items-center justify-between rounded-xl !px-4 !py-3.5 font-semibold transition " +
+        (type === "whatsapp"
+          ? "bg-emerald-500 text-white hover:bg-emerald-400"
+          : "bg-white text-[#163b2f] hover:bg-amber-50")
+      }
+    >
+      <span className="flex items-center gap-3">
+        {icon}
+        {label}
+      </span>
+      <ChevronDown
+        size={18}
+        className={"transition-transform " + (isOpen ? "rotate-180" : "")}
+      />
+    </button>
+
+    <AnimatePresence initial={false}>
+      {isOpen && (
+        <MotionDiv
+          id={type + "-contact-options"}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="overflow-hidden"
+        >
+          <div className="!mt-2 grid grid-cols-1 gap-2 rounded-xl bg-white/10 !p-2 sm:grid-cols-2 lg:grid-cols-1">
+            {Object.entries(phoneNumbers).map(([country, number]) => (
+              <button
+                key={country}
+                type="button"
+                onClick={() => onSelect(number)}
+                className="flex items-center justify-between rounded-lg bg-white/10 !px-3 !py-2 text-left text-sm text-white transition hover:bg-white/20"
+              >
+                <span>{country}</span>
+                <span className="font-mono text-xs text-white/70">{number}</span>
+              </button>
+            ))}
+          </div>
+        </MotionDiv>
+      )}
+    </AnimatePresence>
+  </div>
+);
+
+const SocialLink = ({ href, label, icon }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    aria-label={label}
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/75 transition hover:border-[#e8c576] hover:bg-white/10 hover:text-[#e8c576]"
+  >
+    {icon}
+  </a>
+);
 
 export default ThankYou;

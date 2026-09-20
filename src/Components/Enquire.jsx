@@ -183,7 +183,8 @@ const EnquiryForm = () => {
             NRI Property Consultation
           </h2>
           <p className="text-sm text-slate-600 !mt-1">
-            Verified guidance for NRIs across buying, selling, legal, and management.
+            Submit your query and one of our property experts will get in touch
+            with you to discuss the right next steps.
           </p>
         </div>
 
@@ -302,6 +303,10 @@ const EnquiryForm = () => {
 
           {/* BUTTONS */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 !mt-2 flex-wrap">
+            <div className="w-full sm:w-auto relative">
+              <MakeCallButton />
+            </div>
+
             <button
               type="submit"
               disabled={loading}
@@ -333,14 +338,13 @@ const EnquiryForm = () => {
                   Sending...
                 </>
               ) : (
-                "Book Free Consultation"
+                "Submit Query"
               )}
             </button>
-
-            <div className="w-full sm:w-auto relative">
-              <MakeCallButton />
-            </div>
           </div>
+          <p className="text-xs text-center text-slate-500">
+            Your details are private and only used to respond to your enquiry.
+          </p>
           <p className="!mt-2 text-slate-600 text-center text-sm">
             Submitted query before?{" "}
             <Link to="/login">
