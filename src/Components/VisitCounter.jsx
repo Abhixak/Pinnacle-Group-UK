@@ -1,6 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaEye } from "react-icons/fa";
-import { API_BASE_URL } from "../config";
+import { VISIT_COUNTER_URL } from "../config";
+
+const fetchWithRetry = async (url, retries = 3, delay = 1000) => {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Failed to fetch");
+    return await res.json();
+  } catch (err) {
+    if (retries === 0) throw err;
+    await new Promise((resolve) => setTimeout(resolve, delay));
+    return fetchWithRetry(url, retries - 1, delay * 2);
+  }
+};
 
 const VisitCounter = () => {
   const [visitCount, setVisitCount] = useState(0);
@@ -10,19 +22,6 @@ const VisitCounter = () => {
   const [loading, setLoading] = useState(true);
   const [hasStarted, setHasStarted] = useState(false);
   const counterRef = useRef(null);
-
-  // Retry fetch with exponential backoff
-  const fetchWithRetry = async (url, retries = 3, delay = 1000) => {
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("Failed to fetch");
-      return await res.json();
-    } catch (err) {
-      if (retries == 0) throw err;
-      await new Promise((r) => setTimeout(r, delay));
-      return fetchWithRetry(url, retries - 1, delay * 2);
-    }
-  };
 
   useEffect(() => {
     if (hasStarted) return;
@@ -45,11 +44,19 @@ const VisitCounter = () => {
 
   useEffect(() => {
     if (!hasStarted) return;
+
+    if (!VISIT_COUNTER_URL) {
+      console.error("VITE_VISIT_COUNTER_URL is not set in the environment.");
+      setError(true);
+      setLoading(false);
+      return;
+    }
+
     const hasVisited = sessionStorage.getItem("hasVisited");
 
     const endpoint = hasVisited
-      ? `${API_BASE_URL}/views/view`
-      : `${API_BASE_URL}/views/increment-view`;
+      ? `${VISIT_COUNTER_URL}/view`
+      : `${VISIT_COUNTER_URL}/increment-view`;
 
     fetchWithRetry(endpoint)
       .then((data) => {
