@@ -27,29 +27,28 @@ const Achievements = () => {
     }
   ];
 
-  const awards = [
+  const _awards = [
     "Bizz Next 2025 – News18",
     "Best NRI Property Management Services – PTC Awards 2024",
     "NRI Conclave 2025 – News18",
   ];
 
   return (
-    <section className="content-auto bg-gradient-to-b from-gray-50 to-white rounded-xl !my-6 !py-8 !px-6 md:!px-12 lg:!px-20">
-      <div className="max-w-6xl !mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 !mb-12">
-          Our{" "}
-          <span className="text-red-600 underline underline-offset-4">
-            Journey of Excellence
-          </span>
+    <section className="content-auto rounded-2xl border border-slate-200 bg-white !my-6 !py-10 !px-6 md:!px-10">
+      <div className="max-w-7xl !mx-auto text-center">
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#9d1c1a]">
+          Trusted Experience
+        </p>
+        <h2 className="!mt-2 font-serif text-3xl md:text-4xl font-semibold text-[#102a4c] !mb-10">
+          A Track Record You Can Rely On
         </h2>
 
         {/* Highlights */}
-        <div className="grid gap-8 md:grid-cols-4">
+        <div className="grid overflow-hidden rounded-xl border border-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl shadow-md !py-8 !px-4 flex flex-col items-center justify-center 
-                         transform transition duration-500 hover:scale-105 hover:shadow-lg animate-fadeIn"
+              className="bg-[#fffdf9] !py-7 !px-4 flex min-h-40 flex-col items-center justify-center border-b border-slate-200 sm:border-r lg:border-b-0"
               style={{ animationDelay: `${idx * 200}ms` }}
             >
               {!item.image && <div className="!mb-4 w-auto">{item.icon}</div>}
@@ -73,8 +72,8 @@ const Achievements = () => {
         </div>
 
         {/* Awards */}
-        <div className="!mt-6 bg-white shadow-lg rounded-2xl !p-8 animate-fadeInUp">
-          <h3 className="text-2xl font-semibold text-gray-900 !mb-3 text-center">
+        <div className="!mt-10 border-t border-slate-200 !pt-9">
+          <h3 className="font-serif text-3xl font-semibold text-[#102a4c] !mb-2 text-center">
             Awards & Recognition
           </h3>
           <p className="text-md font-semibold text-gray-400 !mb-8 text-center">Awarded 3 times for Best NRI Property Management Services</p>
@@ -134,8 +133,7 @@ const Achievements = () => {
           <div className="!mt-10 text-center">
             <Link
               to="/gallery"
-              className="inline-block bg-indigo-600 text-white font-semibold !py-3 !px-8 rounded-full 
-                 shadow-lg hover:bg-indigo-700 transition duration-300"
+              className="inline-flex items-center bg-[#9d1c1a] text-white font-semibold !py-3 !px-7 rounded-md shadow-md hover:bg-[#771522] transition duration-200"
             >
               View Gallery
             </Link>

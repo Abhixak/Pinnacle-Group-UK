@@ -13,6 +13,8 @@ import Header from "./Components/Header";
 const Home = lazy(() => import("./Pages/Home"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const About = lazy(() => import("./Pages/About"));
+const Blogs = lazy(() => import("./Pages/Blogs"));
+const BlogDetails = lazy(() => import("./Pages/BlogDetails"));
 const NRI_Services = lazy(() => import("./Pages/NRI_Services"));
 import ScrollToTop from "./Components/ScrollToTop";
 import { loadAnalytics } from "./utils/loadAnalytics";
@@ -67,7 +69,7 @@ function ProtectedRoute({ children }) {
 
       // ✅ All good
       setChecking(false);
-    } catch (e) {
+    } catch {
       // If parsing fails, clear and redirect
       safeLocalStorage.removeItem("clientUser");
       navigate("/login");
@@ -162,6 +164,8 @@ function ScrollHandlerWrapper() {
         <Route path="/thankyou" element={<ThankYou />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<BlogDetails />} />
         <Route path="/nri-services" element={<NRI_Services />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/login" element={<Login />} />

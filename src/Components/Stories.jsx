@@ -123,10 +123,13 @@ export default function YouTubeSection() {
   };
 
   return (
-    <section className="content-auto w-full bg-gray-100 rounded-xl !px-8 !py-4 relative !my-4">
+    <section className="content-auto relative w-full rounded-2xl border border-slate-200 bg-white !px-6 !py-9 !my-6 md:!px-10">
       {/* Header */}
       <div className="!mx-auto !mb-4">
-        <h2 className="text-2xl font-bold text-red-700">
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#9d1c1a]">
+          NRI Knowledge Hub
+        </p>
+        <h2 className="!mt-2 font-serif text-3xl font-semibold text-[#102a4c] md:text-4xl">
           Important Videos for NRIs
         </h2>
         <p className="text-gray-600 !mt-1">

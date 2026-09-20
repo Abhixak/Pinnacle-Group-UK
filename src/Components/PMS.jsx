@@ -53,20 +53,18 @@ const PMS = () => {
 
   return (
     // <div className="content-auto w-full !mx-auto !px-6 !py-8 rounded-xl shadow-md bg-[#e5f0ff]">
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 !px-6 !py-8">
+    <section className="grid grid-cols-1 gap-5 !px-6 !py-8 sm:grid-cols-2 lg:grid-cols-3 lg:!px-10">
       {services.map((item) => (
         <Link
           key={item.id}
           to={`/service-details/${item.id}`}
-          className="relative bg-white !p-6 rounded-xl shadow-md hover:shadow-lg
-            transition text-center flex flex-col items-center hover:no-underline"
+          className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white !p-4 text-left transition-all duration-200 hover:-translate-y-1 hover:border-[#9d1c1a]/30 hover:no-underline hover:shadow-lg"
         >
           {/* Service Image */}
           <img
             src={item.img}
             alt={item.alt}
-            className="!mx-auto !mb-4 w-full h-50 object-cover
-              transition-transform duration-300 hover:scale-110 rounded"
+            className="!mb-5 h-48 w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             loading="lazy"
             decoding="async"
             width="360"
@@ -74,12 +72,12 @@ const PMS = () => {
           />
 
           {/* Title */}
-          <h3 className="text-xl font-semibold !mb-2 text-blue-700">
+          <h3 className="font-serif text-xl font-semibold !mb-2 text-[#102a4c]">
             {item.title}
           </h3>
 
           {/* Description */}
-          <p className="text-gray-600 text-sm leading-relaxed">
+          <p className="text-slate-600 text-sm leading-relaxed">
             {item.desc}
           </p>
         </Link>

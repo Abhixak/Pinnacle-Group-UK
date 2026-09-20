@@ -104,6 +104,14 @@ const Footer = () => {
             </li>
             <li>
               <a
+                href="/blogs"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                Blogs
+              </a>
+            </li>
+            <li>
+              <a
                 href="/faqs"
                 className="inline-flex min-h-10 items-center hover:text-slate-900"
               >
@@ -295,6 +303,14 @@ const Footer = () => {
                   className="inline-flex min-h-10 items-center hover:text-slate-900"
                 >
                   Gallery
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/blogs"
+                  className="inline-flex min-h-10 items-center hover:text-slate-900"
+                >
+                  Blogs
                 </a>
               </li>
               <li>

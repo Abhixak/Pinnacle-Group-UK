@@ -1,36 +1,36 @@
-import React from "react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
-    <div className="content-auto w-full bg-white flex flex-col items-center text-black !mb-3 !px-6 md:!px-20 !py-6 bg-white">
-      <h2 className="text-3xl font-bold !mb-8 text-center">
-        About{" "}
-        <span className="text-red-600 underline underline-offset-4">
-          Pinnacle Group
-        </span>
-      </h2>
-      <p className="text-sm leading-7 text-center !mx-auto">
-        As one of the leading services providers operating in the real estate
-        domain, at <strong>Pinnacle Group</strong>, we are offering host of
-        services according to the various realty needs and requirements of the
-        clients.
-      </p>
-      <p className="text-sm leading-7 text-center !mb-6 !mx-auto">
-        Located in India, United Kingdom, United States of America, Canada, we have specialization in <span className="text-red-800 font-semibold">NRI Property Management Services</span> such as Buying
-        Property Services, Selling Property Services, Leasing Property Services
-        and Property Loan Consultancy. As a reliable service provider, we are
-        offering services keeping in mind the various realty needs and
-        requirements of the clients, providing them with good and effective
-        realty solution on a prompt basis. &nbsp;
+    <section className="content-auto relative !my-8 overflow-hidden rounded-2xl bg-[#0d2948] !px-6 !py-12 text-white md:!px-12">
+      <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-white/10" />
+      <div className="absolute -bottom-28 left-1/3 h-64 w-64 rounded-full border border-white/10" />
+      <div className="relative max-w-5xl">
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-red-200">
+          About Pinnacle Group
+        </p>
+        <h2 className="!mt-3 font-serif text-3xl font-semibold md:text-4xl">
+          Trusted property support, across borders.
+        </h2>
+        <p className="!mt-5 max-w-4xl text-sm leading-7 text-white/75">
+          As one of the leading service providers operating in the real estate domain, Pinnacle
+          Group offers support according to the varied property needs of its clients.
+        </p>
+        <p className="!mt-3 max-w-4xl text-sm leading-7 text-white/75">
+          Located in India, the United Kingdom, the United States of America and Canada, we
+          specialise in NRI Property Management Services including buying, selling, leasing and
+          property loan consultancy.
+        </p>
         <Link
           to="/contact"
-          className="text-red-600 font-semibold underline-offset-4"
+          className="!mt-7 inline-flex items-center gap-2 rounded-md bg-[#a9203b] !px-6 !py-3 font-semibold text-white transition-colors hover:bg-[#86172f]"
         >
-          Read more..
+          Read more
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
-      </p>
-    </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { blogPosts } from "../src/data/blogPosts.js";
 
 const SITE_URL = "https://www.nriproperty.uk";
 const lastmod = new Date().toISOString().slice(0, 10);
@@ -7,6 +8,13 @@ const lastmod = new Date().toISOString().slice(0, 10);
 const routes = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/contact", changefreq: "weekly", priority: "0.9" },
+  { loc: "/about", changefreq: "monthly", priority: "0.8" },
+  { loc: "/blogs", changefreq: "weekly", priority: "0.8" },
+  ...blogPosts.map((post) => ({
+    loc: `/blogs/${post.slug}`,
+    changefreq: "monthly",
+    priority: "0.7",
+  })),
   { loc: "/nri-services", changefreq: "weekly", priority: "0.9" },
   { loc: "/gallery", changefreq: "weekly", priority: "0.8" },
   { loc: "/support", changefreq: "weekly", priority: "0.7" },
