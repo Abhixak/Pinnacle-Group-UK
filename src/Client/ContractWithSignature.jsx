@@ -37,12 +37,8 @@
 //   useEffect(() => {
 //     const fetchContract = async (userEmail) => {
 //       try {
-//         const res = await fetch(
-//           "http://localhost:5001/api/contracts/upload-signed-contract",
-//           { userEmail }
-//         );
 //         const response = await fetch(
-//           `https://nripropertybackend.onrender.com/api/contract/path/${encodeURIComponent(
+//           `${API_BASE_URL}/contract/path/${encodeURIComponent(
 //             userEmail
 //           )}`
 //         );
@@ -241,7 +237,7 @@
 //       }
 
 //       const res = await fetch(
-//         "https://nripropertybackend.onrender.com/api/upload-signed-contract",
+//         `${API_BASE_URL}/upload-signed-contract`,
 //         {
 //           method: "POST",
 //           body: formData,
