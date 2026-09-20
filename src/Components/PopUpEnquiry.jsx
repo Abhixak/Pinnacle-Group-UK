@@ -285,45 +285,42 @@ const PopUpEnquiry = () => {
   return (
     <>
       <div
-        className="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-[2px]"
+        className="fixed inset-0 z-40 bg-slate-950/50"
         onClick={handleClose}
         aria-hidden="true"
       />
 
-      <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 !px-4">
+      <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 !px-4">
         <div
           ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="popup-title"
           aria-describedby={error ? "popup-error" : "popup-description"}
-          className="relative max-h-[94vh] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-2xl"
+          className="relative max-h-[92vh] overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-xl"
         >
-          <div className="h-1 w-full bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600" />
-
           <button
             type="button"
             onClick={handleClose}
-            className="absolute right-4 top-4 rounded-full !p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
+            className="absolute right-4 top-4 rounded-md !p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#7a1f2b]/20"
             aria-label="Close consultation form"
           >
             <FaTimes />
           </button>
 
-          <div className="!p-5 sm:!p-7">
-            <div className="!mb-5">
-              <div className="inline-flex rounded-full bg-amber-50 !px-3 !py-1 text-xs font-semibold uppercase tracking-wide text-amber-800">
-                Free Consultation
-              </div>
+          <div className="!p-5 sm:!p-6">
+            <div className="!mb-5 border-b border-slate-100 !pb-5">
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#7a1f2b]">
+                Free property consultation
+              </p>
               <h2
                 id="popup-title"
-                className="!mt-2 pr-10 text-xl font-semibold text-slate-900 sm:text-2xl"
+                className="!mt-1.5 pr-10 text-xl font-semibold tracking-tight text-slate-900"
               >
-                Speak With an NRI Property Expert
+                Speak with a property expert
               </h2>
-              <p id="popup-description" className="!mt-1 text-sm text-slate-600">
-                Submit your query and one of our property experts will get in
-                touch with you.
+              <p id="popup-description" className="!mt-1 text-sm leading-6 text-slate-500">
+                Leave your details and we’ll get back to you shortly.
               </p>
             </div>
 
@@ -333,37 +330,27 @@ const PopUpEnquiry = () => {
               className="flex flex-col gap-5"
             >
               <div>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">
-                      Step {step} of {steps.length}
-                    </p>
-                    <h3 className="!mt-1 text-lg font-semibold text-slate-900">
-                      {currentStep.title}
-                    </h3>
-                    <p className="!mt-0.5 text-sm text-slate-500">
-                      {currentStep.description}
-                    </p>
-                  </div>
-                  <span className="shrink-0 text-sm font-semibold text-slate-500">
-                    {Math.round((step / steps.length) * 100)}%
+                <div className="flex items-center justify-between gap-4">
+                  <h3 className="text-sm font-semibold text-slate-800">
+                    {currentStep.title}
+                  </h3>
+                  <span className="shrink-0 text-xs text-slate-400">
+                    {step} of {steps.length}
                   </span>
                 </div>
 
                 <div
-                  className="!mt-3 grid grid-cols-4 gap-2"
+                  className="!mt-2 h-1 overflow-hidden rounded-full bg-slate-100"
                   aria-label="Enquiry progress"
                 >
-                  {steps.map((item, index) => (
-                    <div
-                      key={item.title}
-                      className={
-                        "h-1.5 rounded-full transition-colors duration-300 " +
-                        (index + 1 <= step ? "bg-amber-500" : "bg-slate-200")
-                      }
-                    />
-                  ))}
+                  <div
+                    className="h-full rounded-full bg-[#7a1f2b] transition-[width] duration-300"
+                    style={{ width: `${(step / steps.length) * 100}%` }}
+                  />
                 </div>
+                <p className="!mt-2 text-sm text-slate-500">
+                  {currentStep.description}
+                </p>
               </div>
 
               {step === 1 && (
@@ -383,7 +370,7 @@ const PopUpEnquiry = () => {
                       placeholder="Your full name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="rounded-md border border-slate-300 !p-2.5 outline-none focus:ring-2 focus:ring-amber-200"
+                      className="h-11 rounded-lg border border-slate-300 !px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#7a1f2b] focus:ring-2 focus:ring-[#7a1f2b]/10"
                       autoComplete="name"
                       required
                     />
@@ -403,7 +390,7 @@ const PopUpEnquiry = () => {
                       placeholder="you@example.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="rounded-md border border-slate-300 !p-2.5 outline-none focus:ring-2 focus:ring-amber-200"
+                      className="h-11 rounded-lg border border-slate-300 !px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#7a1f2b] focus:ring-2 focus:ring-[#7a1f2b]/10"
                       autoComplete="email"
                       required
                     />
@@ -440,7 +427,7 @@ const PopUpEnquiry = () => {
                         type="text"
                         value={countryCode}
                         readOnly
-                        className="w-20 rounded-l-md border border-r-0 border-slate-300 bg-slate-50 !p-2.5 text-center"
+                        className="h-11 w-20 rounded-l-lg border border-r-0 border-slate-300 bg-slate-50 !px-2 text-center text-sm text-slate-600"
                         aria-label="Country code"
                       />
                       <input
@@ -451,7 +438,7 @@ const PopUpEnquiry = () => {
                         placeholder="Phone number"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full rounded-r-md border border-slate-300 !p-2.5 outline-none focus:ring-2 focus:ring-amber-200"
+                        className="h-11 w-full rounded-r-lg border border-slate-300 !px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#7a1f2b] focus:ring-2 focus:ring-[#7a1f2b]/10"
                         autoComplete="tel"
                         inputMode="numeric"
                         required
@@ -476,7 +463,7 @@ const PopUpEnquiry = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="rounded-md border border-slate-300 !p-2.5 outline-none focus:ring-2 focus:ring-amber-200"
+                      className="h-11 rounded-lg border border-slate-300 !px-3 text-sm outline-none transition focus:border-[#7a1f2b] focus:ring-2 focus:ring-[#7a1f2b]/10"
                       required
                     >
                       <option value="">Select Service</option>
@@ -503,7 +490,7 @@ const PopUpEnquiry = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Property location, timeline, and any legal concerns."
-                      className="resize-none rounded-md border border-slate-300 !p-2.5 outline-none focus:ring-2 focus:ring-amber-200"
+                      className="resize-none rounded-lg border border-slate-300 !p-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#7a1f2b] focus:ring-2 focus:ring-[#7a1f2b]/10"
                       required
                     />
                   </div>
@@ -512,7 +499,7 @@ const PopUpEnquiry = () => {
 
               {step === 4 && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-1 gap-3 rounded-xl border border-slate-200 bg-slate-50 !p-4 text-sm sm:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-3 rounded-lg border border-slate-200 bg-slate-50/70 !p-4 text-sm sm:grid-cols-2">
                     <div>
                       <p className="text-xs uppercase tracking-wide text-slate-400">
                         Name
@@ -547,7 +534,7 @@ const PopUpEnquiry = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-2.5 rounded-lg border border-slate-200 !p-3 text-left">
+                  <div className="flex items-start gap-2.5 text-left">
                     <input
                       ref={agreementRef}
                       type="checkbox"
@@ -597,7 +584,7 @@ const PopUpEnquiry = () => {
               {error && (
                 <p
                   id="popup-error"
-                  className="rounded-md bg-red-50 !px-3 !py-2 text-center text-sm text-red-600"
+                  className="rounded-lg border border-red-100 bg-red-50 !px-3 !py-2.5 text-sm text-red-700"
                   aria-live="polite"
                 >
                   {error}
@@ -606,7 +593,7 @@ const PopUpEnquiry = () => {
 
               <div className="flex flex-col-reverse gap-3 border-t border-slate-100 !pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="w-full sm:w-auto">
-                  <MakeCallButton />
+                  <MakeCallButton variant="quiet" />
                 </div>
 
                 <div className="flex w-full gap-2 sm:w-auto">
@@ -615,7 +602,7 @@ const PopUpEnquiry = () => {
                       type="button"
                       onClick={handleBack}
                       disabled={loading}
-                      className="flex-1 rounded-md border border-amber-300 bg-white !px-5 !py-2.5 font-semibold text-slate-700 transition hover:bg-amber-50 sm:flex-none"
+                      className="flex-1 rounded-lg border border-slate-200 bg-white !px-5 !py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 sm:flex-none"
                     >
                       Back
                     </button>
@@ -625,7 +612,7 @@ const PopUpEnquiry = () => {
                     type="submit"
                     disabled={loading}
                     className={
-                      "flex flex-1 items-center justify-center rounded-md bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 !px-6 !py-2.5 font-semibold text-white shadow-sm transition hover:shadow-md sm:flex-none " +
+                      "flex flex-1 items-center justify-center rounded-lg bg-[#7a1f2b] !px-6 !py-2.5 text-sm font-semibold text-white transition hover:bg-[#651923] focus:outline-none focus:ring-2 focus:ring-[#7a1f2b]/20 focus:ring-offset-2 sm:flex-none " +
                       (loading ? "cursor-not-allowed opacity-70" : "")
                     }
                   >
@@ -638,8 +625,8 @@ const PopUpEnquiry = () => {
                 </div>
               </div>
 
-              <p className="text-center text-xs text-slate-500">
-                Your details are private and only used to respond to your enquiry.
+              <p className="text-center text-xs text-slate-400">
+                Your information stays private.
               </p>
             </form>
           </div>

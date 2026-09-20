@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const MakeCallButton = () => {
+const MakeCallButton = ({ variant = "primary" }) => {
   const [showOptions, setShowOptions] = useState(false);
   const [dropUp, setDropUp] = useState(false);
   const buttonRef = useRef(null);
@@ -36,7 +36,11 @@ const MakeCallButton = () => {
         aria-haspopup="true"
         aria-expanded={showOptions}
         onClick={() => setShowOptions(!showOptions)}
-        className="bg-green-600 text-white text-lg font-semibold !px-6 !py-2 rounded hover:bg-green-700 transition w-full md:w-auto"
+        className={
+          variant === "quiet"
+            ? "w-full rounded-lg border border-slate-200 bg-white !px-4 !py-2.5 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 md:w-auto"
+            : "w-full rounded bg-green-600 !px-6 !py-2 text-lg font-semibold text-white transition hover:bg-green-700 md:w-auto"
+        }
       >
         Make a Call
       </button>
