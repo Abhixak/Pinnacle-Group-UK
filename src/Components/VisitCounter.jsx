@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaEye } from "react-icons/fa";
-import { VISIT_COUNTER_URL } from "../config";
+import { API_BASE_URL } from "../config";
 
 const fetchWithRetry = async (url, retries = 3, delay = 1000) => {
   try {
@@ -44,19 +44,11 @@ const VisitCounter = () => {
 
   useEffect(() => {
     if (!hasStarted) return;
-
-    if (!VISIT_COUNTER_URL) {
-      console.error("VITE_VISIT_COUNTER_URL is not set in the environment.");
-      setError(true);
-      setLoading(false);
-      return;
-    }
-
     const hasVisited = sessionStorage.getItem("hasVisited");
 
     const endpoint = hasVisited
-      ? `${VISIT_COUNTER_URL}/view`
-      : `${VISIT_COUNTER_URL}/increment-view`;
+      ? `${API_BASE_URL}/views/view`
+      : `${API_BASE_URL}/views/increment-view`;
 
     fetchWithRetry(endpoint)
       .then((data) => {

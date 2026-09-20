@@ -11,9 +11,3 @@ if (!rawBackendUrl) {
 export const BACKEND_URL = rawBackendUrl.replace(/\/$/, "");
 export const API_BASE_URL = `${BACKEND_URL}/api`;
 export const ADMIN_BASE_URL = BACKEND_URL;
-
-const rawVisitCounterUrl = import.meta.env.VITE_VISIT_COUNTER_URL;
-
-export const VISIT_COUNTER_URL = rawVisitCounterUrl
-  ? rawVisitCounterUrl.replace(/\/$/, "")
-  : "";
