@@ -1,27 +1,38 @@
 import React, { useEffect, useRef, useState } from "react";
 import Footer from "../Components/Footer";
-import sampleImg1 from "../assets/gallery/img1.jpeg";
-import sampleImg2 from "../assets/gallery/img2.jpeg";
-import sampleVideo1 from "../assets/gallery/video1.mp4";
-import sampleImg3 from "../assets/gallery/img3.jpeg";
-import sampleImg4 from "../assets/gallery/img4.jpeg";
-import sampleImg5 from "../assets/gallery/img5.jpeg";
-// import sampleImg6 from "../assets/gallery/img6.jpeg";
-import sampleImg7 from "../assets/gallery/img7.jpeg";
 
 import PMS from "../Components/PMS";
 import Chatbot from "../Components/Chatbot";
 import FreeConsultation from "../Components/FreeConsultation";
+import AchievementsAwards from "../Components/AchievementsAwards";
+import SEO from "../Components/SEO";
+
+const fallbackPoster = "/NewLogo.png";
+const toCloudinaryPoster = (src) => {
+  if (!src || !src.includes("res.cloudinary.com")) return fallbackPoster;
+  return src.replace(
+    "/video/upload/",
+    "/video/upload/so_0,f_jpg,q_auto,w_320/",
+  );
+};
 
 const mediaList = [
-  { type: "video", src: sampleVideo1 },
-  { type: "image", src: sampleImg1 },
-  { type: "image", src: sampleImg2 },
-  { type: "image", src: sampleImg3 },
-  { type: "image", src: sampleImg4 },
-  { type: "image", src: sampleImg5 },
-  // { type: "image", src: sampleImg6 },
-  { type: "image", src: sampleImg7 },
+  { type: "video", src: "https://res.cloudinary.com/dljubulyn/video/upload/v1774339838/web_gxekw0.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769763132/Podcast01_q8vrb0.webm" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769763141/Podcast02_zvljjn.webm" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769763115/Podcast03_h7x3oe.webm" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853502/BEST_NRI_e1mfcv.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769763177/NRI_CONCLAVE_sjwwn7.webm" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853574/BizNext_ecjk4q.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853686/News18Podcast_qcxjel.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853734/video1_f66kjb.mp4" },
+  
+  { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img1.jpeg?updatedAt=1769753329315" },
+  { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img2.jpeg?updatedAt=1769753330067" },
+  { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img3.jpeg?updatedAt=1769753330758" },
+  { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img4.jpeg?updatedAt=1769753329312" },
+  { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img5.jpeg?updatedAt=1769753329402" },
+  { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img7.jpeg?updatedAt=1769755903251" },
 ];
 
 const Gallery = () => {
@@ -69,10 +80,20 @@ const Gallery = () => {
 
   return (
     <div className="rounded-xl bg-gray-100 !mx-4 !my-2">
-      <h2 className="text-3xl font-bold text-center !pt-6 text-red-600">
-        Gallery
-      </h2>
-      <Chatbot />
+      <SEO
+        title="Gallery | NRI Property Services in India for UK NRIs"
+        description="Explore videos and photos showcasing NRI property services, media coverage, and client engagement."
+        path="/gallery"
+        keywords="NRI property services testimonials, NRI property success stories UK, NRI real estate consultancy India"
+      />
+      <h1 className="text-3xl font-bold text-center !pt-6 text-red-600">
+        NRI Property Services Gallery
+      </h1>
+      <p className="text-center text-gray-600 !mt-2 !mb-4">
+        Videos, client moments, and media highlights from our NRI property
+        services in India and the UK.
+      </p>
+      {/* <Chatbot /> */}
       <FreeConsultation />
 
       <div className="flex flex-col lg:flex-row !m-5 !px-4 !py-6 bg-gray-200 rounded-xl">
@@ -81,15 +102,20 @@ const Gallery = () => {
           {filteredMedia[currentIndex]?.type === "image" ? (
             <img
               src={filteredMedia[currentIndex].src}
-              alt="media"
+              alt="Gallery photo"
               className="w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
             />
           ) : (
             <video
               ref={videoRef}
               src={filteredMedia[currentIndex].src}
               controls
+              preload="none"
+              poster={toCloudinaryPoster(filteredMedia[currentIndex].src)}
               className="w-full h-full object-contain"
+              aria-label="Gallery video"
             />
           )}
         </div>
@@ -161,18 +187,18 @@ const Gallery = () => {
                   {media.type === "image" ? (
                     <img
                       src={media.src}
-                      alt="thumb"
+                      alt="Gallery photo thumbnail"
                       className="w-full h-full object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
-                    <video
-                      ref={(el) => {
-                        if (el) el.muted = true;
-                      }}
-                      src={media.src}
+                    <img
+                      src={toCloudinaryPoster(media.src)}
+                      alt="Gallery video thumbnail"
                       className="w-full h-full object-contain"
-                      playsInline
-                      preload="metadata"
+                      loading="lazy"
+                      decoding="async"
                     />
                   )}
                 </div>
@@ -181,6 +207,7 @@ const Gallery = () => {
           </div>
         </div>
       </div>
+      <AchievementsAwards />
       <PMS />
       <hr />
       <Footer />

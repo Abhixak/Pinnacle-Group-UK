@@ -1,113 +1,176 @@
-import React, { useState, useEffect } from "react";
-import { X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+// src/Components/Events.jsx
+import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { safeSessionStorage } from "../utils/safeStorage";
 
-const events2025 = [
-  // Global
-  { date: "2025-01-01", festival: "New Year’s Day", message: "Welcome 2025 with joy!", country: "Global" },
-  { date: "2025-04-18", festival: "Good Friday", message: "Reflect and cherish this Good Friday.", country: "Global" },
-  { date: "2025-04-21", festival: "Easter Monday", message: "Happy Easter Monday!", country: "Global" },
-  { date: "2025-12-25", festival: "Christmas Day", message: "Merry Christmas to you and yours!", country: "Global" },
 
-  // India
-  { date: "2025-01-13", festival: "Lohri", message: "Celebrate warmth and joy this Lohri!", country: "India" },
-  { date: "2025-01-14", festival: "Makar Sankranti / Pongal", message: "Warm wishes on Makar Sankranti!", country: "India" },
-  { date: "2025-03-13", festival: "Holika Dahan", message: "Holika Dahan—victory of virtue!", country: "India" },
-  { date: "2025-03-14", festival: "Holi", message: "Splash into colors of joy this Holi!", country: "India" },
-  { date: "2025-03-30", festival: "Ram Navami", message: "Blessings on Ram Navami!", country: "India" },
-  { date: "2025-04-14", festival: "Ambedkar Jayanti", message: "Honoring Dr. Ambedkar’s legacy.", country: "India" },
-  { date: "2025-06-27", festival: "Ratha Yatra", message: "Joyous Ratha Yatra!", country: "India" },
-  { date: "2025-07-10", festival: "Guru Purnima", message: "Blessed Guru Purnima!", country: "India" },
-  { date: "2025-08-09", festival: "Raksha Bandhan", message: "Celebrate sibling love!", country: "India" },
-  { date: "2025-08-15", festival: "Independence Day", message: "Happy Independence Day, India!", country: "India" },
-  { date: "2025-08-27", festival: "Ganesh Chaturthi", message: "Blessed Ganesh Chaturthi!", country: "India" },
-  { date: "2025-10-21", festival: "Diwali", message: "Happy Diwali – Festival of Lights!", country: "India" },
-  { date: "2025-11-06", festival: "Bhai Dooj", message: "Celebrate sibling bonds!", country: "India" },
+/* ---------------- FESTIVALS ---------------- */
 
-  // United Kingdom
-  { date: "2025-05-05", festival: "Early May Bank Holiday", message: "Enjoy the May Day holiday!", country: "UK" },
-  { date: "2025-12-26", festival: "Boxing Day", message: "Enjoy Boxing Day!", country: "UK" },
+const festivals = [
+  {
+    name: "New Year’s Day",
+    date: "1 Jan 2026",
+    description: "Celebrate the beginning of a new year with joy and positivity.",
+    image: "https://i.imghippo.com/files/DMm2001nR.jpg",
+  },
+  {
+    name: "Happy Lohri",
+    date: "13 Jan 2026",
+    description: "Celebrate the Lohri with joy and positivity.",
+    image: "https://res.cloudinary.com/dljubulyn/image/upload/f_auto,q_auto/v1786693105/events/ovbvj64ubpkop8nbxacc.png",
+  },
+  {
+    name: "Navratri",
+    date: "22 Sep 2025 - 2 Oct 2025",
+    description: "Nine nights of devotion, dance, and worship of Goddess Durga.",
+    image: "https://res.cloudinary.com/dljubulyn/image/upload/f_auto,q_auto/v1786693106/events/ggnrs3smx5ab2sze1gwy.jpg",
+  },
+  {
+    name: "Karwa Chauth",
+    date: "10 Oct 2025",
+    description: "A fasting ritual for the well-being of husbands.",
+    image: "https://res.cloudinary.com/dljubulyn/image/upload/f_auto,q_auto/v1786693104/events/wvygqp4mswwmadeigp9r.jpg",
+  },
+  {
+    name: "Diwali",
+    date: "20 Oct 2025",
+    description: "Festival of Lights celebrating good over evil.",
+    image: "https://res.cloudinary.com/dljubulyn/image/upload/f_auto,q_auto/v1786693103/events/chhzombxwcjrgwmwsrbh.jpg",
+  },
 ];
 
-// 🎨 Festival-specific background styles
-// 🎨 Festival-specific background styles (professional palettes)
-const festivalBackgrounds = {
-  "New Year’s Day": "from-indigo-600 via-blue-500 to-cyan-400", // cool + celebratory
-  "Good Friday": "from-gray-800 via-gray-900 to-black", // solemn, reflective
-  "Easter Monday": "from-yellow-300 via-pink-400 to-purple-500", // cheerful pastel
-  "Christmas Day": "from-red-600 via-green-600 to-emerald-500", // traditional Christmas colors
-  "Lohri": "from-amber-500 via-orange-600 to-red-600", // festive fire tones
-  "Makar Sankranti / Pongal": "from-yellow-400 via-orange-400 to-amber-500", // harvest warmth
-  "Holika Dahan": "from-red-700 via-orange-600 to-amber-500", // fire & devotion
-  "Holi": "from-pink-500 via-purple-500 to-blue-500", // colorful splash
-  "Ram Navami": "from-yellow-500 via-orange-500 to-red-500", // divine & festive
-  "Ambedkar Jayanti": "from-blue-700 via-indigo-600 to-cyan-500", // symbolic of his legacy
-  "Ratha Yatra": "from-orange-500 via-red-500 to-yellow-500", 
-  "Guru Purnima": "from-indigo-600 via-purple-600 to-pink-500",
-  "Raksha Bandhan": "from-purple-600 via-pink-500 to-indigo-500", // bonding colors
-  "Independence Day": "from-orange-500 via-white to-green-600", // Indian tricolor
-  "Ganesh Chaturthi": "from-red-600 via-orange-500 to-amber-400", // vibrant
-  "Diwali": "from-amber-400 via-orange-500 to-red-600", // festival of lights
-  "Bhai Dooj": "from-pink-500 via-red-500 to-amber-400", 
-  "Boxing Day": "from-sky-500 via-indigo-600 to-slate-700", // modern festive winter
+/* ---------------- DATE HELPERS ---------------- */
+
+const MONTHS = {
+  jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+  jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
 };
 
+function parseSingleDate(str) {
+  if (!str) return null;
+  const parts = str.replace(/(st|nd|rd|th)/gi, "").split(" ");
+  if (parts.length < 3) return null;
+  return new Date(
+    Number(parts[2]),
+    MONTHS[parts[1].toLowerCase().slice(0, 3)],
+    Number(parts[0])
+  );
+}
 
-export default function FestivalPopup({ userCountry = "Global" }) {
-  const [visible, setVisible] = useState(false);
-  const [eventsToday, setEventsToday] = useState([]);
+function parseDateRange(str) {
+  if (!str) return [null, null];
+  const s = str.replace(/[–—]/g, "-");
+  const parts = s.split("-").map(p => p.trim());
+
+  if (parts.length === 2) {
+    const start = parseSingleDate(parts[0]);
+    const end = parseSingleDate(
+      /\d{4}$/.test(parts[1]) ? parts[1] : `${parts[1]} ${parts[0].slice(-4)}`
+    );
+    return [start, end];
+  }
+
+  const single = parseSingleDate(s);
+  return [single, single];
+}
+
+/* ---------------- COMPONENT ---------------- */
+
+export default function Events() {
+  const [todayFestivals, setTodayFestivals] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleClose = () => {
+    todayFestivals.forEach(ev => {
+      safeSessionStorage.setItem(`dismissedFestival_${ev.name}`, "true");
+    });
+    setShowPopup(false);
+  };
+
+  /* generate sparks ONCE */
+  const sparks = useMemo(
+    () =>
+      Array.from({ length: 12 }).map(() => ({
+        left: `${Math.random() * 100}%`,
+        delay: Math.random() * 2,
+        duration: 4 + Math.random() * 2,
+      })),
+    []
+  );
 
   useEffect(() => {
-    const todayStr = new Date().toLocaleDateString("en-CA"); // yyyy-mm-dd
-    const matches = events2025.filter(
-      e => e.date === todayStr && (e.country === userCountry || e.country === "Global")
-    );
-    if (matches.length > 0) {
-      setEventsToday(matches);
-      setVisible(true);
-    }
-  }, [userCountry]);
+    document.body.style.overflow = showPopup ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
+  }, [showPopup]);
 
-  if (!visible || eventsToday.length === 0) return null;
+  useEffect(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const matches = festivals.filter(f => {
+      const [start, end] = parseDateRange(f.date);
+      const isDismissed = safeSessionStorage.getItem(`dismissedFestival_${f.name}`);
+      return start && end && today >= start && today <= end && !isDismissed;
+    });
+
+    if (matches.length) {
+      setTodayFestivals(matches);
+      setShowPopup(true);
+    }
+  }, []);
+
+  if (!showPopup) return null;
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 !p-4">
-          {eventsToday.map((event, idx) => {
-            const bgClass = festivalBackgrounds[event.festival] || "from-orange-400 via-pink-500 to-red-600";
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className={`relative w-full max-w-lg rounded-2xl shadow-2xl !p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br ${bgClass}`}
-              >
-                <button
-                  onClick={() => setVisible(false)}
-                  className="absolute top-4 right-4 bg-white text-red-600 rounded-full !p-2 shadow-md hover:bg-red-100"
-                  aria-label="Close popup"
-                >
-                  <X size={20} />
-                </button>
+    <div className="fixed inset-0 z-50 flex items-center justify-center !p-4">
+      <div className="absolute inset-0 bg-black/80" onClick={handleClose} />
 
-                <img src="/logo.png" alt="Company Logo" className="h-30 !mb-4 drop-shadow-lg" />
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="relative max-w-3xl w-full rounded-2xl overflow-hidden bg-white shadow-2xl"
+      >
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 z-10 bg-white text-red-600 rounded-full !p-2 shadow"
+          aria-label="Close festival popup"
+        >
+          ✖
+        </button>
 
-                <h1 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg !mb-2">
-                  Happy {event.festival}!
-                </h1>
-                <p className="text-base md:text-lg text-white/90 !mb-4">{event.message}</p>
+        {todayFestivals.map(ev => (
+          <div key={ev.name}>
+            <img
+              src={ev.image}
+              alt={ev.name}
+              className="w-full h-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
 
-                <p className="text-sm md:text-base text-yellow-200 font-semibold">
-                  Celebrate {event.festival} with peace of mind – while we manage, buy, sell, or lease your property remotely in India for NRIs worldwide.
-                </p>
-              </motion.div>
-            );
-          })}
-        </div>
-      )}
-    </AnimatePresence>
+            <div className="relative !p-6 text-center overflow-hidden">
+              {sparks.map((s, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 rounded-full bg-red-500"
+                  style={{ left: s.left, bottom: "-20px" }}
+                  animate={{ y: ["0%", "-120vh"], opacity: [1, 0] }}
+                  transition={{
+                    duration: s.duration,
+                    delay: s.delay,
+                    repeat: Infinity,
+                  }}
+                />
+              ))}
+
+              <h3 className="text-xl font-bold">{ev.name}</h3>
+              <p className="text-sm text-gray-600">{ev.date}</p>
+              <p className="!mt-3 text-gray-700">{ev.description}</p>
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </div>
   );
 }

@@ -1,95 +1,101 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
-import SellingImg from "../assets/Selling Property.jpg";
-import BuyingImg from "../assets/Buying Property.jpg";
-import LeasingImg from "../assets/Leasing Property.jpg";
-import BuySellImg from "../assets/buy&sell.png";
-import LegalImg from "../assets/legal.png";
-import ManagementImg from "../assets/Management.png";
-import TaxImg from "../assets/title Clearing.png";
-import FinanceImg from "../assets/tax.png";
-import SupportImg from "../assets/24 x 7.png";
+import { useParams, Navigate } from "react-router-dom";
 
 import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
 import Chatbot from "../Components/Chatbot";
-import { Helmet } from "react-helmet";
 import FreeConsultation from "../Components/FreeConsultation";
-
+import SEO from "../Components/SEO";
 const serviceData = {
+  // =============================
+  // MAIN SERVICES
+  // =============================
+
   selling: {
     title: "Selling Property",
     description:
-      "At Pinnacle Group, we understand the emotional and financial value of your property. Our dedicated Selling Property Services are designed to provide NRIs with a seamless and profitable selling experience. Whether you're looking to sell a Residential, Commercial, Industrial, or Agricultural property, we ensure complete support—from property listing and buyer shortlisting to legal documentation and final registration. We also offer expert market analysis and valuation services to help you receive the best price for your property. Our team handles negotiations, inspections, and legal formalities with utmost transparency, keeping you informed every step of the way.",
-    image: SellingImg,
+      "At Pinnacle Group, we offer end-to-end Selling Property Services designed especially for NRIs and Indian residents who want a smooth, secure, and profitable selling experience. Our process begins with accurate property valuation based on current market trends to ensure you receive the best possible price. We handle professional property listing, marketing, buyer inquiries, and site visit coordination. Every potential buyer is carefully screened to avoid fraud and unnecessary delays. Our experts manage price negotiations, agreement drafting, legal documentation, and coordination with banks and authorities. From token amount to final registry and handover, we maintain complete transparency at every stage. For NRIs living abroad, our dedicated on-ground team acts as your trusted local representative, providing regular updates through calls, WhatsApp, and email. With strong legal backing and market expertise, we help you sell your property faster, safely, and with maximum returns while you remain stress-free anywhere in the world.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Selling%20Property.jpg?updatedAt=1769753331725",
   },
+
   buying: {
     title: "Buying Property",
     description:
-      "Buying a property in India while staying overseas can be complex—but with Pinnacle Group, it becomes effortless. Our Buying Property Services help NRIs explore, compare, and invest in the best Residential, Commercial, Industrial, and Agricultural properties based on their budget and requirements. We assist with everything from property shortlisting and virtual site visits to due diligence, negotiation, legal paperwork, and final registration. Whether you're investing in a home for your return or as a rental income source, we ensure every transaction is transparent and tailored to your financial goals.",
-    image: BuyingImg,
+      "Buying property in India requires thorough verification, legal clarity, and strong local coordination. Our Buying Property Services are designed to make the entire journey safe and hassle-free for both NRIs and resident Indians. We assist with property shortlisting based on your budget, location preference, and investment goals. Our team arranges site visits, conducts background checks, and verifies land records, approvals, and ownership history. We perform detailed legal due diligence to ensure the property is free from disputes, loans, or encumbrances. From price negotiation and agreement drafting to stamp duty calculation and final registration, we manage every step professionally. Whether you are purchasing residential, commercial, or agricultural property, our experts focus on long-term value and risk-free ownership. With transparent communication and complete documentation support, we ensure your investment remains secure, profitable, and legally compliant.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Buying%20Property.jpg?updatedAt=1769753330238",
   },
+
   leasing: {
     title: "Leasing Property",
     description:
-      "If you’re an NRI looking to lease out your property in India or searching for one to lease, our expert Leasing Property Services ensure a secure and profitable experience. We act as a bridge between landlords and tenants, taking care of background verification, agreement drafting, rent negotiations, and lease registration. Whether it's a flat, villa, office space, or farmland, we maintain a robust database and provide periodic updates. Our goal is to help you avoid vacancy losses, manage tenants effectively, and ensure your leased property generates consistent returns with complete peace of mind.",
-    image: LeasingImg,
+      "Our Leasing Property Services help property owners and tenants connect through a secure and professionally managed process. We assist landlords in finding verified tenants while ensuring tenants receive legally compliant rental agreements. Our services include tenant background verification, rent negotiation, agreement drafting, registration, and move-in coordination. For property owners, especially NRIs, we aim to reduce vacancy periods and maximize rental income. We manage renewals, periodic follow-ups, and coordination between both parties to avoid conflicts. With access to a strong network of corporate and individual tenants, we ensure faster closures and reliable occupancy. Our team also supports rent structuring, security deposit handling, and documentation compliance. Whether residential or commercial leasing, our transparent and organized approach provides peace of mind and steady rental returns.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Leasing%20Property.jpg?updatedAt=1769753330380",
   },
+
   "buy-sell": {
     title: "Buy & Sell Assistance",
+    seoTitle: "Buy & Sell Property in India from UK | NRI Property Experts",
+    seoDescription:
+      "End-to-end buy and sell support for UK NRIs with valuation, legal checks, documentation, and registry coordination in India.",
     description:
-      "Our integrated Buy & Sell Assistance service is tailored for NRIs who need guidance throughout the property transaction lifecycle. From market research and property verification to pricing, negotiation, legal documentation, and transfer of ownership, we ensure that both buyers and sellers experience a hassle-free and transparent process. We represent your interests at every step—even when you're abroad—ensuring legal compliance and optimal returns. With our team of real estate, legal, and financial experts, you're guaranteed secure and profitable deals, whether you're buying your dream home or selling inherited property.",
-    image: BuySellImg,
+      "Our Buy & Sell Assistance service is specially designed for NRIs who require complete end-to-end property support in India. From the initial planning stage to final ownership transfer, our experts manage every detail on your behalf. We assist with property verification, valuation, market analysis, negotiation strategy, and documentation preparation. Whether you are buying your first property or selling an inherited asset, our team ensures legal accuracy and financial safety. We coordinate with lawyers, government offices, and buyers or sellers to prevent delays and miscommunication. Regular updates, transparent reporting, and digital documentation allow you to stay informed while living abroad. With strong on-ground execution and trusted legal expertise, we simplify complex transactions and ensure smooth property ownership transfer without stress or risk.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/buy&sell.png?updatedAt=1769753340851",
   },
+
   legal: {
-    title: "Legal & Documentation",
+    title: "Legal Litigation",
     description:
-      "Navigating Indian property laws from abroad can be overwhelming. At Pinnacle Group, our Legal & Documentation Services are designed to protect your interests and ensure every property transaction or dispute is handled with legal precision. We specialize in succession and inheritance matters, title disputes, property frauds, and power of attorney (PoA) services. Our in-house legal experts assist with due diligence, property title verification, mutation, registration, and agreement drafting. Whether it’s a will, gift deed, or PoA execution, we ensure full legal compliance—saving you time, risk, and travel.",
-    image: LegalImg,
+      "Our Legal Litigation Services provide strong legal protection for NRIs facing property-related challenges in India. We handle disputes involving ownership conflicts, illegal possession, inheritance matters, succession certificates, and partition cases. Our experienced legal team assists with power of attorney drafting, title verification, registration support, and fraud prevention. We represent clients before courts and government authorities while maintaining complete transparency. Each case is handled with detailed documentation review and strategic legal planning. Our goal is to protect your property rights, recover assets where required, and ensure long-term legal security. With continuous updates and professional guidance, we help NRIs resolve complex legal matters efficiently and confidently.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/legal.png?updatedAt=1769753343762",
   },
+
   management: {
     title: "Property Management",
+    seoTitle: "Property Management for NRI Owners | India & UK Support",
+    seoDescription:
+      "Property management for NRI owners in India with inspections, tenant coordination, rent collection, and maintenance reporting for UK-based clients.",
     description:
-      "Owning property in India while living abroad requires trusted hands to manage it. Our end-to-end Property Management Services include periodic inspections, repairs & maintenance, tenant management, rent collection, bill payments, and legal compliance. We act as your on-ground representatives, ensuring your property remains well-maintained, secure, and profitable. Whether it's a residential unit, office, or farmland, we provide monthly updates, visual reports, and quick responses to emergencies. With our services, you no longer need to depend on relatives or risk mismanagement—we protect your investment like it's our own.",
-    image: ManagementImg,
+      "Our Property Management Services are designed to give NRIs complete peace of mind while owning property in India. We act as your local representative and manage everything from routine inspections to tenant coordination. Services include maintenance supervision, repair management, rent collection, utility bill payments, society coordination, and compliance handling. We ensure your property remains secure, well-maintained, and income-generating. Regular reports, photographs, and financial updates keep you informed at all times. Whether your property is rented, vacant, or under renovation, our professional management ensures long-term value preservation and stress-free ownership.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Management.png?updatedAt=1769753343827",
   },
+
   title: {
     title: "Property Title Clearing",
     description:
-      "Title-related issues are among the biggest roadblocks for NRIs selling or transferring ownership of their property in India. At Pinnacle Group, we provide expert Title Clearing Services to help you resolve any legal discrepancies. We conduct thorough due diligence, verify land records, manage mutation entries, and resolve disputes over ownership or encroachments. Our legal team works with local authorities and registration offices to ensure your property has a clean, transferable title. With our support, your property becomes fully compliant for sale, lease, or inheritance—without your physical presence in India.",
-    image: TaxImg,
+      "Property title issues can delay transactions and create long-term legal risks. Our Property Title Clearing Services help resolve ownership problems through proper legal verification and documentation. We assist with land record verification, mutation entries, inheritance updates, encumbrance removal, and correction of government records. Our legal experts coordinate with revenue departments and registrars to ensure your property title becomes legally clean and transferable. This service is essential before selling, buying, or repatriating property assets. With accurate documentation and professional handling, we help eliminate disputes and secure your ownership rights permanently.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/title%20Clearing.png?updatedAt=1769753345500",
   },
+
   finance: {
     title: "NRI Tax & Finance Support",
     description:
-      "Managing finances related to Indian real estate can be challenging for NRIs. Our NRI Tax & Finance Support includes capital gains calculation, repatriation services, TDS compliance, and guidance on Double Tax Avoidance Agreements (DTAA). We help NRIs plan their property investments in a tax-efficient manner, ensuring compliance with Indian Income Tax laws. We also assist in opening NRO/NRE accounts, handling home loans, and coordinating with CA/legal professionals for tax filing. Whether you're buying, selling, or earning rental income, our team helps you optimize returns and stay fully compliant.",
-    image: FinanceImg,
+      "Our NRI Tax & Finance Support services help clients stay compliant with Indian taxation laws while maximizing financial benefits. We assist with capital gains tax planning, TDS calculation and filing, DTAA benefits, repatriation approvals, and rental income taxation. Our experts also guide you on NRO and NRE account structuring for smooth fund transfers. Whether selling property, earning rental income, or transferring funds abroad, we ensure proper documentation and legal compliance. With accurate tax planning and professional advice, we help you reduce liabilities and protect your earnings.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/tax.png?updatedAt=1769753346511",
   },
+
   support: {
-    title: "24x7 Support",
+    title: "24X7 Support",
     description:
-      "As an NRI, your questions and concerns don’t wait for office hours—and neither do we. Our 24x7 Support Service ensures that you get real-time assistance regardless of your timezone. From urgent legal advice and documentation updates to property visits and dispute resolution coordination, our multilingual team is always ready to support you. With multiple communication channels (WhatsApp, Email, Video Call, Phone), you can connect with our experts anytime. We’re committed to being your trusted partner, wherever you are in the world.",
-    image: SupportImg,
+      "Our 24X7 Support service ensures you receive timely assistance regardless of your country or time zone. Our dedicated team is available through phone, WhatsApp, email, and video consultation to address your queries instantly. From transaction updates to urgent property matters, we remain accessible at all times. This continuous support model allows NRIs to manage Indian properties confidently without delays or uncertainty. Your peace of mind is our priority, and our team is always just one message away.",
+    image: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/24%20x%207.png?updatedAt=1769753346293",
   },
 };
 
 const ServiceDetails = () => {
   const { serviceType } = useParams();
-  const service = serviceData[serviceType];
+  const service = serviceData[serviceType?.toLowerCase()];
 
   if (!service) {
     return (
       <>
-        <Helmet>
-          <title>Service Not Found | NRI Property Services</title>
-          <meta
-            name="description"
-            content="The service you're looking for does not exist. Contact us for custom NRI real estate assistance in India."
-          />
-        </Helmet>
-        <Chatbot />
+        <SEO
+          title="Service Not Found | NRI Property Services"
+          description="The service you're looking for does not exist. Contact us for custom NRI real estate assistance in India."
+          path="/service-details"
+          noIndex
+        />
+        {/* <Chatbot /> */}
         <div className="!m-5 !p-5 bg-red-100 text-red-600 rounded-xl text-center">
           <h2 className="text-xl font-bold">Service Not Found</h2>
           <p>You can contact the Advisor regarding this service.</p>
@@ -102,32 +108,59 @@ const ServiceDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{`${service.title} | NRI Property Services`}</title>
-        <meta name="description" content={service.description.slice(0, 160)} />
-        <link
-          rel="canonical"
-          href={`https://www.nriproperty.uk/services/${serviceType}`}
-        />
-      </Helmet>
+      <SEO
+        title={service.seoTitle || `${service.title} for UK NRIs | NRI Property Services India`}
+        description={service.seoDescription || service.description.slice(0, 160)}
+        path={`/service-details/${serviceType}`}
+        image={service.image}
+        type="article"
+        keywords={`${service.title} for NRIs, ${service.title} in India, NRI property services UK, NRI legal documentation, NRI property litigation, NRI investment property India, NRI property consultant UK`}
+        breadcrumbs={[
+          { name: "NRI Property Services", path: "/nri-services" },
+          { name: service.title, path: `/service-details/${serviceType}` },
+        ]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: service.title,
+          description: service.description,
+          provider: {
+            "@type": "Organization",
+            name: "Pinnacle Group UK",
+            url: "https://www.nriproperty.uk",
+          },
+          areaServed: ["United Kingdom", "India", "United States", "Canada", "Europe"],
+        }}
+      />
       <FreeConsultation />
 
-      <Chatbot />
+      {/* <Chatbot /> */}
       <div className="!m-5 !p-5 bg-gray-100 rounded-xl">
-        <h2 className="text-3xl font-bold text-red-600 text-center !mb-4">
-          {service.title}
-        </h2>
-        <div className="flex flex-col lg:flex-row gap-4 items-center">
+        <h1 className="text-3xl font-bold text-red-600 text-center !mb-4">
+          {service.title} for NRIs
+        </h1>
+        <p className="text-center text-gray-600 !mb-6">
+          UK-focused support for secure property transactions and compliant
+          ownership in India.
+        </p>
+
+        {/* IMAGE CONTAINER */}
+        <div className="w-full flex flex-col md:flex-row gap-6 rounded-xl overflow-hidden !my-6">
           <img
             src={service.image}
             alt={service.title}
-            className="w-[30%] max-w-xl h-auto rounded-md !mx-auto !mb-4"
+            className="w-full md:w-100 object-contain rounded-xl"
+            loading="lazy"
+            decoding="async"
           />
-          <p className="text-gray-700 text-left !mb-6">{service.description}</p>
+
+          {/* DESCRIPTION */}
+          <p className="text-gray-700 leading-relaxed">{service.description}</p>
         </div>
       </div>
-      <EnquiryForm />
+
       <ServicesSection />
+      <EnquiryForm />
       <Footer />
     </>
   );

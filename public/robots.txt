@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /client/
+Disallow: /AdminAuth/
+Disallow: /contractwithsignature
+Disallow: /login
+Disallow: /thankyou
+
+# Prevent indexing of app-only, authenticated areas.
+Disallow: /admin/
+
+Sitemap: https://www.nriproperty.uk/sitemap.xml

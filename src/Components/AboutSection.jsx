@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
-    <div className="w-full bg-white flex flex-col items-center text-black  !px-6 md:!px-20 !py-6 bg-white">
+    <div className="content-auto w-full bg-white flex flex-col items-center text-black !mb-3 !px-6 md:!px-20 !py-6 bg-white">
       <h2 className="text-3xl font-bold !mb-8 text-center">
         About{" "}
         <span className="text-red-600 underline underline-offset-4">
@@ -24,7 +24,7 @@ const AboutSection = () => {
         requirements of the clients, providing them with good and effective
         realty solution on a prompt basis. &nbsp;
         <Link
-          to="/about"
+          to="/contact"
           className="text-red-600 font-semibold underline-offset-4"
         >
           Read more..

@@ -1,59 +1,83 @@
-import React, { useState } from "react";
-
-const contactList = [
-  { label: "UK", number: "+44-7868143558", href: "tel:+447868143558" },
-  { label: "IN", number: "+91-9216399808", href: "tel:+919216399808" },
-  { label: "CA", number: "+1-613-295-6385", href: "tel:+16132956385" },
-  { label: "US", number: "+1-414-690-6435", href: "tel:+14146906435" },
-];
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FreeConsultation = () => {
-  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const [showOnScroll, setShowOnScroll] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [closing, setClosing] = useState(false);
+
+  // Scroll trigger
+  useEffect(() => {
+    const onScroll = () => {
+      setShowOnScroll(window.scrollY > 200);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // After close animation ends → remove
+  useEffect(() => {
+    if (closing) {
+      const timer = setTimeout(() => {
+        setVisible(false);
+      }, 600); // must match transition duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [closing]);
+
+  if (!visible) return null;
 
   return (
-    <>
-      {/* Floating Button */}
+    <div
+      className={`
+      fixed bottom-6 right-6 z-50
+      transition-all duration-700 ease-in-out
+      ${
+        closing
+          ? "translate-x-52 opacity-0 scale-90"
+          : showOnScroll
+            ? "translate-x-0 opacity-100 scale-100"
+            : "translate-x-40 opacity-0 scale-95"
+      }
+      `}
+    >
+      {/* ❌ Close Button */}
       <button
-        onClick={() => setOpen(true)}
-        className="fixed cursor-pointer bottom-6 right-6 bg-gradient-to-r from-blue-500 to-red-600 text-white font-bold !px-5 !py-3 !rounded-full shadow-xl animate-bounce hover:animate-none transition-all duration-300 z-50"
+        onClick={() => setClosing(true)}
+        className="
+        absolute -top-2 -right-2 w-6 h-6
+        rounded-full bg-red-200/80 text-red-500 text-xs
+        flex items-center justify-center
+        hover:bg-white active:bg-white active:scale-105 transition
+        z-10
+        "
+        aria-label="Close free consultation prompt"
       >
-        Free Consultation
+        ✕
       </button>
 
-      {/* Dialog Box */}
-      {open && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="bg-white rounded-2xl !p-6 shadow-lg w-11/12 max-w-sm !m-4"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-xl font-bold text-center !mb-4">Contact Us</h2>
-            <ul className="space-y-3">
-              {contactList.map((contact) => (
-                <li key={contact.label} className="flex justify-between items-center">
-                  <span className="font-medium">{contact.label}:</span>
-                  <a
-                    href={contact.href}
-                    className="text-blue-600 font-semibold underline hover:text-blue-800"
-                  >
-                    {contact.number}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <button
-              className="!mt-6 w-full bg-red-500 text-white !py-2 rounded-full hover:bg-red-600 transition"
-              onClick={() => setOpen(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </>
+      {/* CTA Button */}
+      <button
+        onClick={() => navigate("/support")}
+        className="
+        font-poppins font-semibold tracking-wide uppercase
+        cursor-pointer
+        !px-6 !py-3 rounded-full shadow-lg
+        bg-[#7a1f2b]
+        border border-[#7a1f2b]/40
+        hover:bg-[#651823] transition-all duration-300
+        hover:shadow-[0_0_18px_rgba(122,31,43,0.55)]
+        text-white
+        text-sm md:text-base
+        "
+      >
+        Book Free Consultation
+      </button>
+    </div>
   );
 };
 

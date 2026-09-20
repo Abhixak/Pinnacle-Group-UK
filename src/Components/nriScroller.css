@@ -1,0 +1,79 @@
+.nri-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 28px 0;
+  background: #f8fafc;
+}
+
+/* ===== SCROLL ===== */
+
+.scroller-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollLeft 35s linear infinite;
+}
+
+.scroller-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===== CARD ===== */
+
+.service-card {
+  min-width: 260px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  color: #1d3d4f;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+/* ===== ICON ===== */
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #312f6d, #4f46e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ===== HOVER ===== */
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #4f46e5;
+  box-shadow: 0 18px 45px rgba(79, 70, 229, 0.25);
+}
+
+.service-card:hover p {
+  color: #4f46e5;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

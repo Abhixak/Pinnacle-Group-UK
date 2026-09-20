@@ -25,6 +25,10 @@ const MagnifierImage = ({ src, alt, width = 180, height = 200, zoom = 2 }) => {
         alt={alt}
         ref={imgRef}
         className="w-full h-full object-contain"
+        loading="lazy"
+        decoding="async"
+        width={width}
+        height={height}
       />
 
       {showMagnifier && (

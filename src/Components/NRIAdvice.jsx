@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import indiaFlag from "../assets/flagIndia.jpg";
-// import ukFlag from "../assets/flagLondon.jpg";
+import React, { useState, useEffect, useRef } from "react";
 
 const NRIAdvice = () => {
   const Title = [
@@ -15,13 +13,13 @@ const NRIAdvice = () => {
   ];
 
   const Description = [
-    `Yes, The Indian real estate market is booming, and now might be the perfect time to invest! Here’s why:
-1️⃣ Thriving Real Estate Market 📈
-2️⃣ High Rental Yields 💸
-3️⃣ Long-Term Capital Growth ⏳
-4️⃣ Supportive Government Policies 🏛️
-5️⃣ Perfect for NRIs 🌍
-Looking to invest from the UK? Pinnacle Group London makes it easy to get started with expert guidance!`,
+    `The real estate market of India is booming. It might be the perfect time to invest! Here’s why: 
+    1️⃣ Thriving Real Estate Market 📈 
+    2️⃣ High Rental Yields 💸 
+    3️⃣ Long-Term Capital Growth ⏳ 
+    4️⃣ Supportive Government Policies 🏛️ 
+    5️⃣ Perfect for NRIs 
+    🌍 Looking to invest from the UK? Pinnacle Group London makes it easy to get started with expert guidance!`,
 
     `Absolutely! India’s real estate market is ideal for long-term investment.
 🏡 Competitive prices, 📈 strong appreciation in metro cities, 💼 NRI-friendly policies, and 🏦 high rental demand make it a smart choice.
@@ -58,24 +56,24 @@ Whether it’s India or the UK, we simplify investments with tax benefits and ex
 Pinnacle Group London – Your property partner.`,
   ];
 
-  const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const scrollRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    // Check screen width only on client
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
+  // Auto-scroll every 5 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (!scrollRef.current) return;
+  //     const cardWidth = scrollRef.current.firstChild.offsetWidth + 24; // 24px gap
+  //     const nextIndex = (currentIndex + 1) % Title.length;
+  //     scrollRef.current.scrollTo({
+  //       left: nextIndex * cardWidth,
+  //       behavior: "smooth",
+  //     });
+  //     setCurrentIndex(nextIndex);
+  //   }, 5000);
 
-    checkIsMobile(); // initial check
-    window.addEventListener("resize", checkIsMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
-
-  const visibleCount = isMobile && !showAll ? 4 : Title.length;
+  //   return () => clearInterval(interval);
+  // }, [currentIndex, Title.length]);
 
   return (
     <div className="bg-gradient-to-b from-[#f1f5f9] via-[#f8f9fb] to-[#e0f7fa] rounded-xl !py-12 !px-4 md:!px-8 lg:!px-16">
@@ -86,12 +84,16 @@ Pinnacle Group London – Your property partner.`,
         </span>
       </h2>
 
-      {/* Cards Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {Title.slice(0, visibleCount).map((title, i) => (
+      {/* Horizontal Scrollable Cards */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto gap-x-6 snap-x snap-mandatory scrollbar-hide"
+        id="form"
+      >
+        {Title.map((title, i) => (
           <div
             key={i}
-            className="flex flex-col h-full bg-white rounded-2xl shadow hover:shadow-lg transition-shadow duration-300 !p-5 border border-[#e0e0e0]"
+            className="flex-shrink-0 w-[300px] bg-white rounded-2xl shadow hover:shadow-lg transition-shadow duration-300 !p-5 border border-[#e0e0e0] snap-start"
           >
             <h3 className="text-lg font-semibold text-[#006d77] uppercase !mb-3">
               {title}
@@ -101,19 +103,7 @@ Pinnacle Group London – Your property partner.`,
             </p>
           </div>
         ))}
-      </section>
-
-      {/* View More Button for Mobile */}
-      {isMobile && !showAll && (
-        <div className="text-center !mt-6">
-          <button
-            onClick={() => setShowAll(true)}
-            className="text-[#006d77] font-semibold underline underline-offset-4 hover:text-[#004f50] transition-colors duration-300"
-          >
-            View More
-          </button>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

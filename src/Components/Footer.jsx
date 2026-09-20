@@ -1,154 +1,453 @@
-import React, { useState } from "react";
-import { AiFillInstagram } from "react-icons/ai";
-import { FaEnvelope, FaPhoneAlt, FaYoutube, FaArrowUp, FaTimes } from "react-icons/fa";
+import React from "react";
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaArrowUp,
+  FaYoutube,
+  FaTiktok,
+} from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
+import { AiFillInstagram } from "react-icons/ai";
 import VisitCounter from "./VisitCounter";
 
-import nri from "../assets/NRI-Conclave2.jpeg";
-import minister from "../assets/Central-Minister.jpeg";
-import MagnifierImage from "./MagnifierImage";
-
 const Footer = () => {
-  const [popupImage, setPopupImage] = useState(null);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleImageClick = (src) => {
-    if (window.innerWidth < 1024) {
-      setPopupImage(src);
-    }
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="bg-gray-100 rounded !mb-6 !px-6 md:!px-20 text-gray-800">
-      {/* Social + Counter Row */}
-      <div className="w-full !px-4">
-        <section className="flex flex-col md:flex-row justify-between items-center gap-4 !pt-4">
-          {/* Social Icons */}
-          <div className="flex flex-wrap gap-4 text-3xl items-center">
-            <h3 className="text-lg text-[#6b1e1e]">Follow us:</h3>
-            <a href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page" target="_blank" rel="noopener noreferrer">
-              <MdFacebook className="text-blue-600 cursor-pointer" />
-            </a>
-            <a href="https://www.instagram.com/pinnaclegrouplondon/" target="_blank" rel="noopener noreferrer">
-              <AiFillInstagram className="text-[#E1306C] cursor-pointer" />
-            </a>
-            <a href="https://youtube.com/@pinnaclegroupofficial?si=RICyMon1CkU2s2pp" target="_blank" rel="noopener noreferrer">
-              <FaYoutube className="text-red-600 cursor-pointer" />
-            </a>
-          </div>
+    <footer className="bg-gradient-to-b from-[#f9fafb] via-[#f3f4f6] to-[#eef2f7] rounded-2xl !mt-2 !mb-5 !px-4 md:!px-12 text-gray-800 w-full text-xs sm:text-sm border border-slate-200 shadow-sm">
+      {/* TOP BAR */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-3 !pt-3">
+        {/* SOCIAL */}
+        <div className="flex gap-3 text-xl">
+          <a
+            href="https://www.facebook.com/pinnacleinfra.co.in"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/90 border border-slate-200 shadow-sm hover:shadow-md transition"
+          >
+            <MdFacebook className="text-blue-600" />
+          </a>
+          <a
+            href="https://www.instagram.com/nripropertyservices"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/90 border border-slate-200 shadow-sm hover:shadow-md transition"
+          >
+            <AiFillInstagram className="text-pink-600" />
+          </a>
+          <a
+            href="https://www.youtube.com/@NRIPropertyService"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="YouTube"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/90 border border-slate-200 shadow-sm hover:shadow-md transition"
+          >
+            <FaYoutube className="text-red-600" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@nripropertyservice"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="TikTok"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/90 border border-slate-200 shadow-sm hover:shadow-md transition"
+          >
+            <FaTiktok className="text-slate-900" />
+          </a>
+        </div>
 
-          {/* Visit Counter & Scroll Top */}
-          <div className="flex flex-col items-center gap-2">
-            <VisitCounter />
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-2 text-sm text-gray-800 border-2 cursor-pointer bg-white !px-4 !py-2 !mx-2 !mb-6 rounded-full transition"
-            >
-              <FaArrowUp />
-              Go to Top
-            </button>
-          </div>
-        </section>
+        {/* COUNTER + TOP */}
+        <div className="flex items-center gap-3">
+          <VisitCounter />
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-2 text-sm bg-white/90 border border-slate-200 !px-4 !py-2 rounded-full shadow-sm hover:shadow-md transition"
+          >
+            <FaArrowUp /> Top
+          </button>
+        </div>
       </div>
 
-      {/* Contact Info Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-t border-gray-300 text-center !p-6 place-items-center">
-        {/* Achievements & Awards */}
-        <div className="w-full max-w-md !mx-auto !py-4 rounded-xl">
-          <h4 className="text-md md:text-lg xl:text-xl !px-4 font-semibold !mb-4 text-[#6b1e1e]">
-            Achievements & Awards
+      {/* ================= DESKTOP FOOTER ================= */}
+      <div className="hidden md:grid grid-cols-4 gap-5 justify-center border-t border-slate-200 !mt-3 !pt-4">
+        {/* QUICK LINKS */}
+        <div>
+          <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
+            Quick Links
+          </h4>
+          <ul className="flex flex-col gap-y-0.5 text-slate-700">
+            <li>
+              <a
+                href="/"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="/contact"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                About Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="/gallery"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                Gallery
+              </a>
+            </li>
+            <li>
+              <a
+                href="/faqs"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                FAQs
+              </a>
+            </li>
+            <li>
+              <a
+                href="/support"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                Help & Support
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* NRI SERVICES */}
+        <div>
+          <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
+            NRI Services
+          </h4>
+          <ul className="flex flex-col gap-y-1.5">
+            <li>Power of Attorney</li>
+            <li>SPA / GPA Documentation</li>
+            <li>Property Title Search</li>
+            <li>Tax Filing & Repatriation</li>
+            <li>15CA / 15CB Assistance</li>
+          </ul>
+        </div>
+
+        {/* CONTACT US */}
+        <div>
+          <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
+            Contact Us
           </h4>
 
-          <div className="!px-4 flex flex-col sm:flex-row sm:justify-center sm:items-stretch items-center gap-6">
-            {/* Award 1 */}
-            <div className="flex flex-col items-center justify-center text-center w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px]">
-              <p className="text-blue-600 text-xs sm:text-sm md:text-base lg:text-lg !m-4 sm:!mb-2 break-words text-center">
-                NRI CONCLAVE - 2025
-              </p>
-              {/* Magnifier on LG+ screens */}
-              <div className="hidden lg:block cursor-zoom-in">
-                <MagnifierImage src={nri} alt="NRI Conclave" width={140} height={160} zoom={2} />
-              </div>
-              {/* Clickable image on smaller screens */}
-              <img
-                src={nri}
-                alt="NRI Conclave"
-                className="block lg:hidden w-[140px] h-[160px] object-cover cursor-pointer"
-                onClick={() => handleImageClick(nri)}
-              />
+          <p className="flex items-center gap-2 !mb-2">
+            <FaEnvelope className="text-red-600" />
+            <a
+              href="mailto:info@nriproperty.uk"
+              className="inline-flex min-h-10 items-center text-slate-700 hover:text-slate-900"
+            >
+              info@nriproperty.uk
+            </a>
+          </p>
+
+          <div className="flex flex-col gap-0.5">
+            <div className="flex items-center gap-2 min-h-10">
+              <FaPhoneAlt className="text-red-600" />
+              UK:
+              <a
+                href="tel:+447868143558"
+                className="text-slate-700 hover:text-slate-900"
+              >
+                +44 7868 143558
+              </a>
+              <FaWhatsapp className="text-green-600" />
             </div>
 
-            {/* Award 2 */}
-            <div className="flex flex-col items-center justify-center text-center w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px]">
-              <p className="text-blue-600 text-xs sm:text-sm md:text-base lg:text-lg !mb-4 sm:!mb-2 break-words text-center">
-                BEST NRI PROPERTY MANAGEMENT SERVICES - 2024
-              </p>
-              <div className="hidden lg:block cursor-zoom-in">
-                <MagnifierImage src={minister} alt="Minister Harsh Malhotra" width={140} height={160} zoom={2} />
-              </div>
-              <img
-                src={minister}
-                alt="Minister Harsh Malhotra"
-                className="block lg:hidden w-[140px] h-[160px] object-cover cursor-pointer"
-                onClick={() => handleImageClick(minister)}
-              />
+            <div className="flex items-center gap-2 min-h-10">
+              <FaPhoneAlt className="text-red-600" />
+              India:
+              <a
+                href="tel:+919216399808"
+                className="text-slate-700 hover:text-slate-900"
+              >
+                +91 92163 99808
+              </a>
+              <FaWhatsapp className="text-green-600" />
+            </div>
+
+            <div className="flex items-center gap-2 min-h-10">
+              <FaPhoneAlt className="text-red-600" />
+              Canada:
+              <a
+                href="tel:+16132956385"
+                className="text-slate-700 hover:text-slate-900"
+              >
+                +1 613 295 6385
+              </a>
+              <FaWhatsapp className="text-green-600" />
+            </div>
+
+            <div className="flex items-center gap-2 min-h-10">
+              <FaPhoneAlt className="text-red-600" />
+              USA:
+              <a
+                href="tel:+14146906435"
+                className="text-slate-700 hover:text-slate-900"
+              >
+                +1 414 690 6435
+              </a>
+              <FaWhatsapp className="text-green-600" />
+            </div>
+
+            <div className="flex items-center gap-2 min-h-10">
+              <FaPhoneAlt className="text-red-600" />
+              EU:
+              <a
+                href="tel:+4915563030611"
+                className="text-slate-700 hover:text-slate-900"
+              >
+                +49 1556 3030611
+              </a>
+              <FaWhatsapp className="text-green-600" />
             </div>
           </div>
         </div>
 
-        {/* Write Us */}
-        <div className="!py-4 w-full max-w-md">
-          <h4 className="text-lg font-semibold !mb-2 text-[#6b1e1e]">Write Us</h4>
-          <p className="flex justify-center items-center gap-2 text-base !p-0 !m-0">
-            <FaEnvelope className="text-[#c53030]" />
-            <a href="mailto:info@nriproperty.uk" className="text-[#007BFF]">info@nriproperty.uk</a>
-          </p>
+        {/* OUR WEBSITES */}
+        <div>
+          <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
+            Our Websites
+          </h4>
+          <ul className="flex flex-col gap-0.5 text-slate-700">
+            <li>
+              <a
+                href="https://nriproperty.ca"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                www.nriproperty.ca
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://nriproperty.eu"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                www.nriproperty.eu
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://pinnacleinfra.co.in"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                www.pinnacleinfra.co.in
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://nriproperty.uk"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 items-center hover:text-slate-900"
+              >
+                www.nriproperty.uk
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* ================= MOBILE FOOTER ================= */}
+      <div className="md:hidden border-t border-slate-200 !mt-3 !pt-4">
+        {/* QUICK + NRI */}
+        <div className="grid grid-cols-2 gap-5 ">
+          <div>
+            <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
+              Quick Links
+            </h4>
+            <ul className="flex flex-col gap-y-0.5 text-slate-700">
+              <li>
+                <a
+                  href="/"
+                  className="inline-flex min-h-10 items-center hover:text-slate-900"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="inline-flex min-h-10 items-center hover:text-slate-900"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/gallery"
+                  className="inline-flex min-h-10 items-center hover:text-slate-900"
+                >
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/faqs"
+                  className="inline-flex min-h-10 items-center hover:text-slate-900"
+                >
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/support"
+                  className="inline-flex min-h-10 items-center hover:text-slate-900"
+                >
+                  Help & Support
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
+              NRI Services
+            </h4>
+            <ul className="flex flex-col gap-y-1.5">
+              <li>Power of Attorney</li>
+              <li>SPA / GPA Documentation</li>
+              <li>Property Title Search</li>
+              <li>Tax Filing & Repatriation</li>
+              <li>15CA / 15CB Assistance</li>
+            </ul>
+          </div>
         </div>
 
-        {/* Call Us */}
-        <div className="!py-6 w-full max-w-md">
-          <div className="flex flex-col items-center text-center">
-            <h4 className="text-lg font-semibold !mb-4 text-[#6b1e1e]">Call Us</h4>
-            <div className="text-base space-y-2">
-              {[
-                { label: "UK", number: "+44-7868143558", href: "tel:+447868143558" },
-                { label: "IN", number: "+91-9216399808", href: "tel:+919216399808" },
-                { label: "CA", number: "+1-613-295-6385", href: "tel:+16132956385" },
-                { label: "US", number: "+1-414-690-6435", href: "tel:+14146906435" },
-              ].map(({ label, number, href }) => (
-                <div key={label} className="flex gap-2 text-[#c53030] items-start justify-start">
-                  <FaPhoneAlt className="text-base !mt-1 lg:!mt-2" />
-                  {label}:
-                  <a href={href} className="whitespace-nowrap text-left text-[#007BFF]">{number}</a>
-                </div>
-              ))}
-            </div>
+        {/* CONTACT */}
+        <h4 className="font-semibold text-[#7a1f2b] text-center !mt-6 !mb-2 text-sm">
+          Contact Us
+        </h4>
+
+        <div className="grid grid-cols-2 gap-3">
+          {/* LEFT */}
+          <div className="flex flex-col gap-3">
+            {/* EMAIL */}
+            <a
+              href="mailto:info@nriproperty.uk"
+              className="flex items-center gap-2 text-slate-700 hover:text-slate-900 min-h-10"
+            >
+              <FaEnvelope className="text-red-600" />
+              info@nriproperty.uk
+            </a>
+
+            {/* UK */}
+            <a
+              href="tel:+447868143558"
+              className="hover:text-slate-900 cursor-pointer min-h-10 inline-flex items-center"
+            >
+              UK: +44 7868 143558
+            </a>
+
+            {/* INDIA */}
+            <a
+              href="tel:+919216399808"
+              className="hover:text-slate-900 cursor-pointer min-h-10 inline-flex items-center"
+            >
+              IN: +91 92163 99808
+            </a>
+          </div>
+
+          {/* RIGHT */}
+          <div className="flex flex-col gap-3">
+            <a
+              href="tel:+16132956385"
+              className="hover:text-slate-900 cursor-pointer min-h-10 inline-flex items-center"
+            >
+              CA: +1 613 295 6385
+            </a>
+
+            <a
+              href="tel:+14146906435"
+              className="hover:text-slate-900 cursor-pointer min-h-10 inline-flex items-center"
+            >
+              USA: +1 414 690 6435
+            </a>
+
+            <a
+              href="tel:+4915563030611"
+              className="hover:text-slate-900 cursor-pointer min-h-10 inline-flex items-center"
+            >
+              EU: +49 1556 3030611
+            </a>
+          </div>
+        </div>
+
+        {/* WEBSITES */}
+        <h4 className="font-semibold text-[#7a1f2b] text-center !mt-6 !mb-2 text-sm">
+          Our Websites
+        </h4>
+
+        <div className="grid grid-cols-2 gap-3 text-slate-700">
+          <div>
+            <a
+              href="https://nriproperty.ca"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center hover:text-slate-900"
+            >
+              www.nriproperty.ca
+            </a>
+            <br />
+            <a
+              href="https://nriproperty.eu"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center hover:text-slate-900"
+            >
+              www.nriproperty.eu
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://pinnacleinfra.co.in"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center hover:text-slate-900"
+            >
+              www.pinnacleinfra.co.in
+            </a>
+            <br />
+            <a
+              href="https://nriproperty.uk"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center hover:text-slate-900"
+            >
+              www.nriproperty.uk
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Modal for popup image on mobile/tablet */}
-      {popupImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-          <div className="relative">
-            <button
-              onClick={() => setPopupImage(null)}
-              className="absolute top-2 right-2 text-white text-xl bg-red-600 rounded-full !p-1"
-            >
-              <FaTimes />
-            </button>
-            <img
-              src={popupImage}
-              alt="Enlarged"
-              className="max-w-[90vw] max-h-[90vh] object-contain"
-            />
-          </div>
+      {/* COPYRIGHT & LEGAL LINKS */}
+      <div className="flex flex-col md:flex-row justify-between items-center text-center text-[11px] text-gray-600 border-t border-slate-200 !mt-3 !pt-3 !pb-3 gap-3 flex-wrap">
+        <div>
+          Copyright © nriproperty.uk — All Rights Reserved.
         </div>
-      )}
-    </div>
+        <div className="flex gap-4">
+          <a href="/terms" className="hover:text-slate-900 transition-colors font-medium">Terms & Conditions</a>
+          <a href="/privacy" className="hover:text-slate-900 transition-colors font-medium">Privacy Policy</a>
+          <a href="/cookies-policy" className="hover:text-slate-900 transition-colors font-medium">Cookies Policy</a>
+        </div>
+      </div>
+    </footer>
   );
 };
 

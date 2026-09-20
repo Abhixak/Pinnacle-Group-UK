@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Serve existing files/folders
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# React Router fallback
+RewriteRule . /index.html [L]
+
+<IfModule mod_headers.c>
+  # Long-lived assets
+  <FilesMatch "\.(css|js|mjs|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML: always revalidate
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
