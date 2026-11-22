@@ -668,7 +668,27 @@ const EnquiryForm = () => {
           )}
 
           {/* Stepper Navigation Buttons */}
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 !pt-2 border-t border-slate-100">
+          <div className="flex sm:flex-row justify-between items-center gap-3 !pt-2 border-t border-slate-100">
+
+
+            {/* Left Button: Call button or Back */}
+            <div className="w-full sm:w-auto flex items-center gap-2">
+              {currentStep > 1 ? (
+                <button
+                  type="button"
+                  onClick={handleBack}
+                  className="inline-flex items-center justify-center gap-2 !px-4 !py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold text-xs sm:text-sm active:scale-95 transition-all cursor-pointer w-full sm:w-auto"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Back</span>
+                </button>
+              ) : (
+                <div className="w-full sm:w-auto">
+                  <MakeCallButton />
+                </div>
+              )}
+            </div>
+
 
             {/* Right Button: Next or Submit */}
             <div className="w-full sm:w-auto flex items-center gap-2">
@@ -721,23 +741,7 @@ const EnquiryForm = () => {
                 </button>
               )}
             </div>
-            {/* Left Button: Call button or Back */}
-            <div className="w-full sm:w-auto flex items-center gap-2">
-              {currentStep > 1 ? (
-                <button
-                  type="button"
-                  onClick={handleBack}
-                  className="inline-flex items-center justify-center gap-2 !px-4 !py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold text-xs sm:text-sm active:scale-95 transition-all cursor-pointer w-full sm:w-auto"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  <span>Back</span>
-                </button>
-              ) : (
-                <div className="w-full sm:w-auto">
-                  <MakeCallButton />
-                </div>
-              )}
-            </div>
+
 
 
           </div>

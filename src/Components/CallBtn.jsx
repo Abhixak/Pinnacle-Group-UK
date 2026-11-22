@@ -47,9 +47,8 @@ const MakeCallButton = ({ variant = "primary" }) => {
 
       {showOptions && (
         <div
-          className={`absolute ${
-            dropUp ? "bottom-full !mb-2" : "top-full !mt-2"
-          } right-0 w-64 bg-white border rounded-xl !my-4 shadow-lg z-50 !p-3`}
+          className={`absolute ${dropUp ? "bottom-full !mb-2" : "top-full !mt-2"
+            } right-0 w-64 bg-white border rounded-xl !my-4 shadow-lg z-50 !p-3`}
         >
           <p className="text-sm font-semibold !mb-2 text-gray-700 !m-0">
             Choose a branch to call:
