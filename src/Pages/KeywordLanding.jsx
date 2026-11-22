@@ -14,7 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Footer from "../Components/Footer";
-import FreeConsultation from "../Components/FreeConsultation";
+import FreeConsultation from "../Components/helpCenter";
 import SEO from "../Components/SEO";
 
 const landingData = {

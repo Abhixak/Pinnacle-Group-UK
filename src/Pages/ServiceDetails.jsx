@@ -5,7 +5,7 @@ import EnquiryForm from "../Components/Enquire";
 import Footer from "../Components/Footer";
 import ServicesSection from "../Components/Services";
 import Chatbot from "../Components/Chatbot";
-import FreeConsultation from "../Components/FreeConsultation";
+import FreeConsultation from "../Components/helpCenter";
 import SEO from "../Components/SEO";
 const serviceData = {
   // =============================

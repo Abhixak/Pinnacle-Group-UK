@@ -3,11 +3,12 @@ import Footer from "../Components/Footer";
 
 import PMS from "../Components/PMS";
 import Chatbot from "../Components/Chatbot";
-import FreeConsultation from "../Components/FreeConsultation";
+import FreeConsultation from "../Components/helpCenter";
 import AchievementsAwards from "../Components/AchievementsAwards";
 import SEO from "../Components/SEO";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
 
-const fallbackPoster = "/NewLogo.png";
+const fallbackPoster = CLOUDINARY_IMAGES.NewLogo;
 const toCloudinaryPoster = (src) => {
   if (!src || !src.includes("res.cloudinary.com")) return fallbackPoster;
   return src.replace(
@@ -26,7 +27,7 @@ const mediaList = [
   { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853574/BizNext_ecjk4q.mp4" },
   { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853686/News18Podcast_qcxjel.mp4" },
   { type: "video", src: "https://res.cloudinary.com/dksbdsixz/video/upload/v1769853734/video1_f66kjb.mp4" },
-  
+
   { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img1.jpeg?updatedAt=1769753329315" },
   { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img2.jpeg?updatedAt=1769753330067" },
   { type: "image", src: "https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/Gallery/img3.jpeg?updatedAt=1769753330758" },
@@ -85,6 +86,7 @@ const Gallery = () => {
         description="Explore videos and photos showcasing NRI property services, media coverage, and client engagement."
         path="/gallery"
         keywords="NRI property services testimonials, NRI property success stories UK, NRI real estate consultancy India"
+        breadcrumbs={[{ name: "Media Gallery", path: "/gallery" }]}
       />
       <h1 className="text-3xl font-bold text-center !pt-6 text-red-600">
         NRI Property Services Gallery
@@ -128,11 +130,10 @@ const Gallery = () => {
                 setFilter("all");
                 setCurrentIndex(0);
               }}
-              className={`bg-gray-100 !px-4 !py-1 rounded border text-sm sm:text-base ${
-                filter === "all"
+              className={`bg-gray-100 !px-4 !py-1 rounded border text-sm sm:text-base ${filter === "all"
                   ? "text-red-900 border-red-900 font-semibold"
                   : "border-transparent"
-              }`}
+                }`}
             >
               All
             </button>
@@ -141,11 +142,10 @@ const Gallery = () => {
                 setFilter("image");
                 setCurrentIndex(0);
               }}
-              className={`bg-gray-100 !px-4 !py-1 rounded border text-sm sm:text-base ${
-                filter === "image"
+              className={`bg-gray-100 !px-4 !py-1 rounded border text-sm sm:text-base ${filter === "image"
                   ? "text-red-900 border-red-900 font-semibold"
                   : "border-transparent"
-              }`}
+                }`}
             >
               Photos
             </button>
@@ -154,11 +154,10 @@ const Gallery = () => {
                 setFilter("video");
                 setCurrentIndex(0);
               }}
-              className={`bg-gray-100 !px-4 !py-1 rounded border text-sm sm:text-base ${
-                filter === "video"
+              className={`bg-gray-100 !px-4 !py-1 rounded border text-sm sm:text-base ${filter === "video"
                   ? "text-red-900 border-red-900 font-semibold"
                   : "border-transparent"
-              }`}
+                }`}
             >
               Videos
             </button>
@@ -169,20 +168,18 @@ const Gallery = () => {
           <div className="relative">
             <div
               ref={scrollRef}
-              className={`grid grid-cols-3 sm:grid-cols-4 gap-6 overflow-auto !px-4 ${
-                filteredMedia.length > 6 ? "whitespace-nowrap" : ""
-              }`}
+              className={`grid grid-cols-3 sm:grid-cols-4 gap-6 overflow-auto !px-4 ${filteredMedia.length > 6 ? "whitespace-nowrap" : ""
+                }`}
               style={{ maxHeight: "300px" }}
             >
               {filteredMedia.map((media, idx) => (
                 <div
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`border-3 rounded cursor-pointer w-full bg-gray-800 min-h-[60px] max-h-[100px] ${
-                    currentIndex === idx
+                  className={`border-3 rounded cursor-pointer w-full bg-gray-800 min-h-[60px] max-h-[100px] ${currentIndex === idx
                       ? "border-blue-500"
                       : "border-transparent"
-                  }`}
+                    }`}
                 >
                   {media.type === "image" ? (
                     <img

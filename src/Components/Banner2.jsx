@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import bannerOne from "../assets/banner2.png";
-import bannerTwo from "../assets/banner22.png";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
+
+const bannerOne = CLOUDINARY_IMAGES.banner2;
+const bannerTwo = CLOUDINARY_IMAGES.banner22;
 
 // Video banner retained for possible future use.
 // import DeferredVideo from "./DeferredVideo";

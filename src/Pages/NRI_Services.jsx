@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Footer from "../Components/Footer";
 import EnquiryForm from "../Components/Enquire";
-import FreeConsultation from "../Components/FreeConsultation";
+import FreeConsultation from "../Components/helpCenter";
 import SEO from "../Components/SEO";
 
 const services = [

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Headphones } from "lucide-react";
 
 const FreeConsultation = () => {
   const navigate = useNavigate();
@@ -36,13 +37,12 @@ const FreeConsultation = () => {
       className={`
       fixed bottom-6 right-6 z-50
       transition-all duration-700 ease-in-out
-      ${
-        closing
+      ${closing
           ? "translate-x-52 opacity-0 scale-90"
           : showOnScroll
             ? "translate-x-0 opacity-100 scale-100"
             : "translate-x-40 opacity-0 scale-95"
-      }
+        }
       `}
     >
       {/* ❌ Close Button */}
@@ -64,18 +64,20 @@ const FreeConsultation = () => {
       <button
         onClick={() => navigate("/support")}
         className="
-        font-poppins font-semibold tracking-wide uppercase
+        font-poppins font-semibold tracking-wide
         cursor-pointer
-        !px-6 !py-3 rounded-full shadow-lg
+        !px-5 sm:!px-6 !py-3 rounded-full shadow-lg
         bg-[#7a1f2b]
         border border-[#7a1f2b]/40
         hover:bg-[#651823] transition-all duration-300
         hover:shadow-[0_0_18px_rgba(122,31,43,0.55)]
         text-white
         text-sm md:text-base
+        inline-flex items-center gap-2
         "
       >
-        Book Free Consultation
+        <Headphones className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
+        <span>Help Center</span>
       </button>
     </div>
   );

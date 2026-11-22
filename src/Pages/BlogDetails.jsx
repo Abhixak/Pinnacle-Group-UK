@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, Check, Clock, ExternalLink } from "lucide-react"
 import { Link, Navigate, useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
 import SEO from "../Components/SEO";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
 import { blogPosts, getBlogPost } from "../data/blogPosts";
 
 const BlogDetails = () => {
@@ -28,9 +29,25 @@ const BlogDetails = () => {
           "@type": "BlogPosting",
           headline: post.title,
           description: post.excerpt,
-          author: { "@type": "Organization", name: "Pinnacle Group UK" },
-          publisher: { "@type": "Organization", name: "Pinnacle Group UK" },
-          mainEntityOfPage: "https://www.nriproperty.uk/blogs/" + post.slug,
+          inLanguage: "en-GB",
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://www.nriproperty.uk/blogs/${post.slug}`,
+          },
+          author: {
+            "@type": "Organization",
+            name: "Pinnacle Group UK",
+            url: "https://www.nriproperty.uk",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Pinnacle Group UK",
+            url: "https://www.nriproperty.uk",
+            logo: {
+              "@type": "ImageObject",
+              url: CLOUDINARY_IMAGES.NewLogo,
+            },
+          },
         }}
       />
 

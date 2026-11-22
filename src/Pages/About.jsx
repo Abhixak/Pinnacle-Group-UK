@@ -13,7 +13,8 @@ import {
   Shield,
   Sparkles,
 } from "lucide-react";
-import heroImage from "../assets/hero.jpeg";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
+const heroImage = CLOUDINARY_IMAGES.hero;
 import Footer from "../Components/Footer";
 import SEO from "../Components/SEO";
 
@@ -84,6 +85,19 @@ const About = () => {
         description="Learn how Pinnacle Group helps NRIs manage, trade and protect property in India through trusted local support, clear communication and expert guidance."
         path="/about"
         breadcrumbs={[{ name: "About Us", path: "/about" }]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Pinnacle Group UK",
+          description: "Learn how Pinnacle Group helps NRIs manage, trade and protect property in India through trusted local support, clear communication and expert guidance.",
+          url: "https://www.nriproperty.uk/about",
+          mainEntity: {
+            "@type": "Organization",
+            name: "Pinnacle Group UK",
+            telephone: "+44-7868143558",
+            email: "info@nriproperty.uk",
+          },
+        }}
       />
 
       <main className="overflow-hidden bg-[#fffaf4] text-[#132a4a]">
@@ -111,7 +125,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-[1.75rem] lg:min-h-[540px]">
+          <div className="hidden lg:block relative min-h-[360px] overflow-hidden rounded-[1.75rem] lg:min-h-[540px]">
             <img
               src={heroImage}
               alt="NRI property professional supporting clients from the United Kingdom"

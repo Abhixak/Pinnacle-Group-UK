@@ -23,7 +23,7 @@ const AboutSection = () => {
           property loan consultancy.
         </p>
         <Link
-          to="/contact"
+          to="/about"
           className="!mt-7 inline-flex items-center gap-2 rounded-md bg-[#a9203b] !px-6 !py-3 font-semibold text-white transition-colors hover:bg-[#86172f]"
         >
           Read more

@@ -1,14 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaBars, FaChevronDown, FaTimes, FaYoutube } from "react-icons/fa";
-import { Mail } from "lucide-react";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
+import { FaChevronDown, FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { MdFacebook } from "react-icons/md";
+import {
+  Mail,
+  Home,
+  Users,
+  Briefcase,
+  Images,
+  PhoneCall,
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  TrendingUp,
+  Scale,
+  Building2,
+  ShieldCheck,
+  Landmark,
+  Clock,
+  Calendar,
+  LogIn,
+} from "lucide-react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-// import ChrisVid from "../assets/Christmas & new year.mp4";
-// import CountdownTo2026 from "./CountdownTo2026";
-// import HeroVideoWithCountdown from "./HeroVideoWithCountdown";
+// NRI Services definition with dedicated modern icons
+const nriServices = [
+  { name: "Buy & Sell Assistance", slug: "buy-sell", icon: TrendingUp },
+  { name: "Legal Litigation", slug: "legal", icon: Scale },
+  { name: "Property Management", slug: "management", icon: Building2 },
+  { name: "Property Title Clearing", slug: "title", icon: ShieldCheck },
+  { name: "NRI tax & Finance Support", slug: "finance", icon: Landmark },
+  { name: "24X7 support", slug: "support", icon: Clock },
+];
 
 const Header = ({ onContactClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +51,7 @@ const Header = ({ onContactClick }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
+  // Scroll detection for sticky header shadow and height
   useEffect(() => {
     const desktopMedia = window.matchMedia("(min-width: 768px)");
     let animationFrameId = null;
@@ -58,12 +86,37 @@ const Header = ({ onContactClick }) => {
     };
   }, []);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    document.body.classList.toggle("mobile-menu-open", isMenuOpen);
+    return () => document.body.classList.remove("mobile-menu-open");
+  }, [isMenuOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setOpenDropdown(null);
+  }, [location.pathname]);
+
+  // Handle ESC key to dismiss mobile drawer
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+    if (isMenuOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
     setOpenDropdown(null);
   };
 
-  const handleContact = () => {
+  const _handleContact = () => {
     onContactClick?.();
     setIsMenuOpen(false);
   };
@@ -86,73 +139,62 @@ const Header = ({ onContactClick }) => {
     }
   };
 
+  const isNriActive =
+    currentPath.toLowerCase().startsWith("/service-details") ||
+    currentPath.toLowerCase() === "/nri-services";
+
   return (
     <>
-      {/* Header top */}
-      <div
-        className="md:hidden bg-[#312f6d] w-full h-full flex justify-between
-       items-center gap-2 text-white text-md md:text-base !py-2 !px-4 relative"
-      >
-        <span className="flex gap-2 items-center">
-          <Mail className="w-4 h-4 md:w-5 md:h-5 text-white/90" />
-
+      {/* Mobile Top Bar */}
+      <div className="md:hidden bg-[#312f6d] w-full min-h-10 flex items-center justify-between gap-2 text-white px-3 sm:px-4 py-2 text-xs">
+        <span className="min-w-0 flex items-center gap-1.5">
+          <Mail className="shrink-0 w-3.5 h-3.5 text-white/90" />
           <a
             href="mailto:info@nriproperty.uk"
-            className="hover:underline hover:text-white transition"
+            className="truncate hover:underline hover:text-white transition"
           >
             info@nriproperty.uk
           </a>
         </span>
-        <span>
+        <span className="shrink-0 flex items-center gap-1">
           <a
             href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full hover:bg-white/10"
+            className="inline-flex h-6 w-6 items-center justify-center rounded-full hover:bg-white/10 transition-colors"
           >
-            <MdFacebook className=" cursor-pointer" />
-            {/* text-blue-600 */}
+            <MdFacebook className="w-3.5 h-3.5 cursor-pointer" />
           </a>
           <a
             href="https://www.instagram.com/nripropertyservices"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full hover:bg-white/10"
+            className="inline-flex h-6 w-6 items-center justify-center rounded-full hover:bg-white/10 transition-colors"
           >
-            <AiFillInstagram className=" cursor-pointer" />
-            {/* text-[#E1306C] */}
+            <AiFillInstagram className="w-3.5 h-3.5 cursor-pointer" />
           </a>
           <a
             href="https://www.youtube.com/@NRIPropertyService"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full hover:bg-white/10"
+            className="inline-flex h-6 w-6 items-center justify-center rounded-full hover:bg-white/10 transition-colors"
           >
-            <FaYoutube className="cursor-pointer" />
-            {/* text-red-600  */}
+            <FaYoutube className="w-3.5 h-3.5 cursor-pointer" />
           </a>
         </span>
       </div>
+
+      {/* Main Header Container */}
       <div
         className={`
-    font-sans w-full !px-5 !pt-5 bg-white
+    font-sans w-full !px-3 sm:!px-5 bg-white
     sticky top-0 z-40 transition-all duration-200 ease-out motion-reduce:transition-none
     ${isScrolled ? "shadow-md" : "shadow-none"}
   `}
       >
-        {/* Premium Color Blast Particles */}
-        {/* <div className="color-blast-wrapper">
-          <div className="blast-particle"></div>
-          <div className="blast-particle"></div>
-          <div className="blast-particle"></div>
-          <div className="blast-particle"></div>
-          <div className="blast-particle"></div>
-        </div> */}
-
-        {/* Header */}
         <motion.div
           initial={false}
           animate={{
@@ -161,24 +203,27 @@ const Header = ({ onContactClick }) => {
             paddingBottom: isScrolled ? 8 : 16,
           }}
           transition={navbarTransition}
-          className="w-full flex justify-between items-center rounded-xl"
+          className="w-full flex items-center justify-between rounded-xl max-md:!h-[68px] max-md:!py-2"
         >
           {/* Logo */}
-          <a href="/" className="flex items-center" aria-label="Pinnacle Group UK home">
+          <Link to="/" className="flex items-center shrink-0" aria-label="Pinnacle Group UK home">
             <motion.img
-              src="/NewLogo.png"
+              src={CLOUDINARY_IMAGES.NewLogo}
               alt="Pinnacle Group Logo"
-              width="160"
-              height="80"
+              width="140"
+              height="62"
               loading="eager"
               decoding="async"
               fetchPriority="high"
               initial={false}
-              animate={{ width: isScrolled ? 96 : 128 }}
+              animate={{
+                height: isScrolled ? 82 : 102,
+                width: "auto",
+              }}
               transition={navbarTransition}
-              className="relative bottom-2 md:bottom-2 !ml-2 lg:!ml-10"
+              className="!ml-0 md:!ml-2 lg:!ml-10 h-auto max-h-18 md:max-h-16 w-auto object-contain max-md:!h-17.5 max-md:!max-w-[140px]"
             />
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <motion.ul
@@ -189,14 +234,13 @@ const Header = ({ onContactClick }) => {
               marginBottom: isScrolled ? 8 : 16,
             }}
             transition={navbarTransition}
-            className="hidden md:flex !mr-2 lg:!mr-10"
+            className="hidden md:flex !mr-2 lg:!mr-10 items-center"
           >
             <li>
               <Link
                 to="/"
-                className={`${
-                  currentPath === "/" ? "text-[#c53030]" : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                className={`${currentPath === "/" ? "text-[#c53030]" : "text-[#1d3d4f]"
+                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
               >
                 Home
               </Link>
@@ -206,11 +250,10 @@ const Header = ({ onContactClick }) => {
             <li>
               <Link
                 to="/about"
-                className={`${
-                  currentPath === "/about"
-                    ? "text-[#c53030]"
-                    : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                className={`${currentPath === "/about"
+                  ? "text-[#c53030]"
+                  : "text-[#1d3d4f]"
+                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
               >
                 About Us
               </Link>
@@ -218,14 +261,12 @@ const Header = ({ onContactClick }) => {
 
             {/* NRI Services Dropdown */}
             <div className="relative group">
-              {/* NAV ITEM */}
               <li
                 className="flex items-center gap-2 text-[#1d3d4f] 
     hover:text-[#c53030] cursor-pointer font-semibold 
     transition-colors duration-500"
               >
                 NRI Services
-                {/* ARROW ICON */}
                 <FaChevronDown
                   className="
         text-sm !mt-[2px]
@@ -235,7 +276,6 @@ const Header = ({ onContactClick }) => {
                 />
               </li>
 
-              {/* DROPDOWN */}
               <ul
                 className="
       absolute top-full left-0 bg-white rounded-lg shadow-xl
@@ -263,89 +303,29 @@ const Header = ({ onContactClick }) => {
               </ul>
             </div>
 
-            {/* Legal */}
-            {/* <li>
-              <Link
-                to="/Gallery"
-                className={`${
-                  currentPath === "/Gallery"
-                    ? "text-[#c53030]"
-                    : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
-              >
-                Legal Litigation & tax advice
-              </Link>
-            </li> */}
-
-            {/* Finance */}
-            {/* <li>
-              <Link
-                to="/Gallery"
-                className={`${
-                  currentPath === "/Gallery"
-                    ? "text-[#c53030]"
-                    : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
-              >
-                Finance Services
-              </Link>
-            </li> */}
-
-            {/* BUY SELL */}
-            {/* <li>
-              <Link
-                to="/Gallery"
-                className={`${
-                  currentPath === "/Gallery"
-                    ? "text-[#c53030]"
-                    : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
-              >
-                Buy & Sell Properties
-              </Link>
-            </li> */}
-
             {/* Gallery */}
             <li>
               <Link
-                to="/Gallery"
-                className={`${
-                  currentPath === "/Gallery"
-                    ? "text-[#c53030]"
-                    : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                to="/gallery"
+                className={`${currentPath.toLowerCase() === "/gallery"
+                  ? "text-[#c53030]"
+                  : "text-[#1d3d4f]"
+                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
               >
                 Gallery
               </Link>
             </li>
 
             {/* Contact */}
-
             <li>
               <Link
                 to="/contact"
-                className={`${
-                  currentPath === "/contact"
-                    ? "text-[#c53030]"
-                    : "text-[#1d3d4f]"
-                } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                className={`${currentPath === "/contact"
+                  ? "text-[#c53030]"
+                  : "text-[#1d3d4f]"
+                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
               >
                 Contact
-              </Link>
-            </li>
-
-            {/* Free consultation */}
-
-            <li className="hidden">
-              <Link
-                to="/login"
-                className={`${
-                  currentPath === "/login"
-                    ? "bg-[#651823] ring-2 ring-[#7a1f2b]/25"
-                    : "bg-[#9d1c1a] hover:bg-[#651823]"
-                } inline-flex items-center whitespace-nowrap rounded-full !px-4 !py-2 text-white shadow-md hover:shadow-lg cursor-pointer font-semibold transition-all duration-300`}
-              >
-                Book Free Consultation
               </Link>
             </li>
           </motion.ul>
@@ -353,140 +333,339 @@ const Header = ({ onContactClick }) => {
           {/* Mobile Toggle Button */}
           <button
             type="button"
-            className="md:hidden !mb-4 relative w-10 h-6 text-[2em] !mr-5 z-20 cursor-pointer"
+            className="md:hidden shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl text-[#312f6d] bg-[#f2f5ff] hover:bg-[#e6ecfa] border border-[#d6def2] shadow-xs z-20 cursor-pointer transition-all active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#312f6d]/25"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
-            <FaBars
-              className={`absolute inset-0 transition-all duration-300 ${
-                isMenuOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
+            {isMenuOpen ? (
+              <X className="w-5 h-5 text-[#312f6d]" />
+            ) : (
+              <Menu className="w-5 h-5 text-[#312f6d]" />
+            )}
           </button>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Backdrop & Drawer */}
           <AnimatePresence>
             {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="
-      fixed inset-0
-      bg-black/40
-      backdrop-blur-sm
-      z-10
-    "
-                onClick={() => setIsMenuOpen(false)}
-              />
-            )}
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="fixed inset-0 bg-[#0c1322]/60 backdrop-blur-xs z-50 md:hidden"
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-hidden="true"
+                />
 
-            {isMenuOpen && (
-              <motion.ul
-                initial={{ x: "100%" }} // from right
-                animate={{ x: 0 }} // enter
-                exit={{ x: "100%" }} // exit right
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="
-        md:hidden
-        fixed top-0 right-0
-        w-85 h-screen
-        bg-[#f9fdfd]
-        border-l-4 border-[#312f6d]
-        !p-8
-        flex flex-col gap-6
-        z-10
-      "
-                style={{
-                  backgroundImage: `url(https://ik.imagekit.io/5reuqzdy6j/nriproperty.uk/bg%20nav.jpg?updatedAt=1769753334320)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <button
-                  type="button"
-                  className="md:hidden fixed right-5 top-10 !p-4 text-[2em] text-blue-900 cursor-pointer z-20"
-                  onClick={toggleMenu}
-                  aria-label="Close menu"
+                {/* Modern Slide-out Drawer */}
+                <motion.aside
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{
+                    type: "spring",
+                    damping: 28,
+                    stiffness: 260,
+                  }}
+                  className="fixed top-0 right-0 w-[min(90vw,380px)] h-[100dvh] bg-white border-l border-slate-200/90 shadow-2xl z-[60] flex flex-col md:hidden text-slate-800"
+                  aria-label="Mobile Navigation"
                 >
-                  <FaTimes
-                    className={`inset-0 transition-all duration-300 border-2 !p-1 rounded active:text-[#9d1c1a] active:scale-70 ${
-                      isMenuOpen ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
-                </button>
-
-                <div className="!mt-24 flex flex-col gap-6">
-                  <li className="text-[#312f6d] active:text-red-900 active:scale-90 text-[1.2em] cursor-pointer font-semibold text-center !pb-6 border-b-2">
-                    <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                      Home
-                    </Link>
-                  </li>
-
-                  <li className="text-[#312f6d] active:text-red-900 active:scale-90 cursor-pointer text-[1.2em] font-semibold text-center !pb-6 border-b-2">
-                    <Link to="/about" onClick={() => setIsMenuOpen(false)}>
-                      About Us
-                    </Link>
-                  </li>
-
-                  {/* NRI Services Dropdown */}
-                  <div className="w-full border-b-2 border-[#312f6d] text-[1.2em] !pb-6">
-                    <div
-                      className="font-semibold text-[#312f6d] !py-2 cursor-pointer text-center"
-                      onClick={() =>
-                        setOpenDropdown(openDropdown === "nri" ? null : "nri")
-                      }
+                  {/* Top Bar inside Drawer */}
+                  <div className="shrink-0 flex items-center justify-between !px-5 !py-3.5 border-b border-slate-100 bg-gradient-to-r from-slate-50/90 via-white to-slate-50/50 !pt-[max(1rem,env(safe-area-inset-top))]">
+                    <Link
+                      to="/"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center gap-2.5"
                     >
-                      NRI Services ▾
-                    </div>
+                      <img
+                        src={CLOUDINARY_IMAGES.favicon}
+                        alt="Pinnacle Group Logo"
+                        className="h-12 sm:h-13 w-auto object-contain"
+                      />
+                    </Link>
 
-                    <ul
-                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                        openDropdown === "nri" ? "max-h-96" : "max-h-96"
-                      } !pl-4 space-y-1 text-center`}
+                    <button
+                      type="button"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-9 h-9 inline-flex items-center justify-center rounded-xl text-slate-500 hover:text-slate-900 bg-slate-100/90 hover:bg-slate-200/80 active:scale-95 transition-all cursor-pointer"
+                      aria-label="Close menu"
                     >
-                      {Object.keys(nriServiceLinkMap).map((item) => (
-                        <li
-                          key={item}
-                          onClick={() => handleServiceClick(item)}
-                          className="active:text-[#312f6d] text-[#9d1c1a] cursor-pointer transition-colors duration-300"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                      <X className="w-5 h-5" />
+                    </button>
                   </div>
 
-                  <li className="text-[#312f6d] active:text-red-900 active:scale-90 cursor-pointer text-[1.2em] font-semibold text-center !pb-6 border-b-2">
-                    <Link to="/gallery" onClick={() => setIsMenuOpen(false)}>
-                      Gallery
-                    </Link>
-                  </li>
+                  {/* Scrollable Navigation Body */}
+                  <div className="flex-1 overflow-y-auto !px-4 !py-3.5 space-y-1.5 overscroll-contain">
+                    <nav className="space-y-1" aria-label="Mobile Links">
+                      {/* Home */}
+                      <Link
+                        to="/"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Home className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Home</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
 
-                  <li className="text-[#312f6d] active:text-red-900 active:scale-90 cursor-pointer text-[1.2em] font-semibold text-center !pb-6 border-b-2">
-                    <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                      Contact
-                    </Link>
-                  </li>
+                      {/* About Us */}
+                      <Link
+                        to="/about"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/about"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/about"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Users className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">About Us</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/about" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
 
-                  <li
-                    className="hidden text-white active:text-[#312f6d] active:bg-white active:scale-105 cursor-pointer font-semibold text-center
-                border-2 rounded-full bg-[#9d1c1a]
-                "
-                  >
-                    <Link
-                      to="/login"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex text-[1.2em] justify-center items-center 
-                  gap-2 !py-2 !px-4"
-                    >
-                      Book Free Consultation
-                    </Link>
-                  </li>
-                </div>
-              </motion.ul>
+                      {/* NRI Services Accordion */}
+                      <div className="rounded-xl border border-slate-200/80 overflow-hidden bg-slate-50/60 transition-all">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setOpenDropdown(openDropdown === "nri" ? null : "nri")
+                          }
+                          className={`w-full flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 text-left cursor-pointer ${isNriActive
+                            ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                            : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-100/60 font-medium"
+                            }`}
+                          aria-expanded={openDropdown === "nri"}
+                        >
+                          <div className="flex items-center gap-3">
+                            <span
+                              className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${isNriActive
+                                ? "bg-[#312f6d] text-white shadow-xs"
+                                : "bg-slate-100 text-[#312f6d]"
+                                }`}
+                            >
+                              <Briefcase className="w-4 h-4" />
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-[15px]">NRI Services</span>
+                              <span className="text-[10px] font-semibold tracking-wide uppercase !px-2 !py-0.5 rounded-full bg-[#9d1c1a]/10 text-[#9d1c1a]">
+                                6 Services
+                              </span>
+                            </div>
+                          </div>
+                          <ChevronDown
+                            className={`w-4 h-4 text-slate-500 transition-transform duration-300 ${openDropdown === "nri" ? "rotate-180 text-[#312f6d]" : ""
+                              }`}
+                          />
+                        </button>
+
+                        {/* Accordion Sub-items */}
+                        <AnimatePresence initial={false}>
+                          {openDropdown === "nri" && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: "easeInOut" }}
+                              className="overflow-hidden bg-white border-t border-slate-100"
+                            >
+                              <div className="!p-2 flex flex-col gap-y-1">
+                                {nriServices.map((service) => {
+                                  const IconComponent = service.icon;
+                                  const isCurrent =
+                                    currentPath === `/service-details/${service.slug}`;
+
+                                  return (
+                                    <button
+                                      key={service.slug}
+                                      type="button"
+                                      onClick={() => handleServiceClick(service.name)}
+                                      className={`w-full flex items-center justify-between !p-2.5 rounded-lg text-left transition-all duration-150 cursor-pointer ${isCurrent
+                                        ? "bg-[#9d1c1a]/10 text-[#9d1c1a] font-semibold"
+                                        : "text-slate-600 hover:text-[#312f6d] hover:bg-slate-50 active:bg-slate-100"
+                                        }`}
+                                    >
+                                      <div className="flex items-center gap-2.5 min-w-0">
+                                        <span
+                                          className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${isCurrent
+                                            ? "bg-[#9d1c1a] text-white"
+                                            : "bg-slate-100 text-[#312f6d]"
+                                            }`}
+                                        >
+                                          <IconComponent className="w-3.5 h-3.5" />
+                                        </span>
+                                        <span className="text-[13px] truncate">
+                                          {service.name}
+                                        </span>
+                                      </div>
+                                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0 ml-1" />
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      {/* Gallery */}
+                      <Link
+                        to="/gallery"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath.toLowerCase() === "/gallery"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath.toLowerCase() === "/gallery"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Images className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Gallery</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath.toLowerCase() === "/gallery"
+                            ? "text-[#312f6d]"
+                            : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* Contact */}
+                      <Link
+                        to="/contact"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/contact"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/contact"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <PhoneCall className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Contact</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/contact" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+                    </nav>
+
+                    {/* Quick Help Card */}
+                    <div className="!mt-3 !p-3.5 rounded-xl bg-gradient-to-br from-[#f3f6fe] to-[#fafbff] border border-[#dce5fa]">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#312f6d]">
+                        <Clock className="w-3.5 h-3.5 text-[#9d1c1a]" />
+                        <span>UK NRI Property Support</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 !mt-1 leading-relaxed">
+                        Need assistance managing or resolving legal issues for your Indian properties?
+                      </p>
+                      <a
+                        href="mailto:info@nriproperty.uk"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-[#9d1c1a] hover:underline !mt-2.5"
+                      >
+                        <Mail className="w-3.5 h-3.5 shrink-0" />
+                        <span>info@nriproperty.uk</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Drawer Footer */}
+                  <div className="flex flex-col items-center shrink-0 !p-4 border-t border-slate-100 bg-slate-50/90 gap-y-2.5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+                    {/* Book Free Consultation CTA */}
+                    <div className="flex gap-3">
+                      <Link
+                        to="/support"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="w-[90%] flex items-center justify-center gap-2 !py-3 !px-4 rounded-xl text-white font-semibold text-sm bg-gradient-to-r from-[#9d1c1a] to-[#c53030] shadow-md shadow-red-900/15 hover:shadow-lg active:scale-[0.98] transition-all cursor-pointer"
+                      >
+                        <Calendar className="w-4 h-4" />
+                        <span>Support</span>
+                      </Link>
+
+                      {/* Client Login Pill */}
+                      <Link
+                        to="/login"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="w-[90%] flex items-center justify-center gap-2 !py-2 !px-3 rounded-lg text-xs font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-100 hover:text-[#312f6d] active:scale-[0.98] transition-all"
+                      >
+                        <LogIn className="w-3.5 h-3.5 text-[#312f6d]" />
+                        <span>Login</span>
+                      </Link>
+                    </div>
+                    {/* Social Media Links */}
+                    <div className="flex items-center justify-center gap-3 !pt-0.5 !m-4">
+                      <a
+                        href="https://www.facebook.com/pinnacleinfra.co.in?ref=embed_page"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook"
+                        className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#1877F2] hover:bg-slate-100 transition-colors shadow-2xs"
+                      >
+                        <MdFacebook className="w-4 h-4" />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/nripropertyservices"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#E4405F] hover:bg-slate-100 transition-colors shadow-2xs"
+                      >
+                        <AiFillInstagram className="w-4 h-4" />
+                      </a>
+                      <a
+                        href="https://www.youtube.com/@NRIPropertyService"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="YouTube"
+                        className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#FF0000] hover:bg-slate-100 transition-colors shadow-2xs"
+                      >
+                        <FaYoutube className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.aside>
+              </>
             )}
           </AnimatePresence>
         </motion.div>

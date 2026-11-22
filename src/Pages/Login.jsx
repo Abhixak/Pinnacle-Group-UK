@@ -120,7 +120,7 @@ const Login = () => {
       } else {
         setError(
           error.response?.data?.message ||
-            "Failed to process request. Please try again."
+          "Failed to process request. Please try again."
         );
       }
     } finally {
@@ -217,7 +217,7 @@ const Login = () => {
       console.error("❌ OTP verification error:", error);
       setError(
         error.response?.data?.message ||
-          "Failed to verify OTP. Please try again."
+        "Failed to verify OTP. Please try again."
       );
     } finally {
       setLoading(false);
@@ -249,7 +249,7 @@ const Login = () => {
       console.error("❌ Error resending OTP:", error);
       setError(
         error.response?.data?.message ||
-          "Failed to resend OTP. Please try again."
+        "Failed to resend OTP. Please try again."
       );
     } finally {
       setLoading(false);
@@ -501,15 +501,13 @@ const Login = () => {
           </div>
 
           <div className="!mt-6 text-center">
-            <button
-              onClick={() =>
-                window.open("mailto:info@nriproperty.uk", "_blank")
-              }
+            <Link
+              to="/support"
               className="inline-flex items-center gap-2 text-white hover:text-gray-200 transition"
             >
               <HelpCircle size={20} />
               <span className="font-medium">Need Help?</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

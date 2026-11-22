@@ -168,7 +168,7 @@ const FAQs = () => {
         </p>
 
         {/* FAQs */}
-        <div className="max-w-5xl !mx-auto flex flex-col gap-2">
+        <div className="max-w-5xl !mx-auto">
           {faqData.map((faq, index) => (
             <div
               key={index}
@@ -181,9 +181,8 @@ const FAQs = () => {
               >
                 {faq.question}
                 <FaChevronDown
-                  className={`transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 

@@ -1,9 +1,9 @@
-import DeferredVideo from "../Components/DeferredVideo";
+import { Link } from "react-router-dom";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
+const ContactImg = CLOUDINARY_IMAGES.contactus;
 import Footer from "../Components/Footer";
 import Enquire from "../Components/Enquire";
-import PopUpEnquiry from "../Components/PopUpEnquiry";
-import Chatbot from "../Components/Chatbot";
-import FreeConsultation from "../Components/FreeConsultation";
+import FreeConsultation from "../Components/helpCenter";
 import SEO from "../Components/SEO";
 import {
   Phone,
@@ -82,26 +82,7 @@ const ContactUs = () => {
     { number: "100%", label: "Client Satisfaction" },
   ];
 
-  const testimonials = [
-    {
-      name: "Rajesh Kumar",
-      location: "London, UK",
-      text: "Excellent service! They helped me sell my property in India remotely without any hassle.",
-      rating: 5,
-    },
-    {
-      name: "Priya Sharma",
-      location: "Toronto, Canada",
-      text: "Professional team with deep knowledge of legal requirements. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "Amit Patel",
-      location: "New York, USA",
-      text: "Best property consultants for NRIs. They handled everything from documentation to registration.",
-      rating: 5,
-    },
-  ];
+
 
 
 
@@ -112,18 +93,33 @@ const ContactUs = () => {
         description="Speak to NRI property experts for India. 24/7 UK support, legal documentation, and buy/sell help. Book a free consultation."
         path="/contact"
         keywords="contact NRI property consultant UK, NRI property helpline UK, NRI property support India, NRI legal property consultation, NRI property documentation assistance, NRI litigation consultation India, buy sell lease property support for NRIs"
+        breadcrumbs={[{ name: "Contact Us", path: "/contact" }]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact NRI Property Experts",
+          description: "Connect with Pinnacle Group UK property experts for buying, selling, leasing, or managing property in India from the UK.",
+          url: "https://www.nriproperty.uk/contact",
+          mainEntity: {
+            "@type": "Organization",
+            name: "Pinnacle Group UK",
+            telephone: "+44-7868143558",
+            email: "info@nriproperty.uk",
+          },
+        }}
       />
 
       {/* <Chatbot /> */}
       <FreeConsultation />
-      <DeferredVideo
-        src="https://res.cloudinary.com/dksbdsixz/video/upload/f_auto,q_auto:eco,w_1280/v1769850528/Banner2_mp9ilx.mp4"
-        className="w-full object-cover"
-        ariaLabel="Pinnacle Group contact page hero video"
-        playLabel="Play contact hero video"
-        controls={false}
-      />
-
+      <Link to="/support" className="block w-full overflow-hidden hover:opacity-95 transition-opacity">
+        <img
+          src={ContactImg}
+          alt="Contact Pinnacle Group UK - Dedicated NRI Property Support"
+          className="w-full h-auto object-cover max-h-[460px]"
+          loading="eager"
+          fetchPriority="high"
+        />
+      </Link>
 
       {/* Enquiry Form */}
       <div className="">

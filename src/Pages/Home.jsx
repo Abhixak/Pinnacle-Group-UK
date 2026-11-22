@@ -9,12 +9,14 @@ import {
   Scale,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import FreeConsultation from "../Components/FreeConsultation";
+import FreeConsultation from "../Components/helpCenter";
 import LazySection from "../Components/LazySection";
 import SEO from "../Components/SEO";
+import HeroSkeleton from "../Components/HeroSkeleton";
+import CLOUDINARY_IMAGES from "../cloudinaryImages";
 
 const Footer = lazy(() => import("../Components/Footer"));
-const Ad = lazy(() => import("../Components/Ad"));
+const HeroSlideshow = lazy(() => import("../Components/HeroSlideshow"));
 const PopUpEnquiry = lazy(() => import("../Components/PopUpEnquiry"));
 const Banner2 = lazy(() => import("../Components/Banner2"));
 const Achievements = lazy(() => import("../Components/Achievements"));
@@ -96,30 +98,47 @@ const Home = ({ footerRef }) => {
     schedule(() => setEnablePopup(true));
   }, []);
 
-  const ldJson = {
+  const homeStructuredData = {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": "ItemList",
+    name: "NRI Property Services in India",
+    description: "Core digital property solutions for UK-based Non-Resident Indians.",
+    itemListElement: [
       {
-        "@type": "Organization",
-        name: ORG_NAME,
-        url: SITE_URL,
-        logo: SITE_URL + "/NewLogo.png",
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            telephone: "+44-7868143558",
-            contactType: "customer service",
-            areaServed: ["GB", "IN", "CA", "US", "EU"],
-          },
-        ],
+        "@type": "ListItem",
+        position: 1,
+        name: "Sell Your Indian Property from UK",
+        url: `${SITE_URL}/sell-property-india-from-uk`,
       },
-      { "@type": "WebSite", url: SITE_URL, name: ORG_NAME },
       {
-        "@type": "WebPage",
-        url: SITE_URL + "/",
-        name: "NRI Property UK - Home",
-        description:
-          "Helping NRIs to buy, sell, and invest in real estate in India. Legal assistance and personalized guidance.",
+        "@type": "ListItem",
+        position: 2,
+        name: "Buy Property in India from UK",
+        url: `${SITE_URL}/buy-property-india-from-uk`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Manage Indian Property from UK",
+        url: `${SITE_URL}/lease-property-india-for-nri`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Legal Litigation & Disputes",
+        url: `${SITE_URL}/nri-property-legal-litigation-india`,
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: "Property Documentation & POA Services",
+        url: `${SITE_URL}/nri-property-documentation-services`,
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        name: "NRI Real Estate Investment India",
+        url: `${SITE_URL}/nri-real-estate-investment-india-from-uk`,
       },
     ],
   };
@@ -131,15 +150,18 @@ const Home = ({ footerRef }) => {
         description="100% digital NRI property services in India for clients abroad. Buy, sell, manage, verify and protect your Indian property with remote legal and documentation support."
         path="/"
         keywords="NRI property services India, 100% digital property services India, manage property in India from abroad, buy property in India remotely, sell Indian property from abroad, NRI property management India, NRI property legal services, power of attorney for NRI property"
-        structuredData={ldJson}
+        structuredData={homeStructuredData}
       />
 
       <FreeConsultation />
       <Suspense fallback={null}>{enablePopup && <PopUpEnquiry />}</Suspense>
 
       <div className="max-w-[1600px] !mx-auto !px-3 sm:!px-5">
+        <Suspense fallback={<HeroSkeleton />}>
+          <HeroSlideshow />
+        </Suspense>
+
         <Suspense fallback={null}>
-          <Ad />
           <NriServicesScroller />
         </Suspense>
 
@@ -176,7 +198,7 @@ const Home = ({ footerRef }) => {
           </Suspense>
         </LazySection>
 
-        <LazySection minHeight={300}>
+        <LazySection minHeight={480}>
           <Suspense fallback={null}>
             <Stories />
           </Suspense>
