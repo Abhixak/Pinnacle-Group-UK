@@ -81,13 +81,6 @@ export default function SEO({
           closes: "23:59",
         },
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "148",
-        bestRating: "5",
-        worstRating: "1",
-      },
       knowsAbout: [
         "NRI property services in India",
         "Indian property legal documentation",

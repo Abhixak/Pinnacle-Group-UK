@@ -186,6 +186,9 @@ const HeroSlideshow = () => {
 
             {/* Slide Heading */}
             <h1 className="font-serif text-[clamp(2.1rem,4.4vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.03em] text-[#071d49]">
+              <span className="block text-sm sm:text-base lg:text-lg font-sans font-bold uppercase tracking-wider text-[#9d1c1a] mb-2 sm:mb-3">
+                NRI Property Services in India
+              </span>
               {slide.titleLine1}
               <br />
               {slide.titleLine2}

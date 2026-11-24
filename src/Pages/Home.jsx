@@ -32,50 +32,56 @@ const guides = [
   {
     label: "Buying",
     tag: "Ownership",
-    title: "Buy Property in India from UK",
-    description: "Step-by-step guidance on selecting, verifying, and purchasing remotely.",
+    title: "Buy Property in India",
+    description: "Step-by-step guidance on selecting, legal title verification, and remote purchase.",
     to: "/buy-property-india-from-uk",
     icon: HomeIcon,
+    actionText: "Buy property in India from abroad",
   },
   {
     label: "Selling",
     tag: "Exit Strategy",
-    title: "Sell Property in India from UK",
-    description: "Pricing, documentation, and safe transfer guidance for NRIs.",
+    title: "Sell Property in India",
+    description: "Fair market valuation, vetted buyers, remote POA transfer, and 15CA/15CB tax assistance.",
     to: "/sell-property-india-from-uk",
     icon: ArrowUpRight,
+    actionText: "Sell property in India from abroad",
+  },
+  {
+    label: "Management",
+    tag: "Care & Rent",
+    title: "NRI Property Management",
+    description: "Routine inspections, vetted tenant placement, rent collection, and repairs oversight.",
+    to: "/service-details/management",
+    icon: KeyRound,
+    actionText: "NRI property management in India",
   },
   {
     label: "Leasing",
     tag: "Tenancy",
-    title: "Lease Property in India for NRIs",
-    description: "Secure tenants, compliant agreements, and rent management tips.",
+    title: "Lease Property in India",
+    description: "Secure vetted tenants, legally compliant registered lease agreements, and zero vacancy.",
     to: "/lease-property-india-for-nri",
     icon: KeyRound,
+    actionText: "Lease property in India",
   },
   {
-    label: "Legal",
+    label: "Legal & Docs",
     tag: "Compliance",
-    title: "NRI Property Legal and Litigation Services",
-    description: "Dispute resolution, title checks, and legal support for NRIs.",
+    title: "Legal & Documentation Support",
+    description: "Title dispute resolution, 30-year searches, POA attestation, and registry paperwork.",
     to: "/nri-property-legal-litigation-india",
     icon: Scale,
+    actionText: "Legal and documentation support",
   },
   {
-    label: "Documentation",
-    tag: "Paperwork",
-    title: "NRI Property Documentation Services",
-    description: "End-to-end paperwork support to avoid delays and errors.",
-    to: "/nri-property-documentation-services",
-    icon: FileText,
-  },
-  {
-    label: "Investment",
-    tag: "Growth",
-    title: "NRI Real Estate Investment in India from UK",
-    description: "Strategies for long-term value and tax-efficient investing.",
-    to: "/nri-real-estate-investment-india-from-uk",
+    label: "Consultation",
+    tag: "Advisory",
+    title: "Free NRI Consultation",
+    description: "Speak directly with our UK and India property specialists about your situation.",
+    to: "/contact",
     icon: PiggyBank,
+    actionText: "Book a free NRI property consultation",
   },
 ];
 
@@ -146,8 +152,8 @@ const Home = ({ footerRef }) => {
   return (
     <div className="w-full overflow-hidden bg-[#f4f8fb]">
       <SEO
-        title="NRI Property Services India | 100% Digital Support from Abroad"
-        description="100% digital NRI property services in India for clients abroad. Buy, sell, manage, verify and protect your Indian property with remote legal and documentation support."
+        title="NRI Property Services in India | Buy, Sell & Manage from Abroad"
+        description="Buy, sell, lease and manage property in India from abroad. NRI Property Services provides trusted support for NRIs in the UK, USA, Canada and Europe."
         path="/"
         keywords="NRI property services India, 100% digital property services India, manage property in India from abroad, buy property in India remotely, sell Indian property from abroad, NRI property management India, NRI property legal services, power of attorney for NRI property"
         structuredData={homeStructuredData}
@@ -237,9 +243,9 @@ const Home = ({ footerRef }) => {
                   {guide.title}
                 </h3>
                 <p className="!mt-3 text-sm leading-6 text-slate-600">{guide.description}</p>
-                <span className="!mt-auto inline-flex items-center gap-2 !pt-5 text-sm font-semibold text-[#9d1c1a]">
-                  Explore guide
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <span className="!mt-auto inline-flex items-center gap-2 !pt-5 text-xs sm:text-sm font-semibold text-[#9d1c1a]">
+                  <span>{guide.actionText}</span>
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>
             ))}

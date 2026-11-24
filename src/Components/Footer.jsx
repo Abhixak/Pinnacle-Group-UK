@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaEnvelope,
   FaPhoneAlt,
@@ -71,79 +72,85 @@ const Footer = () => {
       </div>
 
       {/* ================= DESKTOP FOOTER ================= */}
-      <div className="hidden md:grid grid-cols-4 gap-5 justify-center border-t border-slate-200 !mt-3 !pt-4">
-        {/* QUICK LINKS */}
+      <div className="hidden md:grid grid-cols-4 gap-6 justify-center border-t border-slate-200 !mt-3 !pt-5">
+        {/* CORE SERVICES */}
         <div>
-          <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
-            Quick Links
+          <h4 className="font-semibold text-[#7a1f2b] !mb-2.5 text-sm uppercase tracking-wider">
+            NRI Services & Guides
           </h4>
-          <ul className="flex flex-col gap-y-0.5 text-slate-700">
+          <ul className="flex flex-col gap-y-1 text-slate-700">
             <li>
-              <a
-                href="/"
-                className="inline-flex min-h-10 items-center hover:text-slate-900"
-              >
+              <Link to="/nri-services" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] font-medium transition-colors">
+                NRI Services Hub
+              </Link>
+            </li>
+            <li>
+              <Link to="/buy-property-india-from-uk" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Buy Property in India
+              </Link>
+            </li>
+            <li>
+              <Link to="/sell-property-india-from-uk" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Sell Property in India
+              </Link>
+            </li>
+            <li>
+              <Link to="/lease-property-india-for-nri" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Lease Property in India
+              </Link>
+            </li>
+            <li>
+              <Link to="/service-details/management" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Property Management
+              </Link>
+            </li>
+            <li>
+              <Link to="/nri-property-legal-litigation-india" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Legal & Documentation
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* COMPANY & ESSENTIALS */}
+        <div>
+          <h4 className="font-semibold text-[#7a1f2b] !mb-2.5 text-sm uppercase tracking-wider">
+            Company & Support
+          </h4>
+          <ul className="flex flex-col gap-y-1 text-slate-700">
+            <li>
+              <Link to="/" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
-                className="inline-flex min-h-10 items-center hover:text-slate-900"
-              >
+              <Link to="/about" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/gallery"
-                className="inline-flex min-h-10 items-center hover:text-slate-900"
-              >
-                Gallery
-              </a>
+              <Link to="/contact" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Contact & Consultation
+              </Link>
             </li>
             <li>
-              <a
-                href="/blogs"
-                className="inline-flex min-h-10 items-center hover:text-slate-900"
-              >
-                Blogs
-              </a>
+              <Link to="/faqs" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Frequently Asked Questions
+              </Link>
             </li>
             <li>
-              <a
-                href="/faqs"
-                className="inline-flex min-h-10 items-center hover:text-slate-900"
-              >
-                FAQs
-              </a>
+              <Link to="/privacy" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Privacy Policy
+              </Link>
             </li>
             <li>
-              <a
-                href="/support"
-                className="inline-flex min-h-10 items-center hover:text-slate-900"
-              >
-                Help & Support
-              </a>
+              <Link to="/terms" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a] transition-colors">
+                Terms & Conditions
+              </Link>
             </li>
           </ul>
         </div>
-
-        {/* NRI SERVICES */}
-        <div>
-          <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
-            NRI Services
-          </h4>
-          <ul className="flex flex-col gap-y-1.5">
-            <li>Power of Attorney</li>
-            <li>SPA / GPA Documentation</li>
-            <li>Property Title Search</li>
-            <li>Tax Filing & Repatriation</li>
-            <li>15CA / 15CB Assistance</li>
-          </ul>
-        </div>
-
-        {/* CONTACT US */}
+{/* CONTACT US */}
         <div>
           <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
             Contact Us
@@ -260,7 +267,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://nriproperty.uk"
+                href="https://www.nriproperty.uk"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex min-h-10 items-center hover:text-slate-900"
@@ -275,77 +282,78 @@ const Footer = () => {
       {/* ================= MOBILE FOOTER ================= */}
       <div className="md:hidden border-t border-slate-200 !mt-3 !pt-4">
         {/* QUICK + NRI */}
-        <div className="grid grid-cols-2 gap-5 ">
+        <div className="grid grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
-              Quick Links
+            <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-xs uppercase tracking-wider">
+              Core Services
             </h4>
-            <ul className="flex flex-col gap-y-0.5 text-slate-700">
+            <ul className="flex flex-col gap-y-1 text-slate-700 text-xs">
               <li>
-                <a
-                  href="/"
-                  className="inline-flex min-h-10 items-center hover:text-slate-900"
-                >
-                  Home
-                </a>
+                <Link to="/nri-services" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  NRI Services
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact"
-                  className="inline-flex min-h-10 items-center hover:text-slate-900"
-                >
-                  About Us
-                </a>
+                <Link to="/buy-property-india-from-uk" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Buy Property
+                </Link>
               </li>
               <li>
-                <a
-                  href="/gallery"
-                  className="inline-flex min-h-10 items-center hover:text-slate-900"
-                >
-                  Gallery
-                </a>
+                <Link to="/sell-property-india-from-uk" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Sell Property
+                </Link>
               </li>
               <li>
-                <a
-                  href="/blogs"
-                  className="inline-flex min-h-10 items-center hover:text-slate-900"
-                >
-                  Blogs
-                </a>
+                <Link to="/lease-property-india-for-nri" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Lease Property
+                </Link>
               </li>
               <li>
-                <a
-                  href="/faqs"
-                  className="inline-flex min-h-10 items-center hover:text-slate-900"
-                >
-                  FAQs
-                </a>
+                <Link to="/service-details/management" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Property Management
+                </Link>
               </li>
               <li>
-                <a
-                  href="/support"
-                  className="inline-flex min-h-10 items-center hover:text-slate-900"
-                >
-                  Help & Support
-                </a>
+                <Link to="/nri-property-legal-litigation-india" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Legal Support
+                </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-sm">
-              NRI Services
+            <h4 className="font-semibold text-[#7a1f2b] !mb-2 text-xs uppercase tracking-wider">
+              Quick Links
             </h4>
-            <ul className="flex flex-col gap-y-1.5">
-              <li>Power of Attorney</li>
-              <li>SPA / GPA Documentation</li>
-              <li>Property Title Search</li>
-              <li>Tax Filing & Repatriation</li>
-              <li>15CA / 15CB Assistance</li>
+            <ul className="flex flex-col gap-y-1 text-slate-700 text-xs">
+              <li>
+                <Link to="/" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/faqs" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="inline-flex min-h-8 items-center hover:text-[#9d1c1a]">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
-
         {/* CONTACT */}
         <h4 className="font-semibold text-[#7a1f2b] text-center !mt-6 !mb-2 text-sm">
           Contact Us
@@ -441,7 +449,7 @@ const Footer = () => {
             </a>
             <br />
             <a
-              href="https://nriproperty.uk"
+              href="https://www.nriproperty.uk"
               target="_blank"
               rel="noreferrer"
               className="inline-flex min-h-10 items-center hover:text-slate-900"
@@ -458,9 +466,9 @@ const Footer = () => {
           Copyright © nriproperty.uk — All Rights Reserved.
         </div>
         <div className="flex gap-4">
-          <a href="/terms" className="hover:text-slate-900 transition-colors font-medium">Terms & Conditions</a>
-          <a href="/privacy" className="hover:text-slate-900 transition-colors font-medium">Privacy Policy</a>
-          <a href="/cookies-policy" className="hover:text-slate-900 transition-colors font-medium">Cookies Policy</a>
+          <Link to="/terms" className="hover:text-slate-900 transition-colors font-medium">Terms & Conditions</Link>
+          <Link to="/privacy" className="hover:text-slate-900 transition-colors font-medium">Privacy Policy</Link>
+          <Link to="/cookies-policy" className="hover:text-slate-900 transition-colors font-medium">Cookies Policy</Link>
         </div>
       </div>
     </footer>

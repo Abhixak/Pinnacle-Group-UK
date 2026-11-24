@@ -229,101 +229,89 @@ const Header = ({ onContactClick }) => {
           <motion.ul
             initial={false}
             animate={{
-              fontSize: isScrolled ? 15 : 18,
-              gap: isScrolled ? 20 : 24,
-              marginBottom: isScrolled ? 8 : 16,
+              fontSize: isScrolled ? 13 : 14,
+              gap: isScrolled ? 12 : 16,
+              marginBottom: isScrolled ? 4 : 8,
             }}
             transition={navbarTransition}
-            className="hidden md:flex !mr-2 lg:!mr-10 items-center"
+            className="hidden md:flex !mr-1 lg:!mr-6 items-center flex-wrap"
           >
             <li>
               <Link
                 to="/"
-                className={`${currentPath === "/" ? "text-[#c53030]" : "text-[#1d3d4f]"
-                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                className={`${currentPath === "/" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
               >
                 Home
               </Link>
             </li>
 
-            {/* About Us */}
+            <li>
+              <Link
+                to="/nri-services"
+                className={`${currentPath === "/nri-services" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
+              >
+                NRI Services
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/buy-property-india-from-uk"
+                className={`${currentPath === "/buy-property-india-from-uk" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
+              >
+                Buy Property
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/sell-property-india-from-uk"
+                className={`${currentPath === "/sell-property-india-from-uk" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
+              >
+                Sell Property
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/lease-property-india-for-nri"
+                className={`${currentPath === "/lease-property-india-for-nri" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
+              >
+                Lease Property
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/service-details/management"
+                className={`${currentPath === "/service-details/management" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
+              >
+                Property Management
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/nri-property-legal-litigation-india"
+                className={`${currentPath === "/nri-property-legal-litigation-india" || currentPath === "/nri-property-documentation-services" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
+              >
+                Legal & Documentation
+              </Link>
+            </li>
+
             <li>
               <Link
                 to="/about"
-                className={`${currentPath === "/about"
-                  ? "text-[#c53030]"
-                  : "text-[#1d3d4f]"
-                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                className={`${currentPath === "/about" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
               >
-                About Us
+                About
               </Link>
             </li>
 
-            {/* NRI Services Dropdown */}
-            <div className="relative group">
-              <li
-                className="flex items-center gap-2 text-[#1d3d4f] 
-    hover:text-[#c53030] cursor-pointer font-semibold 
-    transition-colors duration-500"
-              >
-                NRI Services
-                <FaChevronDown
-                  className="
-        text-sm !mt-[2px]
-        transition-transform duration-300
-        group-hover:rotate-180
-      "
-                />
-              </li>
-
-              <ul
-                className="
-      absolute top-full left-0 bg-white rounded-lg shadow-xl
-      opacity-0 translate-y-2
-      group-hover:opacity-100 group-hover:translate-y-0
-      pointer-events-none group-hover:pointer-events-auto
-      transition-all duration-300 ease-out
-      z-10 min-w-[250px]
-    "
-              >
-                {Object.keys(nriServiceLinkMap).map((item) => (
-                  <li
-                    key={item}
-                    onClick={() => handleServiceClick(item)}
-                    className="
-          !px-4 !py-2 hover:bg-[#f2fbfb]
-          hover:text-[#c53030]
-          text-[#374b5c]
-          cursor-pointer transition-colors duration-300
-        "
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Gallery */}
-            <li>
-              <Link
-                to="/gallery"
-                className={`${currentPath.toLowerCase() === "/gallery"
-                  ? "text-[#c53030]"
-                  : "text-[#1d3d4f]"
-                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
-              >
-                Gallery
-              </Link>
-            </li>
-
-            {/* Contact */}
             <li>
               <Link
                 to="/contact"
-                className={`${currentPath === "/contact"
-                  ? "text-[#c53030]"
-                  : "text-[#1d3d4f]"
-                  } hover:text-[#c53030] hover:border-b-2 cursor-pointer font-semibold transition-colors duration-500`}
+                className={`${currentPath === "/contact" ? "text-[#c53030]" : "text-[#1d3d4f]"} hover:text-[#c53030] font-semibold transition-colors duration-200 whitespace-nowrap`}
               >
                 Contact
               </Link>
@@ -426,7 +414,163 @@ const Header = ({ onContactClick }) => {
                         />
                       </Link>
 
-                      {/* About Us */}
+                      {/* NRI Services Hub */}
+                      <Link
+                        to="/nri-services"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/nri-services"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/nri-services"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Briefcase className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">NRI Services</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/nri-services" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* Buy Property */}
+                      <Link
+                        to="/buy-property-india-from-uk"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/buy-property-india-from-uk"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/buy-property-india-from-uk"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <TrendingUp className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Buy Property</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/buy-property-india-from-uk" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* Sell Property */}
+                      <Link
+                        to="/sell-property-india-from-uk"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/sell-property-india-from-uk"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/sell-property-india-from-uk"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <TrendingUp className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Sell Property</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/sell-property-india-from-uk" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* Lease Property */}
+                      <Link
+                        to="/lease-property-india-for-nri"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/lease-property-india-for-nri"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/lease-property-india-for-nri"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Building2 className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Lease Property</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/lease-property-india-for-nri" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* Property Management */}
+                      <Link
+                        to="/service-details/management"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/service-details/management"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/service-details/management"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Building2 className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Property Management</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/service-details/management" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* Legal and Documentation */}
+                      <Link
+                        to="/nri-property-legal-litigation-india"
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath === "/nri-property-legal-litigation-india" || currentPath === "/nri-property-documentation-services"
+                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
+                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath === "/nri-property-legal-litigation-india"
+                              ? "bg-[#312f6d] text-white shadow-xs"
+                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
+                              }`}
+                          >
+                            <Scale className="w-4 h-4" />
+                          </span>
+                          <span className="text-[15px]">Legal & Documentation</span>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/nri-property-legal-litigation-india" ? "text-[#312f6d]" : "text-slate-400"
+                            }`}
+                        />
+                      </Link>
+
+                      {/* About */}
                       <Link
                         to="/about"
                         onClick={() => setIsMenuOpen(false)}
@@ -444,122 +588,10 @@ const Header = ({ onContactClick }) => {
                           >
                             <Users className="w-4 h-4" />
                           </span>
-                          <span className="text-[15px]">About Us</span>
+                          <span className="text-[15px]">About</span>
                         </div>
                         <ChevronRight
                           className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath === "/about" ? "text-[#312f6d]" : "text-slate-400"
-                            }`}
-                        />
-                      </Link>
-
-                      {/* NRI Services Accordion */}
-                      <div className="rounded-xl border border-slate-200/80 overflow-hidden bg-slate-50/60 transition-all">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setOpenDropdown(openDropdown === "nri" ? null : "nri")
-                          }
-                          className={`w-full flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 text-left cursor-pointer ${isNriActive
-                            ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
-                            : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-100/60 font-medium"
-                            }`}
-                          aria-expanded={openDropdown === "nri"}
-                        >
-                          <div className="flex items-center gap-3">
-                            <span
-                              className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${isNriActive
-                                ? "bg-[#312f6d] text-white shadow-xs"
-                                : "bg-slate-100 text-[#312f6d]"
-                                }`}
-                            >
-                              <Briefcase className="w-4 h-4" />
-                            </span>
-                            <div className="flex items-center gap-2">
-                              <span className="text-[15px]">NRI Services</span>
-                              <span className="text-[10px] font-semibold tracking-wide uppercase !px-2 !py-0.5 rounded-full bg-[#9d1c1a]/10 text-[#9d1c1a]">
-                                6 Services
-                              </span>
-                            </div>
-                          </div>
-                          <ChevronDown
-                            className={`w-4 h-4 text-slate-500 transition-transform duration-300 ${openDropdown === "nri" ? "rotate-180 text-[#312f6d]" : ""
-                              }`}
-                          />
-                        </button>
-
-                        {/* Accordion Sub-items */}
-                        <AnimatePresence initial={false}>
-                          {openDropdown === "nri" && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.25, ease: "easeInOut" }}
-                              className="overflow-hidden bg-white border-t border-slate-100"
-                            >
-                              <div className="!p-2 flex flex-col gap-y-1">
-                                {nriServices.map((service) => {
-                                  const IconComponent = service.icon;
-                                  const isCurrent =
-                                    currentPath === `/service-details/${service.slug}`;
-
-                                  return (
-                                    <button
-                                      key={service.slug}
-                                      type="button"
-                                      onClick={() => handleServiceClick(service.name)}
-                                      className={`w-full flex items-center justify-between !p-2.5 rounded-lg text-left transition-all duration-150 cursor-pointer ${isCurrent
-                                        ? "bg-[#9d1c1a]/10 text-[#9d1c1a] font-semibold"
-                                        : "text-slate-600 hover:text-[#312f6d] hover:bg-slate-50 active:bg-slate-100"
-                                        }`}
-                                    >
-                                      <div className="flex items-center gap-2.5 min-w-0">
-                                        <span
-                                          className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${isCurrent
-                                            ? "bg-[#9d1c1a] text-white"
-                                            : "bg-slate-100 text-[#312f6d]"
-                                            }`}
-                                        >
-                                          <IconComponent className="w-3.5 h-3.5" />
-                                        </span>
-                                        <span className="text-[13px] truncate">
-                                          {service.name}
-                                        </span>
-                                      </div>
-                                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0 ml-1" />
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
-                      {/* Gallery */}
-                      <Link
-                        to="/gallery"
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`group flex items-center justify-between !px-3.5 !py-2.5 rounded-xl transition-all duration-200 ${currentPath.toLowerCase() === "/gallery"
-                          ? "bg-[#312f6d]/10 text-[#312f6d] font-semibold"
-                          : "text-slate-700 hover:text-[#312f6d] hover:bg-slate-50 font-medium"
-                          }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span
-                            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${currentPath.toLowerCase() === "/gallery"
-                              ? "bg-[#312f6d] text-white shadow-xs"
-                              : "bg-slate-100 text-[#312f6d] group-hover:bg-[#312f6d]/10"
-                              }`}
-                          >
-                            <Images className="w-4 h-4" />
-                          </span>
-                          <span className="text-[15px]">Gallery</span>
-                        </div>
-                        <ChevronRight
-                          className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${currentPath.toLowerCase() === "/gallery"
-                            ? "text-[#312f6d]"
-                            : "text-slate-400"
                             }`}
                         />
                       </Link>
